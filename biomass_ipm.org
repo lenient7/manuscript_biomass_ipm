@@ -6,13 +6,13 @@
 #+SUBTITLE:
 #+AUTHOR: James C. Slosson, Yiming Li, Sena Atsyo, Heather Burkholder, and Hojae Yi
 #+bibliography: references.bib
-#+BEAMER_HEADER: \title[Biomass Interparticle Mechanics]{Friction and adhesion between biomass particle}
+#+BEAMER_HEADER: \title[Biomass Interparticle Mechanics]{Friction and adhesion between biomass particles}
 #+BEAMER_HEADER: \author[Yi et al.]{\small Hojae Yi \inst{1} and James H. Dooley\inst{2}}
 #+BEAMER_HEADER: \institute[Penn State]{\inst{1} The Pennsylvania State University \and \inst{2} Forest Concepts, LLC.}
 #+DATE: \today
 #+EMAIL: huy1@psu.edu
 #+LANGUAGE: English
-#+DESCRIPTION: Manuscript on the friction and adhesion between biomass particle
+#+DESCRIPTION: Manuscript on the friction and adhesion between biomass particles
 #+KEYWORDS: Integrated Biorefinery Optimization, Biomass Handling, Biomass Flowability, Friction, Adhesion, Biomass, corn stover, anatomical fraction, coefficient of friction (COF), adhesion force, sub-fractions.
 #+OPTIONS: H:2 num:2 toc:nil
 # +OPTIONS: H:3 num:3 toc:3
@@ -60,7 +60,7 @@
 #+property: session R-b_imt
 #+BEGIN_abstract
 Corn stover interactions involving cob fractions were found to contain the largest peaks and variance in friction coefficients (Table 3).
-Cob particles with woody-ring sub-fractions on the contacting surface were observed to be significantly harder and more 'claw-like' in nature.
+Cob particles with woody-ring sub-fractions on the contacting surface were observed to be significantly harder and more claw-like in nature.
 In contrast, the pith region of the cob was very similar to the exposed pith in stalk particles. Both stalk and husk particles showed moderate friction coefficients.
-From the observation that cob particles show a larger standard deviation in the determined coefficient of friction, it can be hypothesized that cob particles will have a high contribution to erratic feedstock flow behavior.
+Based on the observation that cob particles show a larger standard deviation in the coefficient of friction, it can be hypothesized that cob particles will contribute significantly to erratic feedstock flow behavior.
 #+END_abstract
