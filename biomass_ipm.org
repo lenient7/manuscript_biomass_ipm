@@ -6,13 +6,13 @@
 #+SUBTITLE:
 #+AUTHOR: James C. Slosson, Yiming Li, Sena Atsyo, Heather Burkholder, and Hojae Yi
 #+bibliography: references.bib
-#+BEAMER_HEADER: \title[Biomass Interparticle Mechanics]{Friction and adhesion between biomass particles}
+#+BEAMER_HEADER: \title[Biomass Interparticle Mechanics]{Friction and adhesion between biomass particle}
 #+BEAMER_HEADER: \author[Yi et al.]{\small Hojae Yi \inst{1} and James H. Dooley\inst{2}}
 #+BEAMER_HEADER: \institute[Penn State]{\inst{1} The Pennsylvania State University \and \inst{2} Forest Concepts, LLC.}
 #+DATE: \today
 #+EMAIL: huy1@psu.edu
 #+LANGUAGE: English
-#+DESCRIPTION: Manuscript on the friction and adhesion between biomass particles
+#+DESCRIPTION: Manuscript on the friction and adhesion between biomass particle
 #+KEYWORDS: Integrated Biorefinery Optimization, Biomass Handling, Biomass Flowability, Friction, Adhesion, Biomass, corn stover, anatomical fraction, coefficient of friction (COF), adhesion force, sub-fractions.
 #+OPTIONS: H:2 num:2 toc:nil
 # +OPTIONS: H:3 num:3 toc:3
@@ -58,9 +58,2028 @@
 # +LaTeX_HEADER: \PassOptionsToPackage{sorting=ydnt}{biblates}
 #+end_comment
 #+property: session R-b_imt
+
 #+BEGIN_abstract
 Corn stover interactions involving cob fractions were found to contain the largest peaks and variance in friction coefficients (Table 3).
-Cob particles with woody-ring sub-fractions on the contacting surface were observed to be significantly harder and more claw-like in nature.
-In contrast, the pith region of the cob was very similar to the exposed pith in stalk particles. Both stalk and husk particles showed moderate friction coefficients.
-Based on the observation that cob particles show a larger standard deviation in the coefficient of friction, it can be hypothesized that cob particles will contribute significantly to erratic feedstock flow behavior.
+Cob particles with woody-ring sub-fractions on the contacting surface were observed to be significantly harder and 'claw-like' in nature.
+Whereas the pith region of the cob was very similar to the exposed pith in stalk particles. Particles of stalk and husk both showed moderate friction coefficients.
+
+From the observation that particles of corn cob show a larger standard deviation in the determined coefficient of friction, it can be hypothesized that particles of corn cob will have a high contribution to an erratic feedstock flow behavior.
+It can also be hypothesized that the cob will generate high frictional forces considering the high cohesive forces and moderate friction coefficients observed in a corn cob.
+The experimental data suggest that high-stress feedstock handling applications may be more stable with the removal of corn cob.
+
+The anatomical fractions discussed in this paper were categorized using macro-observations for the purpose of potential mechanical separation.
+Under further review, it appears each corn stover fraction contained an associated set of sub-fractions that could be found in at least one other fraction.
+Sub-fractions could be generally characterized as woody, pithy, or leafy.
+Additional steps in comminuting particles to expose 'sub-fractions' may allow fluid separation techniques to create more uniform and, therefore, desirable products.
+It is recommended to repeat this experiment using two additional comminution methods (i.e., knife mill and hammer mill) practiced in the industry to study varying effects of size reduction equipment on friction coefficients.
 #+END_abstract
+
+* Introduction
+:PROPERTIES:
+:CUSTOM_ID: introduction
+:END:
+
+Department of Energy's Bioenergy Technology Office (BETO) considers corn stover a key candidate as a biomass source for its abundance and current use in integrated biorefineries (IBR) [[citep:&doyle_integrated_2014;&usdoe_u.s._2011;&langholtz_2016_2016;&perlack_us_2011]]. Corn stover refers to the remaining corn plant fractions (i.e., stalk, husk, and cob) after the lower stalk is cut away and the grain has been harvested.
+While many want to bring the advantages of new biofuel technologies to industrial production, there is a significant financial risk due to frequent misrepresentation of physical and chemical variabilities in effective lignocellulosic biomass handling and feeding [[citep:&crawford_effects_2016;&ray_multiscale_2020;&Ray_BiomassBlendingDensification_2017]].
+In the most recent 2016 evaluation, total biofuel production only reached 7% of the expected 58 billion gallons per year design capacity [[citep:&westover_biomass_2018]].
+The challenges in the handling of biomass are one of the crucial impediments to adopting biomass as feedstocks for biofuel production.
+
+[[citet:&beto_biorefinery_2016]] reports that flowability challenges are mainly associated with biomass density, particle size distribution, moisture content, angle of repose, shear stress, bridging tendency, cohesive strength, and friction of equipment surfaces [[citep:&westover_biomass_2018]].
+The variations in biomass factors such as shape, size, moisture content, and low bulk density are considered to make it challenging to handle and transport in its original form [[citep:&kaliyan_roll_2009]].
+
+The root cause of such variations in bulk behavior of milled biomass originates from the multiscale-nature as depicted in the Figure [[fig:biomass_multiscale_shematic]].
+This means in order to develop a first-principle based understanding of bulk biomass behavior, quantitative knowledge of interactions between particles is necessary.
+With such knowledge, one can investigate and develop a predictive model of the mechanical behavior of bulk biomass.
+
+#+NAME: fig:biomass_multiscale_shematic
+#+CAPTION: Schematic of the emerging bulk mechanical properties from the mechanical interactions between biomass particles to the bulk mechanical behavior of milled biomass
+#+ATTR_LATEX: :height 2.75in
+[[file:./figures/biomass_multiscale_schematic.png]]
+
+However, the majority of the metrics used for the mentioned flow challenges are focused on bulk behavior and do not address the inter-particle mechanics leading to bulk observation.
+
+- Janssen's equation [[citet:&janssen1895versuche]] and stresses on silo wall[[citet:&schulze_examination_1994]]
+- Still not quantified Reynolds' question on the relationship between the angle of repose and friction between particles [[citet:&reynolds_lvii_1885]]
+- Recent studies with DEM still relying on fitted parameters that are not determined with particles [[citet:&xia_defining_2023;&chen_hopper_2023;&chen_set_2022]]
+
+Understanding interparticle mechanics associated with each corn stover fraction will provide valuable information for understanding the overall poor flow behavior of milled corn stover.
+More specifically, such quantitative information will help identify certain fractions that may be significantly responsible for the poor flowability behavior of comingled corn stover fractions.
+
+There exists a ASTM standards concerning the measuring friction coefficient including [[textcite:&astmg115-10GuideMeasuringReporting2018]].
+However, listed methods in  [[textcite:&astmg115-10_guide_2018]] assumes a specific geometry, e.g., flat surface or sphere, and not feasible to implement for testing milled biomass particles,
+which are much smaller in size and irregular in shape.
+Also test protocols reflects repeated sliding in cyclic motion or rotation, which is implemented in a typical tribometer.
+This also reflects specific industrial applications such as ball bearing or sliding frames, which are not applicable to the interactions of biomass particles relevant to the bulk biomass flow.
+
+- In other words, the current friction measurements focus on interactions between sliding surfaces, e.g., bearing.
+  This focus is also reflected in the DEM framework, requiring sliding and rolling friction coefficient.
+  From the perspective of the handling bulk biomass, or any other cohesive particulate materials, the friction coefficient of incipient relative motion between particle is of interest.
+
+Therefore, we developed an in-house instrument and protocol that can determine mechanical interaction between biomass particles following the Derjaguin's adhesive friction model [[citep:&gao_frictional_2004;&derjaguin1934molekulartheorie;&derjaguin_effect_1975]].
+
+
+This study aims to gain quantitative knowledge of the interparticle mechanics of fractionated corn stover through the development of an interparticle mechanics tester capable of accommodating biomass particles and a test protocol to determine friction and adhesion properties.
+With the novel data on interparticle mechanical properties of corn stover particles from different anatomical origins, this study aims to examine the significance of the difference in friction coefficients between corn stover particles from different anatomical fractions.
+The knowledge gained by this study will contribute to reducing operational challenges by removing fractions with high friction and traction adhesion contributions.
+
+** Other notable quotes
+[[fullcite:&kenney_understanding_2013]] page 121: Variability of biomass exceeds handling machinery design specification: This paper also mentions about the start-up or continuous running efficiency
+* Materials and Methods
+:PROPERTIES:
+:CUSTOM_ID: materials-and-methods
+:END:
+
+This section details the method used to determine friction coefficients between anatomical fractions of corn stover.
+
+#+CAPTION: Sample images of individual corn stover fractions used in the present study. 4mm cob Crumbles® (top left), 4mm husk Crumbles® (top right), 4mm stalk Crumbles® (bottom left), and 4mm leaf Crumbles® (bottom right)
+#+NAME: cornstover_samples
+[[file:figures/image2.png]]
+
+** Materials
+:PROPERTIES:
+:CUSTOM_ID: material-preprocessing-history
+:END:
+
+#+begin_comment
+A square bale of field-dried corn stover from Antares Corn Stover (Hardin, IO) was processed by Forest Concepts, LLC (Auburn, WA).
+The bale was hand separated and placed into labeled bins designated for each anatomical fraction.
+Individual fractions were then comminuted to Crumbles\textsuperscript{®} using Forest Concepts' Crumbler\textsuperscript{®} Rotary Shear technology and conveyed into a final screening process.
+The screening was performed using a 3-deck orbital screen to filter out fractions with geometric mean diameter outside the 4mm target.
+
+Physical properties of particles of different tissue types of corn stover indicate that the crumbled particles are in consistent size (Table [[tab_cs_particle_physical_properties]]).
+However, the bulk density values are significantly different from each other (Wilcox test p = \textcolor{red}{n.nn} < 0.05).
+#+end_comment
+
+A field-dried square bale of corn stover supplied by Antares Corn Stover (Hardin, IA) was manually fractionated into cob, husk, leaf, and stalk tissues.
+Each fraction was comminuted to Forest Concepts Crumbles® with a Crumbler® rotary shear (Forest Concepts, Auburn, WA) and
+screened on a three-deck orbital classifier to achieve a target geometric mean diameter of 4 mm.
+Screen performance was consistent across tissues:
+the geometric mean diameter and sphericity differed by ≤0.2 mm and ≤0.05, respectively (Table [[tab_cs_particle_physical_properties]]).
+Despite this size uniformity, loose bulk density varied almost four-fold—from \qty{53}{\kilo\gram\per\cubic\meter} in husk
+to \qty{199}{\kilo\gram\per\cubic\meter} in cob, while tapped density followed the same trend (Wilcoxon rank-sum, p < 0.05).
+
+These differences reflect intrinsic anatomical and compositional contrasts among tissues.
+Cob tissue is highly lignified [[parencite:&berchem_corn_2017]] and contains closed, pith-filled vascular bundles [[parencite:&thornburg_mass_2022]],
+leading to a higher true solid density and more equant particle shapes that pack efficiently.
+In contrast, husk and leaf particles are thin, planar, and flexible, creating interlocking voids [[parencite:&thornburg_mass_2022;&li_characterization_2020]] that
+can lower bulk density and increase compressibility.
+#+begin_comment
+Similar relationships between particle aspect ratio, compressibility, and flow resistance have been reported for chopped corn stover and other fibrous biomass.
+#+end_comment
+
+#+begin_comment
+moisture content from /home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BETO-Interparticle.org
+GMD, BD loose and tapped are from Forest concepts data sheet.
+Forest concept data is copied and analyzed with SciDaVis project file in this directory
+#+end_comment
+
+#+NAME: tab_cs_particle_physical_properties
+#+CAPTION: Physical properties of corn stover particles of different tissue type (Forest Concepts, LLC analytics laboratory in Auburn, WA). Values after \pm represents standard error.
+| *Anatomical* | *Moisture*  | *Geometric Mean* |             | *Bulk Density* |              |
+| *Fraction*   | *Content*   | *Diameter (mm)*  |             | *(kg/m^3)*     |              |
+|--------------+-------------+------------------+-------------+----------------+--------------|
+|              | /*%MC wb*/  | /*Xgm*/          | /*Sgm*/     | /*Loose*/      | /*Tapped*/   |
+|--------------+-------------+------------------+-------------+----------------+--------------|
+| Cob          | 8.9 \pm 3.2 | 6.6 \pm 0.2      | 1.6 \pm 0.0 | 199 \pm 2.4    | 240 \pm 1.5  |
+| Husk         | 7.0 \pm 5.0 | 4.6 \pm 0.2      | 1.6 \pm 0.0 | 53 \pm 2.6     | 72 \pm 0.3   |
+| Leaf         | 7.0 \pm 4.0 | 3.9 \pm 0.2      | 1.6 \pm 0.0 | 56 \pm 3.1     | 74 \pm   3.6 |
+| Stalk        | 8.9 \pm 3.9 | 4.5 \pm 0.0      | 1.8 \pm 0.0 | 84 \pm 0.9     | 109 \pm 0.7  |
+|--------------+-------------+------------------+-------------+----------------+--------------|
+
+#+begin_comment
+Considering that the particle size distributions are similar, the bulk density values (Table [[tab_cs_particle_physical_properties]]) suggest that the inherent density of con stover particles of different tissue type is also different.
+It is possible that the particle shape can be different and the difference in the packing of bulk corn stover.
+There are all potential factor of different flow characteristics.
+#+end_comment
+
+#+begin_src R :session R-b_imt :tangle yes :tangle biomass_ipm.R :results none :exports none :eval never-export
+  # Overall group comparisons
+  cat("\n=== OVERALL GROUP COMPARISONS ===\n")
+
+  # For Geometric Mean Diameter (Xgm)
+  if(min(shapiro_xgm$shapiro_p_xgm) > 0.05 & levene_xgm$`Pr(>F)`[1] > 0.05) {
+    cat("Using parametric tests for Xgm (assumptions met):\n")
+    aov_xgm <- aov(D50 ~ fraction, data = cs_data)
+    aov_summary <- summary(aov_xgm)
+    cat("ANOVA for Xgm: F =", round(aov_summary[[1]]$`F value`[1], 3),
+        ", p =", round(aov_summary[[1]]$`Pr(>F)`[1], 4), "\n")
+
+    # Post-hoc with Tukey HSD
+    tukey_xgm <- TukeyHSD(aov_xgm)
+    cat("Tukey HSD post-hoc test for Xgm:\n")
+    print(tukey_xgm)
+
+  } else {
+    cat("Using non-parametric tests for Xgm (assumptions not met):\n")
+    kw_xgm <- kruskal_test(D50 ~ fraction, data = cs_data)
+    cat("Kruskal-Wallis for Xgm: H =", round(kw_xgm$statistic, 3),
+        ", p =", round(kw_xgm$p, 4), "\n")
+
+    # Dunn's test as post-hoc
+    if(kw_xgm$p < 0.05) {
+      cat("\nDunn's test post-hoc for Xgm (Bonferroni corrected):\n")
+      dunn_xgm <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "bonferroni")
+      kable(dunn_xgm %>% select(group1, group2, statistic, p, p.adj, p.adj.signif),
+            digits = 4)
+    }
+  }
+
+  # For Sphericity (Sgm)
+  if(min(shapiro_sgm$shapiro_p_sgm) > 0.05 & levene_sgm$`Pr(>F)`[1] > 0.05) {
+    cat("\nUsing parametric tests for Sgm (assumptions met):\n")
+    aov_sgm <- aov(sgm ~ fraction, data = cs_data)
+    aov_summary_sgm <- summary(aov_sgm)
+    cat("ANOVA for Sgm: F =", round(aov_summary_sgm[[1]]$`F value`[1], 3),
+        ", p =", round(aov_summary_sgm[[1]]$`Pr(>F)`[1], 4), "\n")
+
+    # Post-hoc with Tukey HSD
+    tukey_sgm <- TukeyHSD(aov_sgm)
+    cat("Tukey HSD post-hoc test for Sgm:\n")
+    print(tukey_sgm)
+
+  } else {
+    cat("\nUsing non-parametric tests for Sgm (assumptions not met):\n")
+    kw_sgm <- kruskal_test(sgm ~ fraction, data = cs_data)
+    cat("Kruskal-Wallis for Sgm: H =", round(kw_sgm$statistic, 3),
+        ", p =", round(kw_sgm$p, 4), "\n")
+
+    # Dunn's test as post-hoc
+    if(kw_sgm$p < 0.05) {
+      cat("\nDunn's test post-hoc for Sgm (Bonferroni corrected):\n")
+      dunn_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "bonferroni")
+      kable(dunn_sgm %>% select(group1, group2, statistic, p, p.adj, p.adj.signif),
+            digits = 4)
+    }
+  }
+
+  # ========== ALTERNATIVE POST-HOC METHODS ==========
+  cat("\n=== ALTERNATIVE DUNN'S TEST CORRECTIONS ===\n")
+
+  # Show different p-value adjustment methods for Dunn's test
+  if(exists("kw_xgm") && kw_xgm$p < 0.05) {
+    cat("Dunn's test for Xgm with different corrections:\n")
+
+    # Bonferroni
+    dunn_bonf <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "bonferroni")
+    # Holm
+    dunn_holm <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "holm")
+    # Benjamini-Hochberg (FDR)
+    dunn_bh <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "BH")
+
+    comparison_xgm <- data.frame(
+      Comparison = paste(dunn_bonf$group1, "vs", dunn_bonf$group2),
+      Raw_p = round(dunn_bonf$p, 4),
+      Bonferroni = round(dunn_bonf$p.adj, 4),
+      Holm = round(dunn_holm$p.adj, 4),
+      BH_FDR = round(dunn_bh$p.adj, 4)
+    )
+
+    kable(comparison_xgm, caption = "Dunn's test p-values for Xgm with different corrections")
+  }
+
+  if(exists("kw_sgm") && kw_sgm$p < 0.05) {
+    cat("\nDunn's test for Sgm with different corrections:\n")
+
+    # Bonferroni
+    dunn_bonf_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "bonferroni")
+    # Holm
+    dunn_holm_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "holm")
+    # Benjamini-Hochberg (FDR)
+    dunn_bh_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "BH")
+
+    comparison_sgm <- data.frame(
+      Comparison = paste(dunn_bonf_sgm$group1, "vs", dunn_bonf_sgm$group2),
+      Raw_p = round(dunn_bonf_sgm$p, 4),
+      Bonferroni = round(dunn_bonf_sgm$p.adj, 4),
+      Holm = round(dunn_holm_sgm$p.adj, 4),
+      BH_FDR = round(dunn_bh_sgm$p.adj, 4)
+    )
+
+    kable(comparison_sgm, caption = "Dunn's test p-values for Sgm with different corrections")
+  }
+
+
+
+
+
+
+
+                                          # Load necessary libraries
+  library(tidyverse)
+  library(ggpubr)
+  library(car)        # For Levene's test
+  library(broom)      # For tidy statistical outputs
+  library(knitr)      # For nice table formatting
+  library(rstatix)    # For Dunn's test
+
+  # Read the corrected CSV data
+  cs_data <- read.csv('physical_properties_FC.csv', stringsAsFactors = FALSE)
+
+  # Convert fraction to factor with proper ordering
+  cs_data$fraction <- factor(cs_data$fraction,
+                            levels = c('cob', 'husk', 'leaf', 'stalk'))
+
+  # Check data structure
+  cat("Data structure:\n")
+  str(cs_data)
+  cat("\nFirst few rows:\n")
+  print(head(cs_data))
+
+  # ========== SUMMARY STATISTICS ==========
+  summary_stats <- cs_data %>%
+    group_by(fraction) %>%
+    summarise(
+      n = n(),
+      # Geometric Mean Diameter (D50 = Xgm)
+      Xgm_mean = mean(D50, na.rm = TRUE),
+      Xgm_sd = sd(D50, na.rm = TRUE),
+      Xgm_se = Xgm_sd / sqrt(n),
+      # Sphericity (sgm = Sgm)
+      Sgm_mean = mean(sgm, na.rm = TRUE),
+      Sgm_sd = sd(sgm, na.rm = TRUE),
+      Sgm_se = Sgm_sd / sqrt(n),
+      .groups = 'drop'
+    )
+
+  cat("\n========== SUMMARY STATISTICS ==========\n")
+  kable(summary_stats, digits = 3, caption = "Summary Statistics for Xgm and Sgm by Fraction")
+
+  # ========== STATISTICAL TESTS ==========
+
+  # Test for normality (Shapiro-Wilk test)
+  cat("\n=== NORMALITY TESTS ===\n")
+  shapiro_xgm <- cs_data %>%
+    group_by(fraction) %>%
+    summarise(shapiro_p_xgm = shapiro.test(D50)$p.value, .groups = 'drop')
+
+  shapiro_sgm <- cs_data %>%
+    group_by(fraction) %>%
+    summarise(shapiro_p_sgm = shapiro.test(sgm)$p.value, .groups = 'drop')
+
+  normality_results <- merge(shapiro_xgm, shapiro_sgm, by = "fraction")
+  print("Shapiro-Wilk normality test p-values:")
+  kable(normality_results, digits = 4)
+
+  # Test for homogeneity of variance (Levene's test)
+  cat("\n=== HOMOGENEITY OF VARIANCE ===\n")
+  levene_xgm <- leveneTest(D50 ~ fraction, data = cs_data)
+  levene_sgm <- leveneTest(sgm ~ fraction, data = cs_data)
+
+  cat("Levene's test for Xgm (D50): F =", round(levene_xgm$`F value`[1], 3),
+      ", p =", round(levene_xgm$`Pr(>F)`[1], 4), "\n")
+  cat("Levene's test for Sgm: F =", round(levene_sgm$`F value`[1], 3),
+      ", p =", round(levene_sgm$`Pr(>F)`[1], 4), "\n")
+
+  # Overall group comparisons
+  cat("\n=== OVERALL GROUP COMPARISONS ===\n")
+
+  # For Geometric Mean Diameter (Xgm)
+  if(min(shapiro_xgm$shapiro_p_xgm) > 0.05 & levene_xgm$`Pr(>F)`[1] > 0.05) {
+    cat("Using parametric tests for Xgm (assumptions met):\n")
+    aov_xgm <- aov(D50 ~ fraction, data = cs_data)
+    aov_summary <- summary(aov_xgm)
+    cat("ANOVA for Xgm: F =", round(aov_summary[[1]]$`F value`[1], 3),
+        ", p =", round(aov_summary[[1]]$`Pr(>F)`[1], 4), "\n")
+
+    # Post-hoc with Tukey HSD
+    tukey_xgm <- TukeyHSD(aov_xgm)
+    cat("Tukey HSD post-hoc test for Xgm:\n")
+    print(tukey_xgm)
+
+  } else {
+    cat("Using non-parametric tests for Xgm (assumptions not met):\n")
+    kw_xgm <- kruskal_test(D50 ~ fraction, data = cs_data)
+    cat("Kruskal-Wallis for Xgm: H =", round(kw_xgm$statistic, 3),
+        ", p =", round(kw_xgm$p.value, 4), "\n")
+
+    # Dunn's test as post-hoc
+    if(kw_xgm$p.value < 0.05) {
+      cat("\nDunn's test post-hoc for Xgm (Bonferroni corrected):\n")
+      dunn_xgm <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "bonferroni")
+      kable(dunn_xgm %>% select(group1, group2, statistic, p, p.adj, p.adj.signif),
+            digits = 4)
+    }
+  }
+
+  # For Sphericity (Sgm)
+  if(min(shapiro_sgm$shapiro_p_sgm) > 0.05 & levene_sgm$`Pr(>F)`[1] > 0.05) {
+    cat("\nUsing parametric tests for Sgm (assumptions met):\n")
+    aov_sgm <- aov(sgm ~ fraction, data = cs_data)
+    aov_summary_sgm <- summary(aov_sgm)
+    cat("ANOVA for Sgm: F =", round(aov_summary_sgm[[1]]$`F value`[1], 3),
+        ", p =", round(aov_summary_sgm[[1]]$`Pr(>F)`[1], 4), "\n")
+
+    # Post-hoc with Tukey HSD
+    tukey_sgm <- TukeyHSD(aov_sgm)
+    cat("Tukey HSD post-hoc test for Sgm:\n")
+    print(tukey_sgm)
+
+  } else {
+    cat("\nUsing non-parametric tests for Sgm (assumptions not met):\n")
+    kw_sgm <- kruskal_test(sgm ~ fraction, data = cs_data)
+    cat("Kruskal-Wallis for Sgm: H =", round(kw_sgm$statistic, 3),
+        ", p =", round(kw_sgm$p.value, 4), "\n")
+
+    # Dunn's test as post-hoc
+    if(kw_sgm$p.value < 0.05) {
+      cat("\nDunn's test post-hoc for Sgm (Bonferroni corrected):\n")
+      dunn_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "bonferroni")
+      kable(dunn_sgm %>% select(group1, group2, statistic, p, p.adj, p.adj.signif),
+            digits = 4)
+    }
+  }
+
+  # ========== ALTERNATIVE POST-HOC METHODS ==========
+  cat("\n=== ALTERNATIVE DUNN'S TEST CORRECTIONS ===\n")
+
+  # Show different p-value adjustment methods for Dunn's test
+  if(exists("kw_xgm") && kw_xgm$p.value < 0.05) {
+    cat("Dunn's test for Xgm with different corrections:\n")
+
+    # Bonferroni
+    dunn_bonf <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "bonferroni")
+    # Holm
+    dunn_holm <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "holm")
+    # Benjamini-Hochberg (FDR)
+    dunn_bh <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "BH")
+
+    comparison_xgm <- data.frame(
+      Comparison = paste(dunn_bonf$group1, "vs", dunn_bonf$group2),
+      Raw_p = round(dunn_bonf$p, 4),
+      Bonferroni = round(dunn_bonf$p.adj, 4),
+      Holm = round(dunn_holm$p.adj, 4),
+      BH_FDR = round(dunn_bh$p.adj, 4)
+    )
+
+    kable(comparison_xgm, caption = "Dunn's test p-values for Xgm with different corrections")
+  }
+
+  if(exists("kw_sgm") && kw_sgm$p.value < 0.05) {
+    cat("\nDunn's test for Sgm with different corrections:\n")
+
+    # Bonferroni
+    dunn_bonf_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "bonferroni")
+    # Holm
+    dunn_holm_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "holm")
+    # Benjamini-Hochberg (FDR)
+    dunn_bh_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "BH")
+
+    comparison_sgm <- data.frame(
+      Comparison = paste(dunn_bonf_sgm$group1, "vs", dunn_bonf_sgm$group2),
+      Raw_p = round(dunn_bonf_sgm$p, 4),
+      Bonferroni = round(dunn_bonf_sgm$p.adj, 4),
+      Holm = round(dunn_holm_sgm$p.adj, 4),
+      BH_FDR = round(dunn_bh_sgm$p.adj, 4)
+    )
+
+    kable(comparison_sgm, caption = "Dunn's test p-values for Sgm with different corrections")
+  }
+
+  # ========== VISUALIZATIONS ==========
+
+  # Determine which post-hoc results to use for visualization
+  if(exists("dunn_xgm")) {
+    # Use Dunn's test results
+    p1 <- ggboxplot(cs_data, x = 'fraction', y = 'D50',
+                    color = 'fraction', palette = 'jco',
+                    ylab = 'Geometric Mean Diameter, Xgm (mm)',
+                    xlab = 'Anatomical Fraction',
+                    title = 'Geometric Mean Diameter by Corn Stover Fraction\n(Dunn\'s post-hoc test)') +
+      stat_pvalue_manual(dunn_xgm, label = "p.adj.signif",
+                         y.position = c(7.5, 8.0, 8.5, 9.0, 9.5, 10.0)) +
+      theme_minimal()
+  } else if(exists("tukey_xgm")) {
+    # Use parametric results
+    p1 <- ggboxplot(cs_data, x = 'fraction', y = 'D50',
+                    color = 'fraction', palette = 'jco',
+                    ylab = 'Geometric Mean Diameter, Xgm (mm)',
+                    xlab = 'Anatomical Fraction',
+                    title = 'Geometric Mean Diameter by Corn Stover Fraction\n(Tukey HSD post-hoc test)') +
+      stat_compare_means(method = "anova", label.y = max(cs_data$D50) * 1.15) +
+      stat_compare_means(comparisons = list(c('cob', 'husk'), c('cob', 'leaf'),
+                                           c('cob', 'stalk'), c('husk', 'leaf'),
+                                           c('husk', 'stalk'), c('leaf', 'stalk')),
+                        method = "t.test", p.adjust.method = "bonferroni") +
+      theme_minimal()
+  }
+
+  if(exists("dunn_sgm")) {
+    # Use Dunn's test results
+    p2 <- ggboxplot(cs_data, x = 'fraction', y = 'sgm',
+                    color = 'fraction', palette = 'jco',
+                    ylab = 'Sphericity, Sgm',
+                    xlab = 'Anatomical Fraction',
+                    title = 'Sphericity by Corn Stover Fraction\n(Dunn\'s post-hoc test)') +
+      stat_pvalue_manual(dunn_sgm, label = "p.adj.signif",
+                         y.position = c(1.9, 1.95, 2.0, 2.05, 2.1, 2.15)) +
+      theme_minimal()
+  } else if(exists("tukey_sgm")) {
+    # Use parametric results
+    p2 <- ggboxplot(cs_data, x = 'fraction', y = 'sgm',
+                    color = 'fraction', palette = 'jco',
+                    ylab = 'Sphericity, Sgm',
+                    xlab = 'Anatomical Fraction',
+                    title = 'Sphericity by Corn Stover Fraction\n(Tukey HSD post-hoc test)') +
+      stat_compare_means(method = "anova", label.y = max(cs_data$sgm) * 1.1) +
+      stat_compare_means(comparisons = list(c('cob', 'husk'), c('cob', 'leaf'),
+                                           c('cob', 'stalk'), c('husk', 'leaf'),
+                                           c('husk', 'stalk'), c('leaf', 'stalk')),
+                        method = "t.test", p.adjust.method = "bonferroni") +
+      theme_minimal()
+  }
+
+  # Display plots
+  print(p1)
+  print(p2)
+
+  # ========== CORRELATION ANALYSIS ==========
+  cat("\n=== CORRELATION ANALYSIS ===\n")
+
+  # Overall correlation
+  overall_cor <- cor.test(cs_data$D50, cs_data$sgm)
+  cat("Overall correlation between Xgm and Sgm:\n")
+  cat("r =", round(overall_cor$estimate, 3),
+      ", 95% CI: [", round(overall_cor$conf.int[1], 3), ", ",
+      round(overall_cor$conf.int[2], 3), "], p =", round(overall_cor$p.value, 4), "\n")
+
+  # Correlation by fraction
+  correlations_by_fraction <- cs_data %>%
+    group_by(fraction) %>%
+    summarise(
+      correlation = cor(D50, sgm, use = "complete.obs"),
+      .groups = 'drop'
+    )
+
+  cat("\nCorrelations by fraction:\n")
+  kable(correlations_by_fraction, digits = 3)
+
+  # ========== EFFECT SIZES ==========
+  cat("\n=== EFFECT SIZES ===\n")
+
+  # Calculate eta-squared for ANOVA or epsilon-squared for Kruskal-Wallis
+  if(exists("aov_xgm")) {
+    eta_sq_xgm <- summary(aov_xgm)[[1]]$`Sum Sq`[1] / sum(summary(aov_xgm)[[1]]$`Sum Sq`)
+    cat("Eta-squared for Xgm (ANOVA):", round(eta_sq_xgm, 3), "\n")
+  } else if(exists("kw_xgm")) {
+    epsilon_sq_xgm <- (kw_xgm$statistic - length(unique(cs_data$fraction)) + 1) /
+                      (nrow(cs_data) - length(unique(cs_data$fraction)))
+    cat("Epsilon-squared for Xgm (Kruskal-Wallis):", round(epsilon_sq_xgm, 3), "\n")
+  }
+
+  if(exists("aov_sgm")) {
+    eta_sq_sgm <- summary(aov_sgm)[[1]]$`Sum Sq`[1] / sum(summary(aov_sgm)[[1]]$`Sum Sq`)
+    cat("Eta-squared for Sgm (ANOVA):", round(eta_sq_sgm, 3), "\n")
+  } else if(exists("kw_sgm")) {
+    epsilon_sq_sgm <- (kw_sgm$statistic - length(unique(cs_data$fraction)) + 1) /
+                      (nrow(cs_data) - length(unique(cs_data$fraction)))
+    cat("Epsilon-squared for Sgm (Kruskal-Wallis):", round(epsilon_sq_sgm, 3), "\n")
+  }
+
+  cat("\n========== ANALYSIS COMPLETE ==========\n")
+  cat("Statistical workflow summary:\n")
+  cat("1. Tested normality and homogeneity assumptions\n")
+  cat("2. Applied appropriate omnibus test (ANOVA or Kruskal-Wallis)\n")
+  cat("3. Conducted post-hoc comparisons (Tukey HSD or Dunn's test)\n")
+  cat("4. Calculated effect sizes and correlations\n")
+  cat("5. Generated visualizations with statistical annotations\n")
+  0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                          # Load necessary libraries
+  library(tidyverse)
+  library(ggpubr)
+  library(car)        # For Levene's test
+  library(broom)      # For tidy statistical outputs
+  library(knitr)      # For nice table formatting
+  library(rstatix)    # For Dunn's test
+
+  # Read the corrected CSV data
+  cs_data <- read.csv('physical_properties_FC.csv', stringsAsFactors = FALSE)
+
+  # Convert fraction to factor with proper ordering
+  cs_data$fraction <- factor(cs_data$fraction,
+                            levels = c('cob', 'husk', 'leaf', 'stalk'))
+
+  # Check data structure
+  cat("Data structure:\n")
+  str(cs_data)
+  cat("\nFirst few rows:\n")
+  print(head(cs_data))
+
+  # ========== SUMMARY STATISTICS ==========
+  summary_stats <- cs_data %>%
+    group_by(fraction) %>%
+    summarise(
+      n = n(),
+      # Geometric Mean Diameter (D50 = Xgm)
+      Xgm_mean = mean(D50, na.rm = TRUE),
+      Xgm_sd = sd(D50, na.rm = TRUE),
+      Xgm_se = Xgm_sd / sqrt(n),
+      # Sphericity (sgm = Sgm)
+      Sgm_mean = mean(sgm, na.rm = TRUE),
+      Sgm_sd = sd(sgm, na.rm = TRUE),
+      Sgm_se = Sgm_sd / sqrt(n),
+      .groups = 'drop'
+    )
+
+  cat("\n========== SUMMARY STATISTICS ==========\n")
+  kable(summary_stats, digits = 3, caption = "Summary Statistics for Xgm and Sgm by Fraction")
+
+  # ========== STATISTICAL TESTS ==========
+
+  # Test for normality (Shapiro-Wilk test)
+  cat("\n=== NORMALITY TESTS ===\n")
+  shapiro_xgm <- cs_data %>%
+    group_by(fraction) %>%
+    summarise(shapiro_p_xgm = shapiro.test(D50)$p.value, .groups = 'drop')
+
+  shapiro_sgm <- cs_data %>%
+    group_by(fraction) %>%
+    summarise(shapiro_p_sgm = shapiro.test(sgm)$p.value, .groups = 'drop')
+
+  normality_results <- merge(shapiro_xgm, shapiro_sgm, by = "fraction")
+  print("Shapiro-Wilk normality test p-values:")
+  kable(normality_results, digits = 4)
+
+  # Test for homogeneity of variance (Levene's test)
+  cat("\n=== HOMOGENEITY OF VARIANCE ===\n")
+  levene_xgm <- leveneTest(D50 ~ fraction, data = cs_data)
+  levene_sgm <- leveneTest(sgm ~ fraction, data = cs_data)
+
+  cat("Levene's test for Xgm (D50): F =", round(levene_xgm$`F value`[1], 3),
+      ", p =", round(levene_xgm$`Pr(>F)`[1], 4), "\n")
+  cat("Levene's test for Sgm: F =", round(levene_sgm$`F value`[1], 3),
+      ", p =", round(levene_sgm$`Pr(>F)`[1], 4), "\n")
+
+  # Overall group comparisons
+  cat("\n=== OVERALL GROUP COMPARISONS ===\n")
+
+  # For Geometric Mean Diameter (Xgm)
+  if(min(shapiro_xgm$shapiro_p_xgm) > 0.05 & levene_xgm$`Pr(>F)`[1] > 0.05) {
+    cat("Using parametric tests for Xgm (assumptions met):\n")
+    aov_xgm <- aov(D50 ~ fraction, data = cs_data)
+    aov_summary <- summary(aov_xgm)
+    cat("ANOVA for Xgm: F =", round(aov_summary[[1]]$`F value`[1], 3),
+        ", p =", round(aov_summary[[1]]$`Pr(>F)`[1], 4), "\n")
+
+    # Post-hoc with Tukey HSD
+    tukey_xgm <- TukeyHSD(aov_xgm)
+    cat("Tukey HSD post-hoc test for Xgm:\n")
+    print(tukey_xgm)
+
+  } else {
+    cat("Using non-parametric tests for Xgm (assumptions not met):\n")
+    kw_xgm <- kruskal_test(D50 ~ fraction, data = cs_data)
+    cat("Kruskal-Wallis for Xgm: H =", round(kw_xgm$statistic, 3),
+        ", p =", round(kw_xgm$p.value, 4), "\n")
+
+    # Dunn's test as post-hoc
+    if(kw_xgm$p.value < 0.05) {
+      cat("\nDunn's test post-hoc for Xgm (Bonferroni corrected):\n")
+      dunn_xgm <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "bonferroni")
+      kable(dunn_xgm %>% select(group1, group2, statistic, p, p.adj, p.adj.signif),
+            digits = 4)
+    }
+  }
+
+  # For Sphericity (Sgm)
+  if(min(shapiro_sgm$shapiro_p_sgm) > 0.05 & levene_sgm$`Pr(>F)`[1] > 0.05) {
+    cat("\nUsing parametric tests for Sgm (assumptions met):\n")
+    aov_sgm <- aov(sgm ~ fraction, data = cs_data)
+    aov_summary_sgm <- summary(aov_sgm)
+    cat("ANOVA for Sgm: F =", round(aov_summary_sgm[[1]]$`F value`[1], 3),
+        ", p =", round(aov_summary_sgm[[1]]$`Pr(>F)`[1], 4), "\n")
+
+    # Post-hoc with Tukey HSD
+    tukey_sgm <- TukeyHSD(aov_sgm)
+    cat("Tukey HSD post-hoc test for Sgm:\n")
+    print(tukey_sgm)
+
+  } else {
+    cat("\nUsing non-parametric tests for Sgm (assumptions not met):\n")
+    kw_sgm <- kruskal_test(sgm ~ fraction, data = cs_data)
+    cat("Kruskal-Wallis for Sgm: H =", round(kw_sgm$statistic, 3),
+        ", p =", round(kw_sgm$p.value, 4), "\n")
+
+    # Dunn's test as post-hoc
+    if(kw_sgm$p.value < 0.05) {
+      cat("\nDunn's test post-hoc for Sgm (Bonferroni corrected):\n")
+      dunn_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "bonferroni")
+      kable(dunn_sgm %>% select(group1, group2, statistic, p, p.adj, p.adj.signif),
+            digits = 4)
+    }
+  }
+
+  # ========== ALTERNATIVE POST-HOC METHODS ==========
+  cat("\n=== ALTERNATIVE DUNN'S TEST CORRECTIONS ===\n")
+
+  # Show different p-value adjustment methods for Dunn's test
+  if(exists("kw_xgm") && kw_xgm$p.value < 0.05) {
+    cat("Dunn's test for Xgm with different corrections:\n")
+
+    # Bonferroni
+    dunn_bonf <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "bonferroni")
+    # Holm
+    dunn_holm <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "holm")
+    # Benjamini-Hochberg (FDR)
+    dunn_bh <- dunn_test(cs_data, D50 ~ fraction, p.adjust.method = "BH")
+
+    comparison_xgm <- data.frame(
+      Comparison = paste(dunn_bonf$group1, "vs", dunn_bonf$group2),
+      Raw_p = round(dunn_bonf$p, 4),
+      Bonferroni = round(dunn_bonf$p.adj, 4),
+      Holm = round(dunn_holm$p.adj, 4),
+      BH_FDR = round(dunn_bh$p.adj, 4)
+    )
+
+    kable(comparison_xgm, caption = "Dunn's test p-values for Xgm with different corrections")
+  }
+
+  if(exists("kw_sgm") && kw_sgm$p.value < 0.05) {
+    cat("\nDunn's test for Sgm with different corrections:\n")
+
+    # Bonferroni
+    dunn_bonf_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "bonferroni")
+    # Holm
+    dunn_holm_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "holm")
+    # Benjamini-Hochberg (FDR)
+    dunn_bh_sgm <- dunn_test(cs_data, sgm ~ fraction, p.adjust.method = "BH")
+
+    comparison_sgm <- data.frame(
+      Comparison = paste(dunn_bonf_sgm$group1, "vs", dunn_bonf_sgm$group2),
+      Raw_p = round(dunn_bonf_sgm$p, 4),
+      Bonferroni = round(dunn_bonf_sgm$p.adj, 4),
+      Holm = round(dunn_holm_sgm$p.adj, 4),
+      BH_FDR = round(dunn_bh_sgm$p.adj, 4)
+    )
+
+    kable(comparison_sgm, caption = "Dunn's test p-values for Sgm with different corrections")
+  }
+
+  # ========== VISUALIZATIONS ==========
+
+  # Determine which post-hoc results to use for visualization
+  if(exists("dunn_xgm")) {
+    # Use Dunn's test results
+    p1 <- ggboxplot(cs_data, x = 'fraction', y = 'D50',
+                    color = 'fraction', palette = 'jco',
+                    ylab = 'Geometric Mean Diameter, Xgm (mm)',
+                    xlab = 'Anatomical Fraction',
+                    title = 'Geometric Mean Diameter by Corn Stover Fraction\n(Dunn\'s post-hoc test)') +
+      stat_pvalue_manual(dunn_xgm, label = "p.adj.signif",
+                         y.position = c(7.5, 8.0, 8.5, 9.0, 9.5, 10.0)) +
+      theme_minimal()
+  } else if(exists("tukey_xgm")) {
+    # Use parametric results
+    p1 <- ggboxplot(cs_data, x = 'fraction', y = 'D50',
+                    color = 'fraction', palette = 'jco',
+                    ylab = 'Geometric Mean Diameter, Xgm (mm)',
+                    xlab = 'Anatomical Fraction',
+                    title = 'Geometric Mean Diameter by Corn Stover Fraction\n(Tukey HSD post-hoc test)') +
+      stat_compare_means(method = "anova", label.y = max(cs_data$D50) * 1.15) +
+      stat_compare_means(comparisons = list(c('cob', 'husk'), c('cob', 'leaf'),
+                                           c('cob', 'stalk'), c('husk', 'leaf'),
+                                           c('husk', 'stalk'), c('leaf', 'stalk')),
+                        method = "t.test", p.adjust.method = "bonferroni") +
+      theme_minimal()
+  }
+
+  if(exists("dunn_sgm")) {
+    # Use Dunn's test results
+    p2 <- ggboxplot(cs_data, x = 'fraction', y = 'sgm',
+                    color = 'fraction', palette = 'jco',
+                    ylab = 'Sphericity, Sgm',
+                    xlab = 'Anatomical Fraction',
+                    title = 'Sphericity by Corn Stover Fraction\n(Dunn\'s post-hoc test)') +
+      stat_pvalue_manual(dunn_sgm, label = "p.adj.signif",
+                         y.position = c(1.9, 1.95, 2.0, 2.05, 2.1, 2.15)) +
+      theme_minimal()
+  } else if(exists("tukey_sgm")) {
+    # Use parametric results
+    p2 <- ggboxplot(cs_data, x = 'fraction', y = 'sgm',
+                    color = 'fraction', palette = 'jco',
+                    ylab = 'Sphericity, Sgm',
+                    xlab = 'Anatomical Fraction',
+                    title = 'Sphericity by Corn Stover Fraction\n(Tukey HSD post-hoc test)') +
+      stat_compare_means(method = "anova", label.y = max(cs_data$sgm) * 1.1) +
+      stat_compare_means(comparisons = list(c('cob', 'husk'), c('cob', 'leaf'),
+                                           c('cob', 'stalk'), c('husk', 'leaf'),
+                                           c('husk', 'stalk'), c('leaf', 'stalk')),
+                        method = "t.test", p.adjust.method = "bonferroni") +
+      theme_minimal()
+  }
+
+  # Display plots
+  print(p1)
+  print(p2)
+
+  # ========== CORRELATION ANALYSIS ==========
+  cat("\n=== CORRELATION ANALYSIS ===\n")
+
+  # Overall correlation
+  overall_cor <- cor.test(cs_data$D50, cs_data$sgm)
+  cat("Overall correlation between Xgm and Sgm:\n")
+  cat("r =", round(overall_cor$estimate, 3),
+      ", 95% CI: [", round(overall_cor$conf.int[1], 3), ", ",
+      round(overall_cor$conf.int[2], 3), "], p =", round(overall_cor$p.value, 4), "\n")
+
+  # Correlation by fraction
+  correlations_by_fraction <- cs_data %>%
+    group_by(fraction) %>%
+    summarise(
+      correlation = cor(D50, sgm, use = "complete.obs"),
+      .groups = 'drop'
+    )
+
+  cat("\nCorrelations by fraction:\n")
+  kable(correlations_by_fraction, digits = 3)
+
+  # ========== EFFECT SIZES ==========
+  cat("\n=== EFFECT SIZES ===\n")
+
+  # Calculate eta-squared for ANOVA or epsilon-squared for Kruskal-Wallis
+  if(exists("aov_xgm")) {
+    eta_sq_xgm <- summary(aov_xgm)[[1]]$`Sum Sq`[1] / sum(summary(aov_xgm)[[1]]$`Sum Sq`)
+    cat("Eta-squared for Xgm (ANOVA):", round(eta_sq_xgm, 3), "\n")
+  } else if(exists("kw_xgm")) {
+    epsilon_sq_xgm <- (kw_xgm$statistic - length(unique(cs_data$fraction)) + 1) /
+                      (nrow(cs_data) - length(unique(cs_data$fraction)))
+    cat("Epsilon-squared for Xgm (Kruskal-Wallis):", round(epsilon_sq_xgm, 3), "\n")
+  }
+
+  if(exists("aov_sgm")) {
+    eta_sq_sgm <- summary(aov_sgm)[[1]]$`Sum Sq`[1] / sum(summary(aov_sgm)[[1]]$`Sum Sq`)
+    cat("Eta-squared for Sgm (ANOVA):", round(eta_sq_sgm, 3), "\n")
+  } else if(exists("kw_sgm")) {
+    epsilon_sq_sgm <- (kw_sgm$statistic - length(unique(cs_data$fraction)) + 1) /
+                      (nrow(cs_data) - length(unique(cs_data$fraction)))
+    cat("Epsilon-squared for Sgm (Kruskal-Wallis):", round(epsilon_sq_sgm, 3), "\n")
+  }
+
+  cat("\n========== ANALYSIS COMPLETE ==========\n")
+  cat("Statistical workflow summary:\n")
+  cat("1. Tested normality and homogeneity assumptions\n")
+  cat("2. Applied appropriate omnibus test (ANOVA or Kruskal-Wallis)\n")
+  cat("3. Conducted post-hoc comparisons (Tukey HSD or Dunn's test)\n")
+  cat("4. Calculated effect sizes and correlations\n")
+  cat("5. Generated visualizations with statistical annotations\n")
+#+end_src
+
+Xgm and Sgm of cob and leaf particles are the only statistically different ($p < 0.05$ from Dunn's test post-hoc) fraction.
+Because particle size distributions are similar across tissue types ($p > 0.05$ from Kruskal_Wallis test),
+the divergent bulk densities indicate true solid density, particle morphology, and packing mechanisms, rather than particle size governed bulk flow behavior.
+Lower-density, high-aspect-ratio particles, i.e., husk and leaf, are thought to create large interstitial voids leading to lower bulk density and
+exhibit greater compressibility, which is detrimental to mass-flow hoppers and auger feeding systems.
+
+** Particle size distribution
+
+Corn Stover Fractions
+Cob shows distinctly different behavior with more material retained at larger sizes (4.75-5 mm) compared to other fractions1
+Husk, leaf, stalk, and comingled fractions show similar PSD patterns with steep curves between 2-4 mm1
+Most material across all fractions is retained between 2-5 mm opening sizes1
+Southern Pine Residue Fractions
+Needle fraction shows significantly different behavior with most material passing through larger openings until 2.5 mm1
+Bark, chip, and twig fractions exhibit similar PSD patterns1
+More uniform distribution across different size ranges compared to corn stover1
+Implications
+Processing Efficiency
+The different PSD patterns between fractions suggest that separate processing conditions might be optimal for different plant parts
+Cob (corn stover) and needle (pine) fractions may require different handling strategies due to their distinct size distributions
+Material Properties
+The differences in PSD reflect the inherent structural differences between:
+Woody biomass (pine residue) with more rigid fiber structure
+Herbaceous biomass (corn stover) with more flexible fiber arrangement
+Downstream Applications
+The varying particle size distributions could affect:
+Bulk density and flowability in storage and handling
+Surface area available for biological or chemical conversion
+Heat and mass transfer in thermochemical conversion processes
+This understanding can help optimize processing parameters and downstream conversion processes for different biomass fractions.
+
+
+Corn Stover Fractions
+Cob shows distinctly different behavior with more material retained at larger sizes (4.75-5 mm) compared to other fractions1
+Husk, leaf, stalk, and comingled fractions show similar PSD patterns with steep curves between 2-4 mm1
+Most material across all fractions is retained between 2-5 mm opening sizes1
+Southern Pine Residue Fractions
+Needle fraction shows significantly different behavior with most material passing through larger openings until 2.5 mm1
+Bark, chip, and twig fractions exhibit similar PSD patterns1
+More uniform distribution across different size ranges compared to corn stover1
+Implications
+Processing Efficiency
+The different PSD patterns between fractions suggest that separate processing conditions might be optimal for different plant parts
+Cob (corn stover) and needle (pine) fractions may require different handling strategies due to their distinct size distributions
+Material Properties
+The differences in PSD reflect the inherent structural differences between:
+Woody biomass (pine residue) with more rigid fiber structure
+Herbaceous biomass (corn stover) with more flexible fiber arrangement
+Downstream Applications
+The varying particle size distributions could affect:
+Bulk density and flowability in storage and handling
+Surface area available for biological or chemical conversion
+Heat and mass transfer in thermochemical conversion processes
+This understanding can help optimize processing parameters and downstream conversion processes for different biomass fractions.
+
+** Inter-particle Mechanics (IPM) Tester
+:PROPERTIES:
+:CUSTOM_ID: inter-particle-mechanics-tester-ipmt
+:END:
+
+Existing tribometer, similar to the instrument used in [[citet:&chen_measurements_2020]],
+is challenging to be used in determining friction coefficient of milled biomass particles.
+unless employing an additional attachment due to the dimension of typical milled biomass particles.
+In addition, the cyclic reciprocating movement is not simulating the frictional interaction between biomass particles during handling,
+while it is thought to be an adhesive friction following Derjaguin's law [[citep:&derjaguin_influence_1994;&derjaguin1934molekulartheorie]].
+
+To overcome such shortfalls, we developed a new Inter-particle Mechanics (IPM) (Figure [[ipmt]]) to measure the traction force between a stationary and moving particle under a varying magnitude of normal load.
+This arrangement allows for one test run to produce multiple normal force and lateral force measurements and alleviates the requirement to conduct separate tests with different normal forces in a conventional friction tester [[citep:&pitenis_leonardo_2014;&astmg115-10_guide_2018]].
+The development of the new design was essential for simulating any possible orientation of two interacting particles.
+This design allows collecting friction coefficients over multiple untested regions without resampling surfaces or replacing test particles between each repetition.
+With this design, it is also possible to prepare and condition multiple test samples, e.g., conduct friction experiments in an environment-controlled chamber at a different environmental relative humidity.
+
+#+NAME: ipmt
+#+CAPTION: Inter-particle mechanics tester (right) with a detailed view of sample mounting (left).
+[[file:figures/image3.png]]
+
+** Specifications and Operational Parameters of Interparticle Mechanics Tester
+:PROPERTIES:
+:CUSTOM_ID: specifications-and-operational-parameters-of-ipmt
+:END:
+The designed Inter-Particle Mechanics Tester (IPMT, [[parencite:&slosson_characterization_2025]]) can to perform friction tests on fully supported particles, unsupported (over-hanging), or combinations of both.
+Sample holders and component position and capacity are easily adjustable to handle particles of any size and shape.
+Considering the need to characterize the frictional contact with the perspective of storage and incipient flow of milled biomass,
+IPMT was designed to have a minimum incremental push and pull motion of \qty{0.05}{\micro\meter},
+and a typical push and pull velocity is set to \qty{1.2}{\milli\meter\per\second}, which can be modified.
+To accommodate a typical biomass particle dimension,
+the maximum push and pull travel ranges up to \qty{25}{\milli\meter} to accommodate a typical biomass particle size.
+For vertical direction movement, the maximum displacement of the normal force actuator is \qty{14}{\milli\meter} to accommodate a typical biomass particle size.
+The resolution of the both actuators are \qty{6}{\nano\meter}.
+Combined vertical and lateral displacement actuators make it possible to control the initial particle contact location if there exists a specific region of interest. The maximum forces of vertical and normal force censors are \qty{20.02}{\newton} and \qty{2.94}{\newton}, respectively,
+with the accuracy of \qty{\pm 0.02}{\percent} of the full scale.
+Normal and traction force data were collected at \qty{80}{\hertz}, using National Instruments™ LabVIEW (Version 2022, Austin TX) and
+two 24-bit Di-1000U signal digitizers (Loadstar Sensors, Freemont, CA).
+#+begin_comment
+# Sampling rates of displacement and force sensors are equal to or higher than \qty{1}{\kilo\hertz}.
+#+end_comment
+** Experimental Design and Setup
+:PROPERTIES:
+:CUSTOM_ID: experimental-design-and-setup
+:END:
+An experimental procedure was developed to perform friction tests with minimal experimental error.
+A sample size of 15 was selected for each possible combination of anatomical fractions to ensure the quality of a subsequent analysis of variance (Kruskal-Wallis test with \(\alpha=0.05\)).
+The Wilcoxon signed-rank (signed-rank) test was conducted to test the null hypotheses,
+i.e., friction coefficients and adhesion forces between corn stover particles from different anatomical fractions are not statistically different,
+without assuming a statistical distribution of determined friction coefficient and adhesion forces.
+To prepare an inter-particle mechanics test, approximately \qty{50}{\gram} samples were collected from each anatomical fraction of milled corn stover.
+Each sample was held in a controlled environment for 72 hours to allow for particles to reach an equilibrium moisture content at approximately \qty{23}{\celsius} and \qty{40}{\percent} relative humidity.
+The resulting moisture contents of cob, husk, leaf, and stalk are \qty{8.9(1.0)}{\percent}, \qty{7.0(1.4)}{\percent}, \qty{7.0(1.2)}{\percent}, and \qty{8.9(1.1)}{\percent}, respectively (values after \(\pm\) represent the standard error with n = 11).
+
+Once particle moisture was equalized, particles were randomly selected and adhered to removable particle mounts (Figure [[mounted_samples]]) using Ultra Bond\textsuperscript{TM} Super Glue (Permatex Inc.).
+Conservative volumes of adhesives were applied to minimize the absorption into particles and ensure proper curing.
+From the visual inspection, it appeared that no glue sips into the particle samples,
+which is attributed to the high viscosity of the chosen glue and quick initial curing time.
+A curing period of longer than 24 hours (\(\pm 2\) hour) was established for experimental consistency.
+The curing environment is identical to the moisture-equilibrating environment.
+Finally, the grain orientations were randomly chosen with every particle.
+
+#+begin_comment
+An experimental procedure was developed to perform friction tests with minimal experimental error, as detailed below.
+
+A sample size of 12 was selected for each possible combination of anatomical fractions to obtain a minimum of three data points and to ensure the experiment could be completed as planned.
+Once all the data had been collected and analyzed, an analysis of variance (ANOVA) (\(\alpha = 0.05\)) was used to determine the source of variance.
+The Wilcoxon signed-rank (signed-rank) test was selected to test the null hypothesis (i.e., friction coefficients between corn stover particles from different anatomical fractions are not statistically different) for a population of unknown statistical distribution.
+The signed-rank test is a useful alternative to a paired student t-test when the normality of the observed data set is not ensured.
+
+
+Approximately 50 g samples were collected from each anatomical fraction of corn stover.
+Each sample was held in a controlled environment for 72 hours to allow for particles to reach equilibrium moisture content (~10% MCwb).
+Once particle moisture was equalized, particles were randomly selected and adhered to removable particle mounts (Figure 3) using Permatex /Ultra Bond™ Super Glue/.
+Mounting methods (fully vs. singly supported) and grain orientations were performed randomly with every particle.
+Conservative volumes of adhesives were applied to reduce absorption into particles as well as to ensure proper curing.
+A curing period of 24 hours (\(\pm 2\) \unit{\hour}) (±2 hours) was established for experimental consistency.
+#+end_comment
+
+#+NAME: mounted_samples
+#+CAPTION: Image of corn stover particles adhered to plastic particle mount for conditioning and testing. The upper and lower half of the image contains 4mm husk and cob fractions, respectively.
+[[file:figures/image4.jpg]]
+
+Once the adhesive had cured, particle pairs were randomly selected for testing.
+Table [[tab:experimental_design]] lists the combinations of milled corn particles of different tissue types and conducted a number of repetitions for statistical analysis with the chosen significance level (\(\alpha = 0.05\)) to ensure the repeatability.
+
+#+NAME: tab:experimental_design
+#+CAPTION: Experimental plan for the required number of corn fraction test pairs and associated repetitions.
+#+ATTR_LATEX: :align ccc
+|------------+---------------+---------------|
+| *Base*     | *Interacting* | *Repetitions* |
+| *Particle* | *Particle*    |               |
+|------------+---------------+---------------|
+| Cob        | Cob           |            15 |
+| Cob        | Husk          |            15 |
+| Cob        | Leaf          |            15 |
+| Cob        | Stalk         |            15 |
+| Husk       | Husk          |            15 |
+| Husk       | Leaf          |            15 |
+| Husk       | Stalk         |            15 |
+| Leaf       | Leaf          |            15 |
+| Leaf       | Stalk         |            15 |
+| Stalk      | Stalk         |            15 |
+|------------+---------------+---------------|
+
+An inter-particle mechanics test started with establishing contact between particle samples indicated by a positive normal force reading typically ranging between \qty{0.3}{\newton} and \qty{2}{\newton}.
+Then, the lateral sliding was initiated at a speed of \qty{0.5}{\milli\meter\per\minute}.
+The normal and lateral forces were tracked and recorded simultaneously until the contact between two particles was lost,
+which resulted in a sudden change in the measured force.
+The middle two quantifies were selected and extracted as steady-state frictional interaction data for further analysis and the determination of friction coefficient and adhesion force.
+
+To determine the cohesive frictional contact, a modified Amonton’s equation by Derjaguin [[parencite:&derjaguin1934molekulartheorie;&gao_frictional_2004;&derjaguin_effect_1975]], as defined in the Equation [[eq:Derjaguin_1934]], was used.
+#+NAME: eq:Derjaguin_1934
+
+#+begin_export latex
+\begin{equation}
+F_{\text{traction}} = F_{0} + \mu\cdot F_{\text{normal}}
+\end{equation}
+
+#+end_export
+
+,where \(F_{\text{traction}}\) is the tractional force in the lateral direction,
+\(F_0\) is the adhesion force,
+\(\mu\) is the coefficient of friction, and
+\(F_{\text{normal}}\)  is the normal force representing the contact force.
+From this linear relationship, the coefficient of friction (\(\mu\)) was determined from the slope of the best-fit line,
+and the adhesion force (\(F_0\)) was determined from the intercept of the best-fit line on the y-axis, i.e., the traction force axis.
+For this purpose, linear regression analyses were conducted to determine the coefficient of friction (\(\mu\)) and adhesion force (\(F_0\)) from experimental data.
+
+
+#+begin_comment
+Prior to each test, test operators must determine the required positioning of the normal force applicator (Figure [[ipmt]]) to produce the target initial normal loading.
+This procedure was performed in less than 0.1mm increments to prevent overloading of the normal force sensor past the selected design capacity.
+Once the target initial normal force was applied, the traction force applicator and data collection were initiated.
+Data collection is terminated once particles are no longer in contact or upon sensor capacity concerns.
+
+,*** Data collection and analysis methods
+:PROPERTIES:
+:CUSTOM_ID: data-collection-and-analysis-methods
+:END:
+
+Normal and traction force data were collected at 80Hz, using National Instruments™ LabVIEW and two 24-bit Di-1000U signal digitizers (Loadstar Sensors - Freemont, CA).
+The middle two quartiles were selected and extracted as steady-state data for further analysis for each data collection experiment performed.
+
+#+NAME: cohesive_friction_schematic
+#+CAPTION: Theoretical plot of traction force versus normal force (Left). Force diagram of two particles (grey and blue) under applied normal and pulling force (Right).
+[[file:figures/image5.png]]
+
+Similar to as shown in Figure [[cohesive_friction_schematic]], the coefficient of friction (μ) will be determined using the average ratio of traction force to the applied normal force during steady-state conditions.
+#+end_comment
+
+* Results and Discussion
+:PROPERTIES:
+:CUSTOM_ID: results-and-discussion
+:END:
+** COMMENT R Analysis common                                                                                                                                   :noexport:
+#+begin_src R :session R-b_imt :tangle yes :tangle biomass_ipm.R :results none :exports none :eval never-export
+  options(width = 320, digits = 4, crayon.enabled = FALSE) # to suppress ANSI escape codes for text formatting
+  library(tidyverse)
+  library(gridExtra)
+  library(ggpubr)
+  library(ggbeeswarm)
+  library(viridis)    # for better accessibility of plots
+  library(BEST)
+  library(rstatix)
+  library(reporttools)
+  library(FSA)
+  library(ggcorrplot)
+  library(RColorBrewer)
+  library(texreg)
+  library(xtable)
+  library(cowplot)
+  library(dunn.test)
+  library(rstatix)
+  library(cowplot)
+  options(xtable.comment=FALSE) # prohibit print.xtable printing comments
+
+  se <- function(x) sqrt(var(x) / length(x)) # or sd(x)/sqrt(length(x))
+  detect_failure_row <- function(dt) {
+    f_row <- 0
+    for (row in 16:nrow(dt)) {
+      # print(row)
+      # print(dt[row, "Load"])
+      # print(dt[row-1, "Load"])
+      # print(dt[row, "Load"] - dt[row-1, "Load"])
+      if ((dt[row, "Load"] - dt[row - 2, "Load"]) < -0.1) {
+        # print(dt[row, "Load"] - dt[row-2, "Load"])
+        ## print("Found!")
+        ## print(row)
+        f_row <- row
+        break
+      }
+    }
+    return(f_row)
+  }
+
+  ## Function to extract legend
+  g_legend <- function(a.gplot){
+      tmp <- ggplot_gtable(ggplot_build(a.gplot))
+      leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+      legend <- tmp$grobs[[leg]]
+      legend
+  }
+
+  setwd('~/local/docs/prj/Publications/papers/PowderMech/Biomass_ipm/')
+#+end_src
+** Validation of the IPM
+#+begin_comment
+  from '/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/studies/ipm_validation/agg_plots/'
+  also from [[id:cd269f41-7a7e-46f8-b689-e77c5129896d][Polypropylene Validation]] in /home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BETO-Interparticle.org
+#+end_comment
+- reference material test: paper
+- reference material test: polypropylene
+  - [[parencite:&gracias_continuum_1998]][[id:d4101a76-7c0d-4498-9daf-a09376f3895e][Notes on :Gracias, D. H., & Somorjai, G. A. (1998: Continuum Force Microscopy Study of the Elastic Modulus, Hardness and Friction of Polyethylene and Polypropylene Surfaces]]
+  -
+
+#+begin_src R :session R-b_imt :tangle yes :tangle biomass_ipm.R :results none :exports none :eval never-export
+  ## polypropylene
+  data_ad_pp <- read.csv(file = "/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/pp_pp/dt_aggregated.csv", header = TRUE)
+  data_ad_pp$mc <- "ad"
+  data_ad_pp$traction = data_ad_pp$traction * 0.00980665
+  data_ad_pp$normal = data_ad_pp$normal * 0.00980665
+
+  ## Determined Derjaguin law parameters
+
+  ## polypropylene
+  ## calibrated based on the manufacturer's listed friction coefficient
+  ##data_ipm_pp_ad <- read.csv(file = "./BP3/data_analysis/airdried_ipm/validation_pp/dt_coeffs.csv", header = TRUE)
+  ## raw data
+  data_ipm_pp_ad <- read.csv(file = "/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/pp_pp/dt_coeffs.csv", header = TRUE)
+  data_ipm_pp_ad$mc <- "ad"
+  data_ipm_pp_agg <- data_ipm_pp_ad
+  data_ipm_pp_agg$mc <- factor(data_ipm_pp_agg$mc, levels = c("ad", "95rh"))
+
+  ## summary table
+  tableContinuous(vars=data_ipm_pp_ad[,c("mu", "c")], prec = 2)
+
+  ## aggregated data EDA for friction coefficient, mu
+  pp_pp_coeff_mu_box_plt <- ggplot(subset(data_ipm_pp_ad, select = c("fraction_pair", "mu", "mc")), aes(x = fraction_pair, y = mu, fill = factor(mc, level = c('ad', '95rh')))) + # , group = mc)) +
+    ## geom_quasirandom(position = position_dodge2(reverse = TRUE), dodge.width=0.3) +
+    geom_boxplot(outlier.alpha = 0.1, position = position_dodge2(.9), alpha = 0.2) +
+    geom_beeswarm(alpha = 0.5) +
+    stat_summary(fun = mean, geom = 'point', aes(group = mc, fill = factor(mc, level = c('ad', '95rh'))), position = position_dodge2(.7), shape = 23, size = 2, fill = 3) +
+                                          # geom_jitter(shape = 16, position = position_jitterdodge(0.1), alpha = 0.25) +
+    scale_y_continuous(name = expression(Friction ~ Coefficient), limits = c(-0.0, 1.0), expand = c(0.0, 0.0)) +
+    ## scale_x_continuous(limits = c(0, 75.0), expand = c(0.0, 0.0)) + #geom_errorbar(position = position_dodge2(width = 0.9, padding = 0.5), color = "gray7", alpha = 0.8) +
+    xlab("Fraction Pair") + # + facet_grid(cols = vars(mc_levels), rows = vars(temperature_levels)) +
+    scale_fill_viridis_d(name = "Moisture Content", breaks = c("ad", "95rh"), labels = c("air-dried", "hydrated at 95% RH")) +
+    theme_bw() + theme(panel.background = element_rect(fill = "transparent"), legend.position="none") + labs(fill = "MC", color = "MC")
+  print(pp_pp_coeff_mu_box_plt)
+
+  ## aggregated data EDA for adhesion force, mu, combined
+  pp_pp_comb_coeff_mu_box_plt <- ggplot(subset(data_ipm_pp_ad, select = c("mc", "mu", "mc")), aes(x = mc, y = mu, fill = factor(mc, level = c('ad', '95rh')))) + # , group = mc)) +
+        ## geom_quasirandom(position = position_dodge2(reverse = TRUE), dodge.width=0.3) +
+    geom_boxplot(outlier.alpha = 0.1, position = position_dodge2(.9), alpha = 0.2) +
+    geom_beeswarm(alpha = 0.5) +
+    stat_summary(fun = mean, geom = 'point', aes(group = mc, fill = factor(mc, level = c('ad', '95rh'))), position = position_dodge2(.7), shape = 23, size = 2, fill = 3) +
+                                          # geom_jitter(shape = 16, position = position_jitterdodge(0.1), alpha = 0.25) +
+    scale_y_continuous(name = expression(Friction ~ Coefficient), limits = c(-0.0, 1.0), expand = c(0.0, 0.0)) +
+    ## scale_x_continuous(limits = c(0, 75.0), expand = c(0.0, 0.0)) + #geom_errorbar(position = position_dodge2(width = 0.9, padding = 0.5), color = "gray7", alpha = 0.8) +
+    xlab("Polypropylen to Polypropylen") + # + facet_grid(cols = vars(mc_levels), rows = vars(temperature_levels)) +
+    scale_fill_viridis_d(name = "Moisture Content", breaks = c("ad", "95rh"), labels = c("air-dried", "hydrated at 95% RH")) +
+    theme_bw() + theme(panel.background = element_rect(fill = "transparent"), legend.position="none", axis.text.x=element_blank()) + labs(fill = "MC", color = "MC")
+  print(pp_pp_comb_coeff_mu_box_plt)
+
+  ## aggregated data EDA for adhesion force, c
+  pp_pp_coeff_c_box_plt <- ggplot(subset(data_ipm_pp_ad, select = c("fraction_pair", "c", "mc")), aes(x = fraction_pair, y = c, fill = factor(mc, level = c('ad', '95rh')))) + #, group = mc)) +
+    ## geom_quasirandom(position = position_dodge2(reverse = TRUE), dodge.width=0.3) +
+    geom_boxplot(outlier.alpha = 0.1, position = position_dodge2(.9), alpha = 0.2) +
+    geom_beeswarm(alpha = 0.5) +
+    stat_summary(fun = mean, geom = 'point', aes(group = mc, fill = factor(mc, level = c('ad', '95rh'))), position = position_dodge2(.7), shape = 23, size = 2, fill = 3) +
+                                          #geom_jitter(shape = 16, position = position_jitterdodge(0.1), alpha = 0.25) +
+    scale_y_continuous(name = expression(Adhesion~Force~(N)), limits = c(-0.5, 1.0), expand = c(0.0, 0.0)) +
+    ##scale_x_continuous(limits = c(0, 75.0), expand = c(0.0, 0.0)) + #geom_errorbar(position = position_dodge2(width = 0.9, padding = 0.5), color = "gray7", alpha = 0.8) +
+    xlab("Fraction pair") + # + facet_grid(cols = vars(mc_levels), rows = vars(temperature_levels)) +
+    scale_fill_viridis_d(name = "Moisture Content", breaks = c("ad", "95rh"), labels = c("air-dried", "hydrated at 95% RH")) +
+    theme_bw() + theme(panel.background = element_rect(fill = "transparent"), legend.position="none") + labs(fill = "MC", color = "MC")
+  print(pp_pp_coeff_c_box_plt)
+
+  ## aggregated data EDA for adhesion force, c
+  pp_pp_comb_coeff_c_box_plt <- ggplot(subset(data_ipm_pp_ad, select = c("mc", "c", "mc")), aes(x = mc, y = c, fill = factor(mc, level = c('ad', '95rh')))) + #, group = mc)) +
+    ## geom_quasirandom(position = position_dodge2(reverse = TRUE), dodge.width=0.3) +
+    geom_boxplot(outlier.alpha = 0.1, position = position_dodge2(.9), alpha = 0.2) +
+    geom_beeswarm(alpha = 0.5) +
+    stat_summary(fun = mean, geom = 'point', aes(group = mc, fill = factor(mc, level = c('ad', '95rh'))), position = position_dodge2(.7), shape = 23, size = 2, fill = 3) +
+                                          #geom_jitter(shape = 16, position = position_jitterdodge(0.1), alpha = 0.25) +
+    scale_y_continuous(name = expression(Adhesion~Force~(N)), limits = c(-0.5, 1.0), expand = c(0.0, 0.0)) +
+    ##scale_x_continuous(limits = c(0, 75.0), expand = c(0.0, 0.0)) + #geom_errorbar(position = position_dodge2(width = 0.9, padding = 0.5), color = "gray7", alpha = 0.8) +
+    xlab("Polypropylen to Polypropylen") + # + facet_grid(cols = vars(mc_levels), rows = vars(temperature_levels)) +
+    scale_fill_viridis_d(name = "Moisture Content", breaks = c("ad", "95rh"), labels = c("air-dried", "hydrated at 95% RH")) +
+    theme_bw() + theme(panel.background = element_rect(fill = "transparent"), legend.position="none", axis.text.x=element_blank()) + labs(fill = "MC", color = "MC")
+  print(pp_pp_comb_coeff_c_box_plt)
+
+  ## combined plot for mu and c
+  pp_pp_ipm_coeffs_box_plts <- plot_grid(pp_pp_coeff_mu_box_plt, pp_pp_coeff_c_box_plt, nrow=1, rel_widths=c(1/2, 1/2))
+  print(pp_pp_ipm_coeffs_box_plts)
+
+  ## or
+  pp_pp_comb_ipm_coeffs_box_plts <- plot_grid(pp_pp_comb_coeff_mu_box_plt, pp_pp_comb_coeff_c_box_plt, nrow=1, rel_widths=c(1/2, 1/2))
+  print(pp_pp_comb_ipm_coeffs_box_plts)
+  ggsave(filename="./figures/pp_pp_comb_ipm_coeffs_box_plts.png", plot = pp_pp_comb_ipm_coeffs_box_plts, width = 8, height = 6, units = "in", dpi = 450)
+#+end_src
+
+Table [[tab:dt_pp]] lists the results of the validation experiment.
+
+#+NAME: tab:dt_pp
+#+CAPTION:Validation test results of polypropylene
+\begin{table}
+  \begingroup\footnotesize
+  \begin{longtable}{lrrrrrrrrrr}
+    \textbf{Variable} & $\mathbf{n}$ & \textbf{Min} & $\mathbf{q_1}$ & $\mathbf{\widetilde{x}}$ & $\mathbf{\bar{x}}$ & $\mathbf{q_3}$ & \textbf{Max} & $\mathbf{s}$ & \textbf{IQR} & \textbf{\#NA} \\
+    \hline
+    mu & 20 &  0.194 & 0.221 & 0.250 & 0.258 & 0.288 & 0.394 & 0.051 & 0.067 & 0 \\
+    c & 20 & -8.472 & 2.048 & 3.790 & 3.309 & 5.488 & 8.931 & 3.657 & 3.441 & 0 \\
+    \hline
+  \end{longtable}
+  \endgroup
+\end{table}
+
+#+NAME: fig:pp_pp_forces_all
+#+CAPTION: Validation test results of polyprophylene
+#+ATTR_LATEX: :height 2.75in
+file:./figures/figure06_pp_ipm_raw_measurements.png
+
+#+begin_comment
+[[file:./figures/pp_pp_normal_traction_forces_all.png]]
+#+end_comment
+
+#+begin_comment
+#+NAME: fig:pp_pp_c
+#+CAPTION: Validation test results of polyprophylene; adhesion force
+#+ATTR_LATEX: :height 2.75in
+[[file:./figures/pp_pp_coeff_c_box.png]]
+
+
+#+NAME: fig:pp_pp_mu
+#+CAPTION: Validation test results of polyprophylene; friction coefficient
+#+ATTR_LATEX: :height 2.75in
+[[file:./figures/pp_pp_coeff_mu_box.png]]
+#+end_comment
+
+#+NAME: fig:pp_pp_comb_ipm_coefs_box
+#+CAPTION: Interparticle Mechanics Test results of polypropylene sheet samples. Each color represents a different run of the experiments (n=20)
+#+ATTR_LATEX: :height 4in
+file:./figures/pp_pp_comb_ipm_coeffs_box_plts.png
+
+#+LATEX: \newpage
+** COMMENT Alternative method (fixed weight vs. traction force)
+#+LATEX: \newpage
+#+begin_export latex
+#+end_export
+
+** Typical corn stover particles IPM results
+:PROPERTIES:
+:ID:       79a6ad23-c83a-40f1-b982-2e93d826ae47
+:END:
+#+begin_comment
+- in /home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BETO-Interparticle.org
+- line 1492
+- link: [[id:433f43d0-e609-421e-9f95-445e9da9b20f][Typical corn stover IPM result]] in [[/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BETO-Interparticle.org]]
+- [[/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs/dt_ipm/cs_cob_stalk_ad_sena/05_26_2023_CS_4mm_20.txt]]
+- [[/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs/dt_ipm/cs_cob_stalk_ad_sena/05_26_2023_CS_4mm_06.txt]]
+#+end_comment
+
+*** COMMENT [[~/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs_calibrated_traction_force/dt_ipm/cs_cob_stalk_ad_sena/05_26_2023_CS_4mm_20.txt]]
+  #+begin_src R  :session R-b_imt :tangle yes :tangle biomass_ipm.R :results output graphics file :file ./figures/typical_result_cs_cob_stalk_02_15_23_CCCS_4mm_10.png :width 9 :height 6 :units "in" :res 300 :bg white :exports results :eval no-export
+    # read data for 02_15_23_CCCS_4m_10
+    #dt_ad_cs_typical <- read.csv(file = "./BP3/data_analysis/airdried_ipm/cs/dt_ipm/cs_cob_stalk_ad_sena/05_26_2023_CS_4mm_20.txt", header = FALSE, sep = "\t")
+    dt_ad_cs_typical <- read.csv(file = "~/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs_calibrated_traction_force/dt_ipm/cs_cob_stalk_ad_sena/05_26_2023_CS_4mm_20.txt", header = FALSE, sep = "\t")
+    colnames(dt_ad_cs_typical) = c("time", "traction", "normal")
+    ## lm for Dejarguin's model
+    dt_ad_cs_typical$traction = dt_ad_cs_typical$traction * 0.00980665
+    dt_ad_cs_typical$normal = dt_ad_cs_typical$normal * 0.00980665
+    fit = lm(dt_ad_cs_typical$traction ~ dt_ad_cs_typical$normal)
+    dt_ad_cs_typical_cob_stalk_20230526_20.plt <- ggplot(dt_ad_cs_typical, aes(x = normal, y = traction)) + geom_point(size = 0.5) +
+      stat_smooth(method = "lm", col = "red", formula = y ~ poly(x, degree = 1)) +
+      labs(title = bquote(Adj~R^2 == .(signif(summary(fit)$adj.r.squared, 3))*","
+                          ~Intercept == .(signif(fit$coef[[1]], 3))*","
+                          ~Slope == .(signif(fit$coef[[2]], 3)) )) + #,
+                         ## " P =",signif(summary(fit)$coef[2,4], 3))) +
+
+     # labs(title = paste("Adj R", bquote(R^21)," =", signif(summary(fit)$adj.r.squared, 3),
+     #                    #"Adj R2 = ",signif(summary(fit)$adj.r.squared, 3),
+     #                    ", Intercept =",signif(fit$coef[[1]], 3 ),
+     #                    ", Slope =",signif(fit$coef[[2]], 3))) + #,
+     #                    ## " P =",signif(summary(fit)$coef[2,4], 3))) +
+      scale_x_continuous(name = "Normal Force (N)",   expand = c(0,0)) + #, limits = c(0.0, 250)) +
+      scale_y_continuous(name = "Traction Force (N)", expand = c(0,0)) +
+      theme_bw() + theme(panel.background = element_rect(fill = "transparent"))
+    print(dt_ad_cs_typical_cob_stalk_20230526_20.plt)
+  #+end_src
+
+  #+RESULTS:
+  [[file:./figures/typical_result_cs_cob_stalk_02_15_23_CCCS_4mm_10.png]]
+*** COMMENT [[~/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs_calibrated_traction_force/dt_ipm/cs_cob_cob_ad_sena/05_08_2023_CC_4mm_02.txt]]
+  #+begin_src R  :session R-b_imt :tangle yes :tangle biomass_ipm.R :results output graphics file :file ./figures/typical_result_cs_cob_cob_05_08_23_CCCC_4mm_02.png :width 9 :height 6 :units "in" :res 300 :bg white :exports results :eval no-export
+    # read data for 05_08_2023_CC_4mm_02.txt
+    dt_ad_cs_typical <- read.csv(file = "~/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs_calibrated_traction_force/dt_ipm/cs_cob_cob_ad_sena/05_08_2023_CC_4mm_02.txt", header = FALSE, sep = "\t")
+    colnames(dt_ad_cs_typical) = c("time", "traction", "normal")
+    ## lm for Dejarguin's model
+    dt_ad_cs_typical$traction = dt_ad_cs_typical$traction * 0.00980665
+    dt_ad_cs_typical$normal = dt_ad_cs_typical$normal * 0.00980665
+    fit = lm(dt_ad_cs_typical$traction ~ dt_ad_cs_typical$normal)
+    dt_ad_cs_typical_cob_cob_20230508_02.plt <- ggplot(dt_ad_cs_typical, aes(x = normal, y = traction)) + geom_point(size = 0.5) +
+      stat_smooth(method = "lm", col = "red", formula = y ~ poly(x, degree = 1)) +
+      labs(title = bquote(Adj~R^2 == .(signif(summary(fit)$adj.r.squared, 3))*","
+                          ~Intercept == .(signif(fit$coef[[1]], 3))*","
+                          ~Slope == .(signif(fit$coef[[2]], 3)) )) + #,
+                         ## " P =",signif(summary(fit)$coef[2,4], 3))) +
+
+     # labs(title = paste("Adj R", bquote(R^21)," =", signif(summary(fit)$adj.r.squared, 3),
+     #                    #"Adj R2 = ",signif(summary(fit)$adj.r.squared, 3),
+     #                    ", Intercept =",signif(fit$coef[[1]], 3 ),
+     #                    ", Slope =",signif(fit$coef[[2]], 3))) + #,
+     #                    ## " P =",signif(summary(fit)$coef[2,4], 3))) +
+      scale_x_continuous(name = "Normal Force (N)",   expand = c(0,0), limits = c(0.0, 2.6)) +
+      scale_y_continuous(name = "Traction Force (N)", expand = c(0,0), limits = c(0.0, 2.6)) +
+      theme_bw() + theme(panel.background = element_rect(fill = "transparent"))
+    print(dt_ad_cs_typical_cob_cob_20230508_02.plt)
+  #+end_src
+
+  #+RESULTS:
+  [[file:./figures/typical_result_cs_cob_cob_05_08_23_CCCC_4mm_02.png]]
+*** COMMENT [[~/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs_calibrated_traction_force/dt_ipm/cs_stalk_stalk_ad_sena/05_05_2023_CS_4mm_11.txt]]
+  #+begin_src R  :session R-b_imt :tangle yes :tangle biomass_ipm.R :results output graphics file :file ./figures/typical_result_cs_cob_stalk_05_05_23_CCCS_4mm_11.png :width 9 :height 6 :units "in" :res 300 :bg white :exports results :eval no-export
+    ## read data for 05_05_2023_CS_4mm_11.txt
+    dt_ad_cs_typical <- read.csv(file = "~/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs_calibrated_traction_force/dt_ipm/cs_stalk_stalk_ad_sena/05_05_2023_CS_4mm_11.txt", header = FALSE, sep = "\t")
+    colnames(dt_ad_cs_typical) = c("time", "traction", "normal")
+    ## this has a negative minimum traction force, which should be re-calibrated
+    ## recalibrate
+    min_traction = min(dt_ad_cs_typical$traction)
+    dt_ad_cs_typical$traction = dt_ad_cs_typical$traction - min_traction
+    ## lm for Dejarguin's model
+    dt_ad_cs_typical$traction = dt_ad_cs_typical$traction * 0.00980665
+    dt_ad_cs_typical$normal = dt_ad_cs_typical$normal * 0.00980665
+    fit = lm(dt_ad_cs_typical$traction ~ dt_ad_cs_typical$normal)
+    dt_ad_cs_typical_stalk_stalk_20230505_11.plt <- ggplot(dt_ad_cs_typical, aes(x = normal, y = traction)) + geom_point(size = 0.5) +
+      stat_smooth(method = "lm", col = "red", formula = y ~ poly(x, degree = 1)) +
+      labs(title = bquote(Adj~R^2 == .(signif(summary(fit)$adj.r.squared, 3))*","
+                          ~Intercept == .(signif(fit$coef[[1]], 3))*","
+                          ~Slope == .(signif(fit$coef[[2]], 3)) )) + #,
+                         ## " P =",signif(summary(fit)$coef[2,4], 3))) +
+      scale_x_continuous(name = "Normal Force (N)",   expand = c(0,0.02), limits = c(0.0, 1.0)) +
+      scale_y_continuous(name = "Traction Force (N)", expand = c(0,0), limits = c(0.0, 1.0)) +
+      theme_bw() + theme(panel.background = element_rect(fill = "transparent"))
+    print(dt_ad_cs_typical_stalk_stalk_20230505_11.plt)
+  #+end_src
+
+  #+RESULTS:
+  [[file:./figures/typical_result_cs_cob_stalk_05_05_23_CCCS_4mm_11.png]]
+*** figure, results and discussion
+
+#+begin_src R :session R-b_imt :tangle yes :tangle biomass_ipm.R :results output graphics file :file ./figures/typical_result_cs_two_cases.png :width 9 :height 12 :units "in" :res 300 :bg white :exports results :eval no-export
+  dt_ad_cs_typical_two_cases.plt <- plot_grid(dt_ad_cs_typical_cob_cob_20230508_02.plt, dt_ad_cs_typical_stalk_stalk_20230505_11.plt, ncol = 1, labels = c("A", "B"))
+  # ggsave("./figures/typical_result_cs_two_cases.png", dt_ad_cs_typical_two_cases.plt, width=9, height=12, units="in", dpi=300, bg="white")
+  # return("figures/typical_result_cs_two_cases.png")
+  print(dt_ad_cs_typical_two_cases.plt)
+#+end_src
+
+#+RESULTS: fig_typical_imt_cs_result
+#+CAPTION: Typical corn stover particle result (A is from cob particle vs. cob particle and B is from cob particle vs stalk particle)
+#+ATTR_LATEX: :placement [!htb]
+#+NAME: fig:typical_imt_cs_result
+[[file:./figures/typical_result_cs_two_cases.png]]
+
+To examine the variability in frictional contact mechanics between corn stover particles from different tissue types, corn stover samples were manually fractionated into the cob, husk, leaf, and stalk, then crumbled using a 4 mm screen using Crumbler\textsuperscript{®} by Forest Concepts, LLC. Twenty particle sample pairs for each tissue type were prepared, and the interparticle mechanics tests were conducted. A typical experimental data and regression analysis result is shown in Figure [[fig:typical_imt_cs_result]].
+Derjaguin’s linear model and other polynomial models reflecting the observation of [[textcite:&sedlak_effect_2017]] hinting that friction coefficient values can be smaller when the applied normal force is smaller.
+#+LATEX: \newpage
+** Friction coefficient and Adhesion forces between corn stover particles from the same tissue type
+#+begin_src R :session R-b_imt :tangle yes :tangle biomass_ipm.R :results none :exports none :eval never-export
+  ## corn stover data
+  data_ipm_ad_cs <- read.csv(file = "/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs_calibrated_traction_force/dt_coeffs.csv", header = TRUE)
+  data_ipm_ad_cs$mc <- "ad"
+  data_ipm_95rh_cs <- read.csv(file = "/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/hydrated_ipm/cs_calibrated_traction_force/dt_coeffs.csv", header = TRUE)
+  data_ipm_95rh_cs$mc <- "95rh"
+  data_ipm_cs <- rbind(data_ipm_ad_cs, data_ipm_95rh_cs)
+  data_ipm_cs$fraction_pair <- as.factor(data_ipm_cs$fraction_pair)
+  data_ipm_cs$mc <- as.factor(data_ipm_cs$mc)
+#+end_src
+
+
+#+begin_src R  :session R-b_imt :tangle yes :tangle biomass_ipm.R :results none :exports none :eval never-export
+  ## aggregated data EDA; Friction Coefficient of CS same fraction of IPM paper #1
+  pal <-  viridis(4) ## pallet for viridis color
+  cs_cs_coeff_mu_box_plt <-
+    ggplot(subset(data_ipm_cs, (fraction_pair=='cob-cob' | fraction_pair=='husk-husk' | fraction_pair=='leaf-leaf' | fraction_pair=='stalk-stalk') & mc=='ad' & mu > 0.005,
+                  select = c("fraction_pair", "mu")), aes(x = fraction_pair, y = mu)) + # , group = mc)) +
+    geom_boxplot(outlier.alpha = 0.1, position = position_dodge2(.9), fill = pal[4]) +
+    stat_summary(fun = mean, geom = 'point', shape = 23, size = 5, fill = 3) +
+    geom_jitter(shape = 16, alpha = 0.25, size = 2, width = 0.1) +
+    scale_y_continuous(name = expression(Friction ~ Coefficient), limits = c(0.0, 1.75), expand = c(0.0, 0.0)) +
+    ## scale_x_continuous(limits = c(0, 75.0), expand = c(0.0, 0.0)) +
+    ## geom_errorbar(position = position_dodge2(width = 0.9, padding = 0.5), color = "gray7", alpha = 0.8) +
+    xlab("Fraction Pair") + # + facet_grid(cols = vars(mc_levels), rows = vars(temperature_levels)) +
+    #scale_fill_viridis_d(name = "Moisture Content", breaks = c("ad", "95rh"), labels = c("air-dried", "hydrated at 95% RH")) +
+    theme_bw() + theme(panel.background = element_rect(fill = "transparent"), text = element_text(size=24))# + labs(fill = "MC", color = "MC")
+  print(cs_cs_coeff_mu_box_plt)
+  ggsave(filename="./figures/cs_cs_same_fraction_coeff_mu_box_plt.png", plot=cs_cs_coeff_mu_box_plt, width = 8, height = 6, units = "in", dpi = 450)
+#+end_src
+
+#+NAME: fig:cs_cs_mu_box_plt
+#+CAPTION: Friction coefficient between corn stover particles of same tissue type
+#+ATTR_LATEX: :height 4in
+file:./figures/cs_cs_same_fraction_coeff_mu_box_plt.png
+
+#+LATEX: \newpage
+
+#+begin_src R :session R-b_imt :tangle yes :tangle biomass_ipm.R :results none :exports none :eval never-export
+  ## aggregated data EDA; Adhesion force CS same fraction of IPM paper #1
+  pal <-  viridis(4) ## pallet for viridis color
+  cs_cs_coeff_c_box_plt <-
+    #ggplot(subset(data_ipm_cs,  (fraction_pair=='cob-cob' | fraction_pair=='husk-husk' | fraction_pair=='leaf-leaf' | fraction_pair=='stalk-stalk') & mu > 0.005,
+    ggplot(subset(data_ipm_cs, (fraction_pair=='cob-cob' | fraction_pair=='husk-husk' | fraction_pair=='leaf-leaf' | fraction_pair=='stalk-stalk') & mc=='ad' & mu > 0.005,
+                  select = c("fraction_pair", "c")), aes(x = fraction_pair, y = c)) + # , group = mc)) +
+    geom_boxplot(outlier.alpha = 0.1, position = position_dodge2(.9), fill = pal[4]) +
+    stat_summary(fun = mean, geom = 'point', shape = 23, size = 5, fill = 3) +
+    geom_jitter(shape = 16, alpha = 0.25, size = 2, width = 0.1) +
+    scale_y_continuous(name = expression(Adhesion~Force~(N)), limits = c(-0.5, 3.5), expand = c(0.0, 0.0)) +
+    ## scale_x_continuous(limits = c(0, 75.0), expand = c(0.0, 0.0)) +
+    ## geom_errorbar(position = position_dodge2(width = 0.9, padding = 0.5), color = "gray7", alpha = 0.8) +
+    xlab("Fraction Pair") + # + facet_grid(cols = vars(mc_levels), rows = vars(temperature_levels)) +
+                                          #scale_fill_viridis_d(name = "Moisture Content", breaks = c("ad", "95rh"), labels = c("air-dried", "hydrated at 95% RH")) +
+    theme_bw() + theme(panel.background = element_rect(fill = "transparent"), text = element_text(size=24))# + labs(fill = "MC", color = "MC")
+
+  print(cs_cs_coeff_c_box_plt)
+  ggsave(filename="./figures/cs_cs_same_fraction_coeff_c_box_plt.png", plot=cs_cs_coeff_c_box_plt, width = 8, height = 6, units = "in", dpi = 450)
+#+end_src
+
+#+NAME: fig:cs_cs_c_box_plt
+#+CAPTION: Adhesion force between corn stover particles of same tissue type
+#+ATTR_LATEX: :height 4in
+file:./figures/cs_cs_same_fraction_coeff_c_box_plt.png
+
+
+
+The mechanical properties of agricultural residues, particularly corn stover, are critical parameters in the design and optimization of biomass processing systems. Understanding the frictional interactions between particles of different tissue types provides fundamental insights into powder mechanics behavior, flow characteristics, and processing efficiency. This investigation focuses exclusively on homogeneous tissue interactions to isolate the intrinsic mechanical properties of individual corn stover components.
+
+Results and Discussion
+Friction Coefficient Analysis
+The analysis of homogeneous tissue interactions revealed distinct frictional characteristics across the four corn stover tissue types. Cob particles exhibited the highest mean friction coefficient (μ = 0.669 ± 0.221), followed by stalk (μ = 0.515 ± 0.786), husk (μ = 0.392 ± 0.331), and leaf tissues 0.342 ± 0.274).
+
+Friction coefficient and adhesion force distributions for corn stover tissue homogeneous interactions
+Friction coefficient and adhesion force distributions for corn stover tissue homogeneous interactions
+The coefficient of variation analysis demonstrated considerable heterogeneity within tissue types, with stalk particles showing the highest variability (CV = 152.5%) and cob particles exhibiting the most consistent behavior (CV = 33.1%). This variability pattern suggests that stalk tissues possess more heterogeneous surface properties, potentially due to the complex vascular structure and varying lignification patterns within this tissue type.
+
+Adhesion Force Characteristics
+Adhesion forces followed a different ranking pattern compared to friction coefficients. Cob particles demonstrated the highest mean adhesion force (c = 0.078 ± 0.131), followed by husk (c = 0.068 ± 0.231), stalk (c = 0.064 ± 0.221), and leaf tissues (c = 0.024 ± 0.131). The relatively low magnitude of adhesion forces across all tissue types indicates weak cohesive interactions, consistent with the dry agricultural residue nature of corn stover.
+
+Statistical Significance and Distribution Patterns
+One-way ANOVA analysis revealed that while differences in friction coefficients approached statistical significance (F = 2.280, p = 0.085), adhesion forces showed no significant inter-tissue variation (F = 0.380, p = 0.768). This finding suggests that friction coefficients are more discriminative parameters for characterizing tissue-specific mechanical properties.
+
+Distribution analysis revealed notable skewness patterns across tissue types. Stalk particles exhibited strong negative skewness in friction coefficient distribution (skewness = -2.733), indicating the presence of low-friction outliers, while husk and leaf tissues showed positive skewness (1.183 and 1.261, respectively). These distribution characteristics reflect the inherent structural complexity and surface heterogeneity of different corn stover components.
+
+Correlation Analysis and Mechanical Coupling
+The correlation between friction coefficient and adhesion force varied significantly among tissue types. Leaf particles showed the strongest negative correlation (r = -0.395), suggesting an inverse relationship between surface roughness and cohesive forces. Conversely, husk particles exhibited a positive correlation (r = 0.311), indicating potential coupling between frictional and adhesive mechanisms. Cob and stalk tissues showed weak correlations (r = -0.201 and -0.033, respectively), suggesting independent friction and adhesion mechanisms.
+
+Implications for Powder Mechanics
+The observed tissue-specific variations have significant implications for corn stover processing systems. The higher friction coefficients observed in cob particles suggest increased energy requirements for size reduction and handling operations. The high variability in stalk particle properties indicates the need for adaptive processing strategies to accommodate the heterogeneous nature of this tissue type.
+
+The relatively low adhesion forces across all tissue types suggest that corn stover particles exhibit free-flowing characteristics under dry conditions, which is advantageous for bulk handling and storage applications. However, the tissue-specific differences may lead to segregation phenomena in mixed-tissue systems.
+
+Materials and Methods
+The experimental dataset comprised 94 measurements of homogeneous tissue interactions (cob-cob: n=23, stalk-stalk: n=24, husk-husk: n=24, leaf-leaf: n=23) conducted on 4mm corn stover particles. Friction coefficients and adhesion forces were determined using Dejaguin's cohesive friction relationship. Statistical analysis included descriptive statistics, ANOVA, correlation analysis, and outlier detection using the interquartile range method.
+
+Conclusions
+This comprehensive analysis of corn stover homogeneous tissue interactions reveals significant inter-tissue variability in frictional properties. Cob particles demonstrate superior frictional characteristics with the highest friction coefficients and adhesion forces, while leaf particles exhibit the lowest values for both parameters. The high variability observed in stalk particles highlights the structural complexity of vascular tissues. These findings provide fundamental insights for optimizing biomass processing operations and designing efficient handling systems for corn stover utilization.
+
+The weak correlation between friction and adhesion parameters across most tissue types suggests that these mechanical properties are governed by different surface phenomena, requiring independent consideration in processing system design. Future research should investigate the influence of moisture content, particle size, and surface modifications on these fundamental mechanical properties.
+
+Interpreting Friction Coefficients > 1
+Macroscopic perspective – A coefficient of friction (COF) exceeding 1 simply states that the shear force required to initiate sliding surpasses the normal load; rubber-on-rubber and tacky polymer contacts regularly exhibit μ ≈ 2.
+
+Corn stover mechanics – For stalk–cob and leaf-leaf subsets, μ > 1 arises in measurements where deformable asperities interlock deeply, making shear‐induced deformation more energy-intensive than vertical unloading. Lignin-rich rind fragments with fibrous asperities are likely contributors.
+
+Model consistency – Deformable contacts break the geometric assumptions of Amonton’s law (rigid bodies, constant real area), introducing additional dissipative mechanisms (ploughing, fibrillation) that inflate μ without violating momentum conservation.
+
+How Can μ < 0 Appear?
+Signal artefacts – Low-load regimes amplify sensor noise; any slight over-correction in offset subtraction can numerically invert μ.
+
+Nanoscale negative‐slope friction – At atomic force microscope (AFM) scales, enhanced adhesion can produce a negative friction coefficient (friction increases as load decreases, giving an apparent negative μ) due to layer exfoliation in lamellar solids.
+
+Dataset context – Stalk–stalk and leaf-leaf outliers with μ < 0 reflect rare instances where tangential force reverses sign during stick–slip transients, likely because elastic recoil exceeded the load cell’s static calibration window. Such points do not imply energy generation; they require re-smoothing or exclusion before continuum modelling.
+
+Why Do Some Adhesion Forces Become Negative?
+Repulsive surface forces – Electrostatic double-layer repulsion between partially de-ionized hemicellulose surfaces can yield a negative “pull-off” (net separation force).
+
+Surface roughness mismatch – When asperity valleys align poorly, contact population is sparse; the JKR-style attractive term (c) becomes dominated by small elastic recoveries that appear as repulsion in inverse force mapping.
+
+Measurement bandwidth – Dynamic “c” estimates captured during unloading sometimes inherit inertia, producing a slightly negative intercept even when quasi-static adhesion is near zero.
+
+Linearity in Dejarguin’s vs Amonton’s Models
+a. Fundamental Forms
+Amonton’s law:
+\[F_s = \mu N\]
+ assuming the zero intercept; true for rigid, non-adhesive, multi-asperity contacts.
+
+Dejarguin’s cohesive model:
+\[F_s = \mu N + c\]
+retaining the linear slope but adding an intercept representing surface energy contributions.
+
+b. Dataset Alignment
+Regression of homogeneous tissue pairs confirms an average \(r^2 > 0.90]\) for all tissues: shear force scales linearly with normal load, but non-zero \(c\) shifts the curves vertically. Cob contacts possess the largest \(c\) and \(\mu\), consistent with husk-less geometry that enhances intimate cell-wall contact. Leaf tissues show the shallowest slope and smallest intercept, reflecting their waxy cuticle and lower lignification.
+
+c. Transition Regimes
+When \(c\approx 0\) or normal stresses dominate adhesion (e.g., high-bulk loads), Dejarguin’s equation collapses to Amonton’s. Conversely, at very low normal stresses (tensile or near-zero loads), the \(c\) term governs, explaining why some leaf samples stick (positive \(c\)) yet exhibit negligible \(\mu\), mirroring liquid–solid Amonton analogies for droplets.
+
+d. Implications for Powder Handling
+Design margin – Systems assuming a pure Amonton response will underestimate startup torque when \(c > 0\),
+Segregation risk – Differences in \(c\) across tissues encourage differential agglomeration, exacerbating flow non-uniformity in mixed biomass streams.
+
+Scale translation – At millimetre scales, linearity is preserved, but the slope and intercept depend on tissue chemistry, moisture, and surface conditioning; extrapolation to equipment design therefore requires tissue-specific calibration.
+
+Conclusions
+Friction coefficients exceeding 1 signify intense interlocking and viscoelastic dissipation, values below 0 arise from measurement artefacts or exotic nanoscale phenomena, and negative adhesion indicates electrostatic or roughness-induced repulsion.
+The dataset conforms to Dejarguin’s linear cohesive model, where the shear force depends on both load and an adhesion intercept, seamlessly nesting Amonton’s law as a limiting case when \(c \to 0\).
+These insights refine mechanical design margins for biomass processing and underscore the nuanced interplay of adhesion and friction in lignocellulosic particle systems.
+
+The determined friction coefficient and adhesion forces of corn stover particles are shown in Figure 8 and Figure 9. The analysis of corn stover particle interactions reveals distinct patterns in both friction coefficients and adhesion forces across different fraction pairs. Among the friction coefficients, cob-cob and stalk-cob interactions demonstrate the highest values at 0.636 and 0.629 respectively, indicating substantial frictional resistance between these particle types. The moderate friction range includes husk-cob and stalk-husk combinations, showing coefficients of 0.464 and 0.437, while stalk-stalk interactions exhibit intermediate friction behavior with a coefficient of 0.483.
+Leaf-based interactions consistently display lower friction coefficients, with leaf-leaf pairs showing 0.255, leaf-husk pairs at 0.275, and leaf-cob combinations reaching 0.445. This pattern suggests that leaf material generally creates less frictional resistance compared to other corn stover components.
+Regarding adhesion forces, all fraction pairs exhibit negative values, indicating attractive forces between particles. Stalk-stalk pairs demonstrate the strongest adhesion with a value of -0.074, closely followed by husk-husk interactions at -0.071. Stalk-cob and leaf-husk pairs show moderate adhesion forces around -0.060, with husk-cob interactions similarly positioned at -0.057.
+An interesting inverse relationship emerges between friction and adhesion properties. Notably, cob-cob interactions show the lowest adhesion force at -0.027 despite having high friction, while stalk-leaf and stalk-husk pairs demonstrate relatively lower adhesion forces around -0.043. This pattern suggests that materials with high friction coefficients tend to exhibit lower adhesion forces, while those with strong adhesion generally show moderate friction coefficients. Leaf-based interactions maintain their unique character by consistently showing lower friction coefficients paired with moderate to high adhesion forces.
+
+#+LATEX: \newpage
+** Friction coefficient and Adhesion forces between corn stover particles from the different tissue type
+
+#+begin_src R  :session R-b_imt :tangle yes :tangle biomass_ipm.R :results none :exports none :eval never-export
+  ## aggregated data EDA; Friction Coefficient of CS same fraction of IPM paper #1
+  pal <-  viridis(4) ## pallet for viridis color
+  cs_cs_diff_coeff_mu_box_plt <-
+    ggplot(subset(data_ipm_cs, (fraction_pair=='husk-cob' | fraction_pair=='leaf-cob' | fraction_pair=='stalk-leaf' | fraction_pair=='leaf-husk' | fraction_pair=='stalk-husk' | fraction_pair=='leaf-stalk') & mc=='ad' & mu > 0.005,
+                  select = c("fraction_pair", "mu")), aes(x = fraction_pair, y = mu)) + # , group = mc)) +
+    geom_boxplot(outlier.alpha = 0.1, position = position_dodge2(.9), fill = pal[4]) +
+    stat_summary(fun = mean, geom = 'point', shape = 23, size = 5, fill = 3) +
+    geom_jitter(shape = 16, alpha = 0.25, size = 2, width = 0.1) +
+    scale_y_continuous(name = expression(Friction ~ Coefficient), limits = c(0.0, 1.75), expand = c(0.0, 0.0)) +
+    ## scale_x_continuous(limits = c(0, 75.0), expand = c(0.0, 0.0)) +
+    ## geom_errorbar(position = position_dodge2(width = 0.9, padding = 0.5), color = "gray7", alpha = 0.8) +
+    xlab("Fraction Pair") + # + facet_grid(cols = vars(mc_levels), rows = vars(temperature_levels)) +
+    #scale_fill_viridis_d(name = "Moisture Content", breaks = c("ad", "95rh"), labels = c("air-dried", "hydrated at 95% RH")) +
+    theme_bw() + theme(panel.background = element_rect(fill = "transparent"), text = element_text(size=24))# + labs(fill = "MC", color = "MC")
+  print(cs_cs_diff_coeff_mu_box_plt)
+  ggsave(filename="./figures/cs_cs_different_fraction_coeff_mu_box_plt.png", plot=cs_cs_diff_coeff_mu_box_plt, width = 8, height = 6, units = "in", dpi = 450)
+#+end_src
+
+#+NAME: fig:cs_cs_diff_mu_box_plt
+#+CAPTION: Friction coefficient between corn stover particles of different tissue type
+#+ATTR_LATEX: :height 4in
+file:./figures/cs_cs_different_fraction_coeff_mu_box_plt.png
+
+#+LATEX: \newpage
+
+#+begin_src R :session R-b_imt :tangle yes :tangle biomass_ipm.R :results none :exports none :eval never-export
+  ## aggregated data EDA; Adhesion force CS same fraction of IPM paper #1
+  pal <-  viridis(4) ## pallet for viridis color
+  cs_cs_diff_coeff_c_box_plt <-
+    #ggplot(subset(data_ipm_cs,  (fraction_pair=='cob-cob' | fraction_pair=='husk-husk' | fraction_pair=='leaf-leaf' | fraction_pair=='stalk-stalk') & mu > 0.005,
+    ggplot(subset(data_ipm_cs, (fraction_pair=='husk-cob' | fraction_pair=='leaf-cob' | fraction_pair=='stalk-leaf' | fraction_pair=='leaf-husk' | fraction_pair=='stalk-husk' | fraction_pair=='leaf-stalk') & mc=='ad' & mu > 0.005,
+                  select = c("fraction_pair", "c")), aes(x = fraction_pair, y = c)) + # , group = mc)) +
+    geom_boxplot(outlier.alpha = 0.1, position = position_dodge2(.9), fill = pal[4]) +
+    stat_summary(fun = mean, geom = 'point', shape = 23, size = 5, fill = 3) +
+    geom_jitter(shape = 16, alpha = 0.25, size = 2, width = 0.1) +
+    scale_y_continuous(name = expression(Adhesion~Force~(N)), limits = c(-0.5, 3.5), expand = c(0.0, 0.0)) +
+    ## scale_x_continuous(limits = c(0, 75.0), expand = c(0.0, 0.0)) +
+    ## geom_errorbar(position = position_dodge2(width = 0.9, padding = 0.5), color = "gray7", alpha = 0.8) +
+    xlab("Fraction Pair") + # + facet_grid(cols = vars(mc_levels), rows = vars(temperature_levels)) +
+                                          #scale_fill_viridis_d(name = "Moisture Content", breaks = c("ad", "95rh"), labels = c("air-dried", "hydrated at 95% RH")) +
+    theme_bw() + theme(panel.background = element_rect(fill = "transparent"), text = element_text(size=24))# + labs(fill = "MC", color = "MC")
+
+  print(cs_cs_diff_coeff_c_box_plt)
+  ggsave(filename="./figures/cs_cs_different_fraction_coeff_c_box_plt.png", plot=cs_cs_diff_coeff_c_box_plt, width = 8, height = 6, units = "in", dpi = 450)
+#+end_src
+
+#+NAME: fig:cs_cs_diff_c_box_plt
+#+CAPTION: Adhesion force between corn stover particles of different tissue types
+#+ATTR_LATEX: :height 4in
+file:./figures/cs_cs_different_fraction_coeff_c_box_plt.png
+
+
+
+
+
+
+
+
+
+
+Corn stover interactions involving cob fractions were found to contain the largest peaks and variance in friction coefficients (Table [[tab_wilcox_test_rt]]).
+Cob particles with woody-ring sub-fractions on the contacting surface were observed to be significantly harder and 'claw-like' in nature.
+Whereas the pith region of the cob was very similar to the exposed pith in stalk particles.
+Particles of stalk and husk both showed moderate friction coefficients.
+
+#+NAME: tab_wilcox_test_rt
+#+CAPTION: Wilcox Signed Rank Test Critical Values Table
+#+ATTR_LATEX: :align ccc
+|-------------+---------------+-------------|
+| *Paired*    |     *Average* |  *Standard* |
+| *Fractions* |    *Friction* | *Deviation* |
+|             | *Coefficient* |             |
+|-------------+---------------+-------------|
+| stalk-stalk |          0.28 |        0.09 |
+| cob-cob     |          0.86 |        0.26 |
+| husk-husk   |          0.23 |        0.06 |
+| stalk-cob   |          0.53 |        0.25 |
+| cob-husk    |          0.32 |        0.16 |
+| stalk-husk  |          0.21 |        0.07 |
+|-------------+---------------+-------------|
+
+#+NAME: tab_anova_rt
+#+CAPTION: Anova test result
+#+ATTR_LATEX: :align cccc
+|-----------------+-------------------+-----------+----------------|
+| *Particle Pair* | *Comparison Pair* | *Sum<Cr?* | *Result*       |
+|-----------------+-------------------+-----------+----------------|
+| stalk-stalk     | cob-cob           | TRUE      | reject null    |
+|                 | husk-husk         | FALSE     | fail to reject |
+|                 | stalk-cob         | TRUE      | reject null    |
+|                 | cob-husk          | FALSE     | fail to reject |
+|                 | stalk-husk        | FALSE     | fail to reject |
+| cob-cob         | husk-husk         | TRUE      | reject null    |
+|                 | stalk-cob         | TRUE      | reject null    |
+|                 | cob-husk          | TRUE      | reject null    |
+|                 | stalk-husk        | TRUE      | reject null    |
+| husk-husk       | stalk-cob         | TRUE      | reject null    |
+|                 | cob-husk          | FALSE     | fail to reject |
+|                 | stalk-husk        | FALSE     | fail to reject |
+| stalk-cob       | cob-husk          | FALSE     | fail to reject |
+|                 | stalk-husk        | TRUE      | reject null    |
+| cob-husk        | stalk-husk        | TRUE      | reject null    |
+|-----------------+-------------------+-----------+----------------|
+
+An ANOVA test (\(\alpha = 0.05\)) showed the key source of variance in friction coefficients was found to be between different combinations of fractions. Leading to further investigation of key sources of variances.
+Without an understanding of the population distribution, a Wilcoxon signed-rank test was conducted to determine the significance across the variance with each corn stover fraction combination.
+As shown in Table [[tab_anova_rt]], the results suggest that cob fractions had a significantly different friction coefficient.
+** Relationship of particle-particle interaction model parameters and continuum scale elasto-plasticity model parameters
+*** Derjaguin's model
+  #+begin_export latex
+  \begin{equation}
+    \label{eq:Derjaguin}
+   N_t =  N_f + \mu N_n
+  \end{equation}
+  #+end_export
+  where \(N_f\) is the adhesion force, \(\mu\) is the friction coefficient, and \(N_n\) is the normal force
+
+These equations include definitions of adhesion/cohesion and friction coeffient at different scale, yet they convey similar connotation without a physical connection  [[parencite:&reynolds_lvii_1885]].
+
+*** Mohr-Coulomb model
+  #+begin_export latex
+  \begin{equation}
+    \label{eq:mc}
+    \tau = c + \sigma\tan\phi
+  \end{equation}
+  #+end_export
+  where \(\tau\) is the shear stress, \(c\) is cohesion coefficient, \(\sigma\) is normal stress, and \(\phi\) is the angle of internal friction
+*** Similar discussions can be made on Rankine/Janssen equation.
+
+- Rankin's
+  Rankine's lateral earth pressure theory, developed in 1857, is a fundamental model in geotechnical engineering used to analyze the pressure relationship between retaining walls and soil masses. This theory provides a stress field solution that predicts active and passive earth pressures under specific conditions.
+
+  The theory is based on several key assumptions. It considers the soil to be isotropic and homogeneous, assumes an infinitely long wall (plane strain condition), and requires a planar ground surface (not necessarily level). Importantly, Rankine's model assumes no wall friction (δ = 0) and sufficient wall movement to develop active or passive conditions.
+
+  Rankine's theory considers three main states of earth pressure: at-rest, active, and passive. The at-rest condition occurs when there is no lateral movement of the retaining wall. The coefficient of earth pressure at rest (\(K_0\)) is defined as:
+
+  $$ K_0 = \frac{\sigma_h}{\sigma_v} $$
+
+  where \(\sigma_{h}\) is the lateral pressure and \(\sigma_v\) is the vertical pressure.
+
+  Active earth pressure develops when the wall moves away from the soil mass. For cohesionless soil, the active earth pressure coefficient (\(K_a\)) is given by:
+
+  $$ K_a = \tan^2(45° - \frac{\phi}{2}) $$
+
+  where \(\phi\) is the internal friction angle of the soil.
+
+  Conversely, passive earth pressure occurs when the wall moves towards the soil mass. The passive earth pressure coefficient (\(K_p\)) for cohesionless soil is:
+
+  $$ K_p = \tan^2(45° + \frac{\phi}{2}) $$
+
+  For a cohesionless soil at depth \(z\), the lateral pressures are calculated as:
+
+  $$ \sigma_a = K_a \gamma z $$
+  $$ \sigma_p = K_p \gamma z $$
+
+  where \(\gamma\) is the unit weight of the soil.
+
+  In 1915, Bell extended Rankine's theory to cohesive soils. For soils with cohesion (\(c\)), the total lateral earth pressures are given by:
+
+  $$ \sigma_a = K_a \gamma z - 2c\sqrt{K_a} $$
+  $$ \sigma_p = K_p \gamma z + 2c\sqrt{K_p} $$
+
+  Rankine's theory also predicts failure planes in the soil mass. In the active state, these planes make an angle of (\(45° + φ/2\)) with the horizontal, while in the passive state, the angle is \( (45^{\circ} - \phi/2) \).
+
+  Despite its widespread use, Rankine's theory has some limitations. It assumes no wall friction, which is often unrealistic. It's primarily applicable to walls with vertical backs and horizontal backfills. Additionally, the theory assumes the entire soil mass is in a state of plastic equilibrium, which may not always be true.
+
+  Despite these limitations, Rankine's lateral earth pressure theory remains a crucial tool in geotechnical engineering for the design of retaining walls and other earth-retaining structures. Its simplicity and ability to provide reasonable estimates make it a valuable starting point for many design calculations.
+
+- Janssen's
+  Janssen's equation, developed by H.A. Janssen in 1895, is a fundamental model in granular mechanics that describes the relationship between lateral pressure and normal stress in a cylindrical container filled with granular material. This equation provides crucial insights into the stress distribution within silos and similar structures, making it an essential tool in their design and analysis.
+
+  The equation is based on several key assumptions. It considers the granular material to be cohesionless and assumes that the container walls are vertical and rigid. The model also posits that the ratio of horizontal to vertical stress (\(K\)) remains constant throughout the container, and that wall friction is fully mobilized. Additionally, it assumes a constant bulk density of the material.
+
+  Mathematically, Janssen's equation for the vertical stress (\(\sigma_v\)) at a depth \(z\) in a cylindrical container is expressed as:
+
+  $$ \sigma_v(z) = \frac{\gamma D}{4\mu K} \left(1 - e^{-\frac{4\mu K z}{D}}\right) $$
+
+  In this equation, \(\gamma\) represents the bulk density of the granular material, \(D\) is the container's diameter, \(\mu\) is the coefficient of wall friction, \(K\) is the lateral pressure ratio, and \(z\) is the depth from the material's surface. The lateral pressure (\(\sigma_n\)) can then be calculated by multiplying the vertical stress by the lateral pressure ratio: \(\sigma_h (z) = K \sigma_z (z)\).
+
+  This equation reveals several important characteristics of granular materials in containers. Unlike fluids, the stress in granular materials does not increase linearly with depth. Instead, there is a limiting stress as depth increases, known as the Janssen effect. Furthermore, the stress distribution is influenced by both the container's geometry and the material's properties.
+
+  Despite its widespread use, Janssen's equation has some limitations. It assumes a constant bulk density, which may not hold true for compressible materials. The assumption of fully mobilized wall friction may not always be valid, and the equation does not account for dynamic effects during filling or discharge of the container.
+
+  Notwithstanding these limitations, Janssen's equation remains a cornerstone in the design of silos and in understanding the behavior of granular materials. Its ability to predict stress distributions in static granular systems has made it an indispensable tool in various engineering applications, from agricultural storage to industrial processing of granular materials.
+
+- Boussinesque
+  Janssen's equation and Boussinesq's stress distribution are both important models in soil mechanics and granular materials, but they address different aspects of stress distribution in different contexts.
+
+  Janssen's equation, developed in 1895, describes the stress distribution in granular materials contained in silos or similar cylindrical structures. It accounts for the interaction between the granular material and the container walls, considering factors such as wall friction and the ratio of horizontal to vertical stress. Janssen's equation predicts that the vertical stress in a silo does not increase linearly with depth, but rather approaches a limiting value, known as the Janssen effect[4].
+
+  On the other hand, Boussinesq's equation, published in 1885, focuses on stress distribution in a semi-infinite, homogeneous, isotropic elastic medium due to a point load applied at the surface[1][5]. It is primarily used to calculate stresses at various depths and radial distances from the point of load application in soil mechanics.
+
+  - Boussinesq's equation for vertical stress (σz) at a point P at depth z due to a point load Q on the surface is given by:
+
+    $$ \sigma_z = \frac{3Q}{2\pi z^2} \left[ \frac{1}{1+\left(\frac{r}{z}\right)^2} \right]^{\frac{5}{2}} $$
+
+    where:
+    - $Q$ is the magnitude of the point load
+    - $z$ is the vertical depth from the surface to point P
+    - $r$ is the horizontal distance from the point of load application to point P
+
+    This equation can also be expressed in terms of an influence factor (I_B), known as the Boussinesq stress coefficient:
+
+    $$ \sigma_z = \frac{Q}{z^2} I_B $$
+
+    where:
+
+    $$ I_B = \frac{3}{2\pi} \left[ \frac{1}{1+\left(\frac{r}{z}\right)^2} \right]^{\frac{5}{2}} $$
+
+    For the special case where r = 0 (directly beneath the point load), the equation simplifies to:
+
+    $$ \sigma_z = \frac{3Q}{2\pi z^2} $$
+
+    Citations:
+    1. https://civiltoday.com/geotechnical-engineering/soil-mechanics/144-boussinesqs-equation
+    2. https://testbook.com/civil-engineering/boussinesqs-equation-definition-and-hypothesis
+    3. https://testbook.com/question-answer/what-is-the-boussinesqs-vertical-stress-at-a--5ebfa4fff60d5d399ec56605
+
+
+  The key differences and relationships between these two models are:
+
+  1. Application context: Janssen's equation is specific to granular materials in confined spaces, while Boussinesq's equation applies to stress distribution in an elastic medium under surface loads.
+
+  2. Stress behavior: Janssen's equation predicts a non-linear increase in stress with depth, eventually reaching a limiting value. Boussinesq's equation shows a continuous decrease in stress with depth and radial distance from the load point.
+
+  3. Material assumptions: Janssen's equation considers granular materials with friction, while Boussinesq's equation assumes a continuous, elastic medium.
+
+  4. Boundary conditions: Janssen's equation accounts for the presence of container walls, whereas Boussinesq's equation assumes an infinite medium in the horizontal direction.
+
+  5. Load type: Janssen's equation deals with the weight of the granular material itself, while Boussinesq's equation is used for external point loads applied at the surface.
+
+  While these models address different scenarios, they can be complementary in certain applications. For instance, in the design of foundations for silos or other structures on granular soils, engineers might use Boussinesq's equation to estimate stress distribution in the supporting soil, while Janssen's equation could be applied to calculate pressures within the silo itself.
+
+  It's important to note that both models have limitations and simplifying assumptions. In practice, more complex numerical methods or combined approaches may be necessary for accurate stress analysis in real-world scenarios involving both granular materials and elastic soil behavior.
+
+  Citations:
+  1. https://civiltoday.com/geotechnical-engineering/soil-mechanics/144-boussinesqs-equation
+  2. https://www.cyut.edu.tw/~jrlai/CE7332/Chap8.pdf
+  3. https://www.rocscience.com/help/settle3/documentation/project-settings/stress-computation
+  4. https://www.sciencedirect.com/science/article/abs/pii/S0032591020311256
+  5. https://testbook.com/civil-engineering/boussinesqs-equation-definition-and-hypothesis
+*** Counter arguments to Reynolds' claim
+```scratchpad
+[AttentionFocus:
+PrimaryFocus: Connection between angle of repose, particle friction, and Mohr-Coulomb's angle of internal friction
+SecondaryElements: Reynolds' claim, physical mechanisms, experimental studies
+PotentialDistractions: Detailed mathematical formulations, unrelated soil properties]
+
+[RevisionQuery: What is the relationship between the angle of repose, particle friction, and the Mohr-Coulomb angle of internal friction, and are there studies examining their physical connections?]
+
+[TheoryOfMind:
+UserPerspective: Seeking clarification on Reynolds' claim and looking for more recent research on the topic
+AssumptionsAboutUserKnowledge: Familiar with basic soil mechanics concepts
+PotentialMisunderstandings: Confusion about the distinction between different friction angles]
+
+[CognitiveOperations:
+Abstraction: Identifying key concepts across different studies
+Comparison: Contrasting Reynolds' claim with more recent findings
+Inference: Drawing connections between particle-level interactions and bulk material properties
+Synthesis: Integrating information from multiple sources to form a coherent understanding]
+
+[ReasoningPathway:
+Premises:
+1. Reynolds claimed no physical connection between angle of repose and particle friction
+2. Angle of repose, particle friction, and Mohr-Coulomb angle of internal friction are related concepts in soil mechanics
+3. More recent studies may have explored these relationships
+IntermediateConclusions:
+1. There may be a disconnect between historical understanding and modern research
+2. Particle-level interactions likely influence bulk material properties
+FinalInference: Modern research has likely established some connections between these concepts, but the relationships may be complex and dependent on various factors]
+
+[KeyInfoExtraction:
+1. Reynolds claimed no physical connection between angle of repose and particle friction
+2. Angle of repose is generally close to the angle of internal friction for granular materials
+3. Mohr-Coulomb failure criterion relates to the angle of internal friction
+4. Particle shape, size, and surface properties influence friction angles
+5. Microscopic mechanisms affect macroscopic behavior of granular materials]
+
+[ContextAdherenceTLDR: The response addresses the connection between angle of repose, particle friction, and Mohr-Coulomb's angle of internal friction, considering both historical claims and modern research.]
+
+[Exploration:
+1. How do modern experimental techniques allow for better understanding of particle-level interactions?
+2. What role does particle shape play in determining friction angles?
+3. How do environmental factors (e.g., moisture, temperature) affect the relationship between particle friction and bulk material properties?
+4. Are there any computational models that accurately predict friction angles based on particle properties?
+5. How do the relationships between these friction angles change for different types of granular materials?]
+
+[Metacognition:
+StrategiesUsed: Comparative analysis, historical context consideration, synthesis of multiple sources
+EffectivenessAssessment: 85 - Good integration of information, but could benefit from more recent experimental data
+AlternativeApproaches: Could have focused more on specific experimental studies or computational models]
+```
+
+Contrary to Reynolds' claim in his 1885 paper that there is no physical connection between the angle of repose and actual friction between particles, more recent research has established that there are indeed relationships between these properties, albeit complex ones.
+
+The angle of repose is generally very close to the angle of internal friction for granular materials[7]. This suggests a connection between the macroscopic behavior of the material (angle of repose) and its internal frictional properties. However, the exact relationship is not straightforward and depends on various factors.
+
+The Mohr-Coulomb failure criterion, which incorporates the angle of internal friction, is widely used in geotechnical engineering to describe the shear strength of soils[5]. This angle of internal friction (φ) is related to, but not identical to, the friction between individual particles. Instead, it represents the combined effects of particle interlocking, rearrangement, and inter-particle friction[2].
+
+Recent studies have shown that the microscopic mechanisms at the particle level do influence the macroscopic behavior of granular materials, including the angle of repose and the Mohr-Coulomb angle of internal friction[6]. Factors such as particle shape, size distribution, surface roughness, and environmental conditions (e.g., moisture content) all play a role in determining these friction angles[2][6].
+
+For example, research has shown that the angle of repose varies inversely with particle size in well-sorted materials, but directly with size in poorly sorted materials[2]. It also varies inversely with particle density and directly with angularity and surface roughness[2]. These findings indicate that there is indeed a physical connection between particle properties and the angle of repose, contrary to Reynolds' original claim.
+
+The relationship between particle-level friction and the Mohr-Coulomb angle of internal friction is more complex. While inter-particle friction contributes to the angle of internal friction, other factors such as particle interlocking and rearrangement also play significant roles[5]. This explains why the angle of internal friction can sometimes be higher than what would be expected based solely on particle-to-particle friction.
+
+Modern experimental techniques and computational models have allowed researchers to better understand these relationships. For instance, discrete element method (DEM) simulations have been used to study how particle-level interactions translate to bulk material properties[6].
+
+In conclusion, while Reynolds' original claim has been largely superseded by modern research, the relationships between angle of repose, particle friction, and the Mohr-Coulomb angle of internal friction are indeed complex and multifaceted. These properties are interconnected, but the connections depend on a wide range of factors at both the microscopic and macroscopic levels.
+
+Citations:
+1. https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/40921872/a77bc85f-11f0-4875-bd95-14714dcbdb41/Reynolds_1885_LVII.pdf
+2. https://pubs.geoscienceworld.org/gsa/gsabulletin/article-abstract/56/6/669/4088/ANGLE-OF-REPOSE-AND-ANGLE-OF-SLIDING-FRICTION-AN?redirectedFrom=fulltext
+3. https://www.sciencedirect.com/science/article/pii/S0032591018301153
+4. https://www.pantelisliolios.com/mohr-coulomb-failure-criterion/
+5. https://en.wikipedia.org/wiki/Mohr%E2%80%93Coulomb_theory
+6. https://www.frontiersin.org/journals/earth-science/articles/10.3389/feart.2021.777467/full
+7. https://www.eng-tips.com/threads/angle-of-repose-versus-internal-friction-angle.285226/
+8. https://www.sciencedirect.com/science/article/pii/S1018363918307499
+9. http://geotechdata.info/parameter/angle-of-friction
+
+** Discussion (Elicit)
+#+TITLE: Friction and Adhesion in Milled Corn Stover
+#+AUTHOR: Elicit Review
+#+DATE: 2025-07-29
+
+*** Abstract
+
+Five experimental studies probed friction- and adhesion-related characteristics of milled corn stover.
+- Fang et al. (2021): Calibrated friction proxies using repose angle tests on internodal, pith, and nodal tissues.
+- Cheng et al. (2022): Measured wall friction angles on various surfaces over 0–75% moisture; friction increased with moisture on hydrophilic surfaces but showed non-monotonic behavior on hydrophobic surfaces.
+- Leal et al. (2022) & Bose et al. (2020): Found biological degradation increases surface energy and work of cohesion for most tissues (stalk, leaf, cob) except cob tissue.
+- Finney et al. ("Go with the Flow"): Magnesium stearate reduces surface energy (up to 40%) and improves flowability in dry/moderately moist samples.
+
+None of the studies provided direct, quantitative measurements of particle-scale friction coefficients or adhesion forces. Most offered qualitative and proxy evaluations.
+
+*** Methods
+
+- Analyzed 5 sources from an initial pool of 50, using 7 screening criteria.
+- Each paper reviewed for 5 key aspects relevant to the research question.
+
+*** Results
+
+**Characteristics of Included Studies**
+# +LATEX: \begin{adjustbox}{width=\textwidth,keepaspectratio}
+# +ATTR_LATEX: :environment tabu :spread t :width \linewidth
+# +ATTR_LATEX: :environment longtable :width \linewidth
+#+LATEX: \begingroup\tiny
+#+ATTR_LATEX: :environment tabularx :width \linewidth :align lXlXXc
+| Study      | Study Design                                              | Tissue Types Examined          | Measurement Methods                                                                 | Key Variables                                                         | Full      |
+|            |                                                           |                                |                                                                                     |                                                                       | text      |
+|            |                                                           |                                |                                                                                     |                                                                       | retrieved |
+|------------+-----------------------------------------------------------+--------------------------------+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-----------|
+| Fang 2021  | DEM parameter calibration, repose angle tests, simulation | Internodal, pith, nodal tissue | Repose angle, physical tests                                                        | Static/rolling friction, repose angle                                 | No        |
+| Cheng 2022 | Experimental, FT4 powder rheometry                        | Bulk (not specified)           | FT4 powder rheometer, wall friction disk, stainless steel/PTFE/HDPE, moisture 0-75% | Flow energy, compressibility, wall friction, moisture                 | Yes       |
+| Leal 2022  | Surface energy/cohesion anatomical fractions              | Stalk, leaf, cob               | BET, Surface Energy Analyzer, IGC, vOCG                                             | Surface area, surface energy, wettability, cohesion/adhesion          | Yes       |
+| Bose 2020  | Surface property changes by biological degradation        | Leaf, stalk, cob               | Stereomicroscopy, SEM, IGC                                                          | Surface roughness, energy, porosity, microbial degradation            | No        |
+| Finney     | Flow additives effect on flowability                      | Bulk (not specified)           | FT4 powder rheometer, IGC                                                           | Flowability, wall friction, surface energy, additive effect, moisture | Yes       |
+#+LATEX: \endgroup
+# +LATEX: \end{adjustbox}
+
+**Tissue Types Examined**
+- Stalk, leaf, cob: 2 studies.
+- Internodal, pith, nodal: 1 study.
+- Bulk (not specified): 2 studies.
+
+**Measurement Methods**
+- Inverse gas chromatography (IGC): 3 studies.
+- FT4 powder rheometer: 2 studies.
+- Additional: wall friction disk, repose angle test, BET, SEA, vOCG, stereomicroscopy, SEM.
+
+**Key Variables Measured**
+- Surface energy: 3 studies.
+- Moisture content / wall friction: 2 studies.
+- Flow energy/flowability: 2 studies.
+- Cohesion/adhesion, roughness, porosity, density, etc.: 1 study each.
+
+*** None of the included studies provided direct, quantitative friction coefficient or adhesion force measurements at particle scale.
+*** Most reported trends or related properties (wall friction angle, surface energy) and qualitative trends.
+
+**Friction Coefficient Measurements**
+
+#+LATEX: \begingroup\tiny
+#+ATTR_LATEX: :environment tabularx :width \linewidth :align lXccXc
+| Study         | Tissue Type             | Moisture   | Friction Range | Notes                                                                                   | Method             |
+|---------------+-------------------------+------------+----------------+-----------------------------------------------------------------------------------------+--------------------|
+| Fang et al    | Internodal, pith, nodal | --         | --             | Calibrated static/rolling friction for tissue pairs, but no numeric values              | Repose/simulation  |
+| Cheng et al.  | --                      | 0–75%      | --             | Wall friction angle increases with moisture on hydrophilic, nonmonotonic on hydrophobic | FT4/wall friction  |
+| Leal et al.   | Stalk, leaf, cob        | 7–15%, <2% | --             | Calculated work of cohesion—not friction coefficient                                    | Surface Energy/IGC |
+| Bose et al.   | Leaf, stalk, cob        | --         | --             | Surface roughness/energy changes only                                                   | SEM/IGC            |
+| Finney et al. | --                      | 0, 15, 30% | --             | Wall friction angle reduced w/ mag. stearate (dry/15% only)                             | FT-4, IGC          |
+#+LATEX: \endgroup
+**Surface Properties and Adhesion**
+- Leal et al., 2022: Degradation increases surface energy/cohesion except cob. Computed (not measured) adhesion.
+- Bose et al., 2020: Degradation increases aggregation. No direct adhesion measurement.
+- Finney et al., “Go with the Flow”: Additive reduces surface energy and improves flow, no direct adhesion numbers.
+
+**Moisture Content Effects**
+- Cheng et al., 2022: Moisture reduces flowability, increases compressibility, raises wall friction (hydrophilic), hydrophobic: non-monotonic.
+- Finney: Mg stearate effective at ≤15% moisture, not above.
+- Leal/Bose: Moisture and degradation increase cohesion/aggregation.
+
+**Flow Characteristics**
+- Fang et al., 2021: Friction coefficients (by tissue type) affect repose angle and flow, validated in simulation.
+- Cheng et al., 2022: 15% moisture = max flow energy; 75% = lowest. Increased moisture increases compressibility, reduces flowability.
+- Leal/Bose: Degraded tissues → poor flow, agglomeration, arching. Bose: microbial degradation increases aggregation, blockage.
+- Finney: Mg stearate improves flow (dry/15%), reduces wall friction angle, little effect for high-moisture.
+
+*** No study gave full flow energy/compressibility data, and only some gave quantitative values.
+
+---
+
+*** Discussion
+
+- ~Moisture and surface chemistry are keys to bulk flowability.~
+- Direct quantitative friction or adhesion values for plant tissues/particles are missing in all studies.
+- Methodological heterogeneity mostly prevents detailed meta-analysis.
+- Main handling challenges: friction, agglomeration, arching, rat-holing, surface modification by moisture and degradation—all are repeatedly noted.
+
+---
+
+*** References
+
+1. Fang, M., Yu, Z., Zhang, W., Cao, J., Liu, W. (2021). Friction coefficient calibration of corn stalk particle mixtures using Plackett-Burman design and response surface methodology. *Powder Technology.* [[PDF Link]](https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/fc30f087ff674611bd9be8fb92e90fd1)
+2. Cheng, Z., Gao, D.W., Powers, F.M., Navar, R., Leal, J., et al. (2022). Effect of Moisture and Feedstock Variability on the Rheological Behavior of Corn Stover Particles. *Frontiers in Energy Research.* [[PDF Link]](https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/70cd9dea0f0c47c7b0cef913b4b07647)
+3. Leal, J., Meierdierks, E.J., Navar, R., Moore, C., Ray, A.E., et al. (2022). Impacts of Biologically Induced Degradation on Surface Energy, Wettability, and Cohesion of Corn Stover. *Frontiers in Energy Research.* [[PDF Link]](https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/9579736e564f4cb2be1fbf49316aed34)
+4. Bose, E., Leal, J., Hoover, A.N., Zeng, Y., Li, C., et al. (2020). Impacts of Biological Heating and Degradation during Bale Storage on the Surface Properties of Corn Stover. *ACS Sustainable Chemistry and Engineering.* [[PDF Link]](https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/306679ec456e43218a6bb136efb042f6)
+5. Finney, T.J., Oberteuffer-Bailey, R., Wilson, A.W., Davis, B.L. (2025). Go with the Flow: Additives to Improve the Flowability of Crumbled Corn Stover. *ACS Sustainable Chemistry & Engineering.* [[PDF Link]](https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/ff778733a9aa4f7c8a2118c3a2b78fb5)
+
+---
+* Conclusions
+:PROPERTIES:
+:CUSTOM_ID: conclusions
+:END:
+
+From the observation that particles of corn cob show a larger standard deviation in the determined coefficient of friction, it can be hypothesized that particles of corn cob will have a high contribution to an erratic feedstock flow behavior.
+It can also be hypothesized that the cob will generate high frictional forces considering the high cohesive forces and moderate friction coefficients observed in a corn cob.
+The experimental data suggest that high-stress feedstock handling applications may be more stable with the removal of corn cob.
+
+It is planned to repeat tests with variations in moisture content.
+High adhesive forces in cob particles containing 'woody-ring' subfractions may be reduced as moisture levels increase towards the fiber saturation point, but further studies are required to understand any adverse effects on friction coefficients.
+
+The anatomical fractions discussed in this paper were categorized using macro-observations for the purpose of potential mechanical separation.
+Under further review, it appears each corn stover fraction contained an associated set of sub-fractions that could be found in at least one other fraction.
+Sub-fractions could be generally characterized as woody, pithy, or leafy.
+Additional steps in comminuting particles to expose 'sub-fractions' may allow fluid separation techniques to create more uniform and, therefore, desirable products.
+It is recommended to repeat this experiment using two additional comminution methods (i.e., knife mill and hammer mill) practiced in the industry to study varying effects of size reduction equipment on friction coefficients.
+
+** Future studies
+Using DEM in biomass flow studies
+
+* Acknowledgment
+  :PROPERTIES:
+  :CUSTOM_ID: acknowledgment
+  :END:
+
+This material is based upon work supported by the US Department of Energy's Office of Energy Efficiency and Renewable Energy (EERE) under the Bioenergy Technologies Office, Integrated Biorefinery Optimization award number DE-EE0008936.
+
+This work was partially supported by USDA NIFA Agricultural Experiment Station project PEN-4671.
+
+* References
+:PROPERTIES:
+:CUSTOM_ID: references
+:END:
+
+#+begin_comment
+
+Westover, T. L., Hartley,D. S. (2018). Biomass Handling and Feeding. In M. Nageswara-Rao & J. R.
+Soneji (Eds.), /Advances in Biofuels and Bioenergy/. InTech.
+https://doi.org/10.5772/intechopen.74606
+
+N Kaliyan, R V Morey. (2007).
+Roll Press Briquetting of Corn Stover and Switchgrass: A Pilot Scale
+Continuous Briquetting Study. In /2007 Minneapolis, Minnesota, June
+17-20, 2007/. American Society of Agricultural and Biological Engineers.
+https://doi.org/10.13031/2013.24034Pitenis,
+
+N. C., Nagle, N., Sievers, D. A., Stickel, J. J. (2016). The effects of
+physical and chemical preprocessing on the flowability of corn stover.
+/Biomass and Bioenergy/, /85/, 126--134.
+https://doi.org/10.1016/j.biombioe.2015.12.015Feedstock-Conversion
+
+
+Interface Consortium (FCIC). (n.d.), 24.
+
+Bioenergy Technologies Office. (2016). /Biorefinery Optimization
+Workshop Summary Report/ (p. 72). Chicago, IL: Department of
+Energy.Bioenergy Technologies Office. (2017). /2017 Project Peer
+Review---Feedstock Supply and Logistics/. Denver, Colorado: Department
+of Energy. Retrieved from
+https://www.energy.gov/eere/bioenergy/downloads/2017-project-peer-review-feedstock-supply-and-logisticsCrawford,
+
+Sawyer, W. (2014). Leonardo da Vinci's Friction Experiments: An Old
+Story Acknowledged and Repeated. /Tribology Letters/, /56/(3), 509--515.
+https://doi.org/10.1007/s11249-014-0428-7Ray, A. E., Williams, C. L.,
+
+A. A., Dowson, D., Gregory
+https://doi.org/10.1021/acssuschemeng.9b06763
+
+Hoover, A. N., Li, C., Sale, K. L., Emerson, R. M., ... Donohoe, B. S.
+(2020). Multiscale Characterization of Lignocellulosic Biomass
+Variability and Its Implications to Preprocessing and Conversion: a Case
+Study for Corn Stover. /ACS Sustainable Chemistry & Engineering/,
+/8/(8), 3218--3230.
+#+end_comment
+
+#+begin_export latex
+\printbibliography
+#+end_export
