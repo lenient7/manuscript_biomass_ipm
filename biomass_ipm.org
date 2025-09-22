@@ -1159,11 +1159,37 @@ Similar to as shown in Figure [[cohesive_friction_schematic]], the coefficient o
 #+begin_comment
   from '/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/studies/ipm_validation/agg_plots/'
   also from [[id:cd269f41-7a7e-46f8-b689-e77c5129896d][Polypropylene Validation]] in /home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BETO-Interparticle.org
+
+  - reference material test: paper
+  - reference material test: polypropylene
 #+end_comment
-- reference material test: paper
-- reference material test: polypropylene
   - [[parencite:&gracias_continuum_1998]][[id:d4101a76-7c0d-4498-9daf-a09376f3895e][Notes on :Gracias, D. H., & Somorjai, G. A. (1998: Continuum Force Microscopy Study of the Elastic Modulus, Hardness and Friction of Polyethylene and Polypropylene Surfaces]]
   -
+
+To validate the developed Inter-Particle Mechanics tester, a polypropylene sheet was used as a reference material.
+A polypropylene sheet with \qty{1.588}{\milli\meter} (1/16 inch) thickness was obtained from McMaster-Carr Supply Company,
+which lists the friction coefficient to range from 0.25 to 0.28 based on the specification of the manufacturer.
+20 samples were prepared and subjected to the IPM test.
+The obtained 20 test results of frictional interaction between two polypropylene sheet samples are shown in Figure [[fig:pp_pp_forces_all]],
+which clearly shows a linear relationship between normal force and traction force with detectable traction force.
+It should be noted that a test commenced with a positive normal force and it is maintained through entire test conducted by tractional movement.
+This test procedure resulted in consistent non-zero positive normal force measurements.
+
+#+NAME: fig:pp_pp_forces_all
+#+CAPTION: Validation test results of polyprophylene
+#+ATTR_LATEX: :height 2.75in
+file:./figures/figure06_pp_ipm_raw_measurements.png
+
+#+begin_comment
+[[file:./figures/pp_pp_normal_traction_forces_all.png]]
+#+end_comment
+
+Using Derjaguin’s adhesive contact model,
+the coefficient of friction and adhesion force were determined from the slope and intercept of the obtained linear relationship through the linear regression analysis. The summary of the determined friction coefficient (\(\mu\)) and adhesion force (\(c\)) are listed in Table [[tab:dt_pp]] and shown in Figure [[fig:pp_pp_comb_ipm_coefs_box]].
+The determined \(\mu\) and \(c\) values are consistent but smaller than the above-mentioned vendor specification.
+The determined friction coefficient is smaller than the listed range.
+This is an expected trend because the friction coefficient is reported to be smaller with the smaller normal force and initial sliding friction segment for polypropylene [[parencite:&gracias_continuum_1998;&sedlak_effect_2017]].
+This observation supports the accuracy of the Interparticle Mechanics Tester in determining frictional characteristics.
 
 #+begin_src R :session R-b_imt :tangle yes :tangle biomass_ipm.R :results none :exports none :eval never-export
   ## polypropylene
@@ -1267,15 +1293,6 @@ Table [[tab:dt_pp]] lists the results of the validation experiment.
   \end{longtable}
   \endgroup
 \end{table}
-
-#+NAME: fig:pp_pp_forces_all
-#+CAPTION: Validation test results of polyprophylene
-#+ATTR_LATEX: :height 2.75in
-file:./figures/figure06_pp_ipm_raw_measurements.png
-
-#+begin_comment
-[[file:./figures/pp_pp_normal_traction_forces_all.png]]
-#+end_comment
 
 #+begin_comment
 #+NAME: fig:pp_pp_c
@@ -1896,9 +1913,9 @@ Citations:
 9. http://geotechdata.info/parameter/angle-of-friction
 
 ** Discussion (Elicit)
-#+TITLE: Friction and Adhesion in Milled Corn Stover
-#+AUTHOR: Elicit Review
-#+DATE: 2025-07-29
+# +TITLE: Friction and Adhesion in Milled Corn Stover
+# +AUTHOR: Elicit Review
+# +DATE: 2025-07-29
 
 *** Abstract
 
