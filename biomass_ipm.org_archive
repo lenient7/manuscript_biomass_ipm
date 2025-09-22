@@ -1,0 +1,20 @@
+#    -*- mode: org -*-
+
+
+Archived entries from file /home/huy1/local/docs/prj/Publications/papers/PowderMech/Biomass_interparticle_mechanics/biomass_ipm.org
+
+
+* Inter-particle Mechanics test settings and operating Procedures
+  :PROPERTIES:
+  :CUSTOM_ID: ipmt-settings-and-operating-procedures
+  :ARCHIVE_TIME: 2023-10-04 Wed 10:02
+  :ARCHIVE_FILE: ~/local/docs/prj/Publications/papers/PowderMech/Biomass_interparticle_mechanics/biomass_ipm.org
+  :ARCHIVE_OLPATH: Materials and Methods/Experimental Design and Setup
+  :ARCHIVE_CATEGORY: biomass_ipm
+  :END:
+
+Each experiment was performed at a sliding speed of \SI{0.5}{\milli\meter\per\minute} with a randomized initial normal loading force between 0.3 and 2 N.
+Prior to each test, test operators must determine the required positioning of the normal force applicator (See Figure 2) to produce the target initial normal loading.
+This procedure was performed in less than 0.1mm increments to prevent overloading of the normal force sensor past the selected design capacity.
+Once the target initial normal force was applied, the traction force applicator and data collection were initiated.
+Data collection is terminated once particles are no longer in contact or upon sensor capacity concerns.

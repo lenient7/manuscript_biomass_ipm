@@ -1,0 +1,57 @@
+# -*- mode: org; system_dh: "/home/huy1/local/docs" -*-
+#+STARTUP: hidestars
+#+TAGS: SCHOLAR
+#+TITLE: Friction and adhesion between biomass particle
+#+BEAMER_HEADER: \title[Biomass Interparticle Mechanics]{Friction and adhesion between biomass particle}
+#+BEAMER_HEADER: \author[Yi et al.]{\small Hojae Yi \inst{1} and James H. Dooley\inst{2}}
+#+BEAMER_HEADER: \institute[Penn State]{\inst{1} The Pennsylvania State University \and \inst{2} Forest Concepts, LLC.}
+#+DATE: May 2023
+#+EMAIL: huy1@psu.edu
+#+LANGUAGE: English
+#+DESCRIPTION: Manuscript on the friction and adhesion between biomass particle
+#+KEYWORDS: Integrated Biorefinery Optimization, Biomass Handling, Biomass Flowability, Friction, Adhesion
+#+OPTIONS: H:2 num:2 toc:nil
+# +INCLUDE: "~/local/docs/prj/hy_presentation_head.org"
+# +LATEX_HEADER: \renewcommand*{\bibfont}{\tiny}
+# +LATEX_HEADER: \let\origtextcite\textcite
+# +LATEX_HEADER: \newrobustcmd*{\textcitehook}{\AtNextCite{\normalsize}}
+# +LATEX_HEADER: \renewrobustcmd*{\textcite}{\textcitehook\origtextcite}
+# +LATEX_HEADER: \appto{\citesetup}{\tiny}
+#+INCLUDE: "~/local/docs/prj/hy_manuscript_head.org"
+# +INCLUDE: "C:/Users/lenie/Documents/prj/hy_manuscript_head.org"
+#+LATEX_HEADER: \usepackage{physics}
+#+LATEX_HEADER: \usepackage[cal=cm]{mathalfa}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \setlistdepth{5}
+#+LATEX_HEADER: \renewlist{itemize}{itemize}{5}
+#+LATEX_HEADER: \setlist[itemize,1]{label=\textbullet}
+#+LATEX_HEADER: \setlist[itemize,2]{label=--}
+#+LATEX_HEADER: \setlist[itemize,3]{label=*}
+#+LATEX_HEADER: \setlist[itemize,4]{label=--}
+#+LATEX_HEADER: \setlist[itemize,5]{label=*}
+#+LATEX_HEADER: \togglefalse{win}
+#+LATEX_HEADER: \renewcommand*{\citesetup}{\scriptsize}
+#+LATEX_HEADER: \renewcommand*{\bibfont}{\scriptsize}
+#+LATEX_HEADER: \usepackage[colorinlistoftodos]{todonotes}
+#+BEAMER_HEADER: \AtBeginSection{}
+#+begin_comment
+# #+BEGIN_EXPORT latex
+# \author[1]{Hojae Yi\\ \href{mailto:huy1@psu.edu}{huy1@psu.edu}}
+# \author[2]{Virendra M. Puri\\ \href{mailto:vmpuri@psu.edu}{vmpuri@psu.edu}}
+# \affil{The Agricultural and Biological Engineering, The Pennsylvania State University}
+# #+END_EXPORT
+# +LaTeX_HEADER: \PassOptionsToPackage{sorting=ydnt}{biblates}
+#+property: session R-MT
+#+begin_src R :session R-MT :results output :exports none
+library(ggplot2)
+options(xtable.comment=FALSE) # prohibit print.xtable printing comments
+#+end_src
+#+end_comment
+
+* From DEM's theoretical framework
+* ASTM standards on friction and adhesion
+* Results
+- [X] check ipm data range: [:150] or [:100]?
+- It was [80:-1] if len(dt_tmp) > 80
+- Now it is [120:320] line 130 in [[/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs/data_analysis.py]]
+  Skipped if the length of the data without negative values is less than 100 readings

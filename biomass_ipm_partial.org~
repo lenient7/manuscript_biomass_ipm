@@ -1,0 +1,119 @@
+#+STARTUP: hidestars
+#+TAGS: SCHOLAR
+
+* Results and Discussion
+:PROPERTIES:
+:CUSTOM_ID: results-and-discussion
+:END:
+
+** Validation of the IPM
+#+begin_comment
+  from '/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/studies/ipm_validation/agg_plots/'
+#+end_comment
+- reference material test: paper
+- reference material test: polypropylene
+
+Table [[tab:dt_pp]] lists the results of the validation experiment.
+
+#+NAME: tab:dt_pp
+#+CAPTION:Validation test results of polypropylene
+\begin{table}
+  \begingroup\footnotesize
+  \begin{longtable}{lrrrrrrrrrr}
+    \textbf{Variable} & $\mathbf{n}$ & \textbf{Min} & $\mathbf{q_1}$ & $\mathbf{\widetilde{x}}$ & $\mathbf{\bar{x}}$ & $\mathbf{q_3}$ & \textbf{Max} & $\mathbf{s}$ & \textbf{IQR} & \textbf{\#NA} \\
+    \hline
+    mu & 20 &  0.194 & 0.221 & 0.250 & 0.258 & 0.288 & 0.394 & 0.051 & 0.067 & 0 \\
+    c & 20 & -8.472 & 2.048 & 3.790 & 3.309 & 5.488 & 8.931 & 3.657 & 3.441 & 0 \\
+    \hline
+  \end{longtable}
+  \endgroup
+\end{table}
+
+#+NAME: fig:pp_pp_forces_all
+#+CAPTION: Validation test results of polyprophylene
+#+ATTR_LATEX: :height 2.75in
+[[file:./figures/pp_pp_normal_traction_forces_all.png]]
+
+
+#+NAME: fig:pp_pp_c
+#+CAPTION: Validation test results of polyprophylene; adhesion force
+#+ATTR_LATEX: :height 2.75in
+[[file:./figures/pp_pp_coeff_c_box.png]]
+
+
+#+NAME: fig:pp_pp_mu
+#+CAPTION: Validation test results of polyprophylene; friction coefficient
+#+ATTR_LATEX: :height 2.75in
+[[file:./figures/pp_pp_coeff_mu_box.png]]
+
+** COMMENT Alternative method (fixed weight vs. traction force)
+** Corn stover particles from different tissue types
+
+Corn stover interactions involving cob fractions were found to contain the largest peaks and variance in friction coefficients (Table [[tab_wilcox_test_rt]]).
+Cob particles with woody-ring sub-fractions on the contacting surface were observed to be significantly harder and 'claw-like' in nature.
+Whereas the pith region of the cob was very similar to the exposed pith in stalk particles.
+Particles of stalk and husk both showed moderate friction coefficients.
+
+#+NAME: tab_wilcox_test_rt
+#+CAPTION: Wilcox Signed Rank Test Critical Values Table
+#+ATTR_LATEX: :align ccc
+|-------------+---------------+-------------|
+| *Paired*    |     *Average* |  *Standard* |
+| *Fractions* |    *Friction* | *Deviation* |
+|             | *Coefficient* |             |
+|-------------+---------------+-------------|
+| stalk-stalk |          0.28 |        0.09 |
+| cob-cob     |          0.86 |        0.26 |
+| husk-husk   |          0.23 |        0.06 |
+| stalk-cob   |          0.53 |        0.25 |
+| cob-husk    |          0.32 |        0.16 |
+| stalk-husk  |          0.21 |        0.07 |
+|-------------+---------------+-------------|
+
+#+NAME: tab_anova_rt
+#+CAPTION: Anova test result
+#+ATTR_LATEX: :align cccc
+|-----------------+-------------------+-----------+----------------|
+| *Particle Pair* | *Comparison Pair* | *Sum<Cr?* | *Result*       |
+|-----------------+-------------------+-----------+----------------|
+| stalk-stalk     | cob-cob           | TRUE      | reject null    |
+|                 | husk-husk         | FALSE     | fail to reject |
+|                 | stalk-cob         | TRUE      | reject null    |
+|                 | cob-husk          | FALSE     | fail to reject |
+|                 | stalk-husk        | FALSE     | fail to reject |
+| cob-cob         | husk-husk         | TRUE      | reject null    |
+|                 | stalk-cob         | TRUE      | reject null    |
+|                 | cob-husk          | TRUE      | reject null    |
+|                 | stalk-husk        | TRUE      | reject null    |
+| husk-husk       | stalk-cob         | TRUE      | reject null    |
+|                 | cob-husk          | FALSE     | fail to reject |
+|                 | stalk-husk        | FALSE     | fail to reject |
+| stalk-cob       | cob-husk          | FALSE     | fail to reject |
+|                 | stalk-husk        | TRUE      | reject null    |
+| cob-husk        | stalk-husk        | TRUE      | reject null    |
+|-----------------+-------------------+-----------+----------------|
+
+An ANOVA test (\(\alpha = 0.05\)) showed the key source of variance in friction coefficients was found to be between different combinations of fractions. Leading to further investigation of key sources of variances.
+Without an understanding of the population distribution, a Wilcoxon signed-rank test was conducted to determine the significance across the variance with each corn stover fraction combination.
+As shown in Table [[tab_anova_rt]], the results suggest that cob fractions had a significantly different friction coefficient.
+
+* Conclusions
+:PROPERTIES:
+:CUSTOM_ID: conclusions
+:END:
+
+From the observation that particles of corn cob show a larger standard deviation in the determined coefficient of friction, it can be hypothesized that particles of corn cob will have a high contribution to an erratic feedstock flow behavior.
+It can also be hypothesized that the cob will generate high frictional forces considering the high cohesive forces and moderate friction coefficients observed in a corn cob.
+The experimental data suggest that high-stress feedstock handling applications may be more stable with the removal of corn cob.
+
+It is planned to repeat tests with variations in moisture content.
+High adhesive forces in cob particles containing 'woody-ring' subfractions may be reduced as moisture levels increase towards the fiber saturation point, but further studies are required to understand any adverse effects on friction coefficients.
+
+The anatomical fractions discussed in this paper were categorized using macro-observations for the purpose of potential mechanical separation.
+Under further review, it appears each corn stover fraction contained an associated set of sub-fractions that could be found in at least one other fraction.
+Sub-fractions could be generally characterized as woody, pithy, or leafy.
+Additional steps in comminuting particles to expose 'sub-fractions' may allow fluid separation techniques to create more uniform and, therefore, desirable products.
+It is recommended to repeat this experiment using two additional comminution methods (i.e., knife mill and hammer mill) practiced in the industry to study varying effects of size reduction equipment on friction coefficients.
+
+** Future studies
+Using DEM in biomass flow studies

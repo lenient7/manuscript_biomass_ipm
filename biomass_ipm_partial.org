@@ -1,0 +1,297 @@
+# -*- mode: org; system_dh: "/home/huy1/local/docs" -*-
+# -*- mode: org; bibtex-completion-bibliography: "./references.bib" -*-
+#+STARTUP: hidestars
+#+TAGS: SCHOLAR
+#+TITLE: Angle of internal friction and inter-particle friction coefficient
+#+SUBTITLE:
+#+AUTHOR: James C. Slosson, Yiming Li, Sena Atsyo, Heather Burkholder, and Hojae Yi
+#+BEAMER_HEADER: \title[Biomass Interparticle Mechanics]{Friction and adhesion between biomass particle}
+#+BEAMER_HEADER: \author[Yi et al.]{\small Hojae Yi \inst{1} and James H. Dooley\inst{2}}
+#+BEAMER_HEADER: \institute[Penn State]{\inst{1} The Pennsylvania State University \and \inst{2} Forest Concepts, LLC.}
+#+DATE: \today
+#+EMAIL: huy1@psu.edu
+#+LANGUAGE: English
+#+DESCRIPTION: Manuscript on the friction and adhesion between biomass particle
+#+KEYWORDS: Integrated Biorefinery Optimization, Biomass Handling, Biomass Flowability, Friction, Adhesion, Biomass, corn stover, anatomical fraction, coefficient of friction (COF), adhesion force, sub-fractions.
+#+OPTIONS: H:2 num:2 toc:nil
+# +OPTIONS: H:3 num:3 toc:3
+#+LATEX_HEADER: \usepackage[backend=biber,style=phys,giveninits=true,biblabel=brackets,uniquename=init,natbib=true,doi=false,url=false,eprint=false,isbn=false,maxcitenames=2,maxnames=2,uniquelist=false,maxbibnames=99,autocite=inline]{biblatex}
+#+INCLUDE: "~/local/docs/prj/hy_manuscript_head.org"
+# +INCLUDE: "~/local/docs/prj/hy_presentation_head.org"
+# +LATEX_HEADER: \renewcommand*{\citesetup}{\scriptsize}
+# +LATEX_HEADER: \renewcommand*{\bibfont}{\scriptsize}
+# +LATEX_HEADER: \renewcommand*{\bibfont}{\tiny}
+# +BEAMER_HEADER: \AtBeginSection{}
+# +LATEX_HEADER: \let\origtextcite\textcite
+# +LATEX_HEADER: \newrobustcmd*{\textcitehook}{\AtNextCite{\normalsize}}
+# +LATEX_HEADER: \renewrobustcmd*{\textcite}{\textcitehook\origtextcite}
+# +LATEX_HEADER: \appto{\citesetup}{\tiny}
+#+LATEX_HEADER: \usepackage{physics}
+#+LATEX_HEADER: \usepackage[cal=cm]{mathalfa}
+#+LATEX_HEADER: \usepackage{enumitem}
+#+LATEX_HEADER: \setlistdepth{5}
+#+LATEX_HEADER: \renewlist{itemize}{itemize}{5}
+#+LATEX_HEADER: \setlist[itemize,1]{label=\textbullet}
+#+LATEX_HEADER: \setlist[itemize,2]{label=--}
+#+LATEX_HEADER: \setlist[itemize,3]{label=*}
+#+LATEX_HEADER: \setlist[itemize,4]{label=--}
+#+LATEX_HEADER: \setlist[itemize,5]{label=*}
+#+LATEX_HEADER: \usepackage[colorinlistoftodos]{todonotes}
+#+LATEX_HEADER: \usepackage{lineno}
+#+LATEX_HEADER: \linenumbers
+#+LATEX_HEADER: \renewcommand{\baselinestretch}{2.0}
+#+begin_comment
+# #+BEGIN_EXPORT latex
+# \author[1]{Hojae Yi\\ \href{mailto:huy1@psu.edu}{huy1@psu.edu}}
+# \author[2]{Virendra M. Puri\\ \href{mailto:vmpuri@psu.edu}{vmpuri@psu.edu}}
+# \affil{The Agricultural and Biological Engineering, The Pennsylvania State University}
+# #+END_EXPOR
+# +LaTeX_HEADER: \PassOptionsToPackage{sorting=ydnt}{biblates}
+#+end_comment
+#+property: session R-b_imt
+#+begin_src R :session R-MT :results output :exports none
+  library(ggplot2)
+  options(xtable.comment=FALSE) # prohibit print.xtable printing comments
+#+end_src
+
+
+#+BEGIN_abstract
+Corn stover interactions involving cob fractions were found to contain the largest peaks and variance in friction coefficients (Table 3).
+Cob particles with woody-ring sub-fractions on the contacting surface were observed to be significantly harder and 'claw-like' in nature.
+Whereas the pith region of the cob was very similar to the exposed pith in stalk particles. Particles of stalk and husk both showed moderate friction coefficients.
+
+From the observation that particles of corn cob show a larger standard deviation in the determined coefficient of friction, it can be hypothesized that particles of corn cob will have a high contribution to an erratic feedstock flow behavior.
+It can also be hypothesized that the cob will generate high frictional forces considering the high cohesive forces and moderate friction coefficients observed in a corn cob.
+The experimental data suggest that high-stress feedstock handling applications may be more stable with the removal of corn cob.
+
+The anatomical fractions discussed in this paper were categorized using macro-observations for the purpose of potential mechanical separation.
+Under further review, it appears each corn stover fraction contained an associated set of sub-fractions that could be found in at least one other fraction.
+Sub-fractions could be generally characterized as woody, pithy, or leafy.
+Additional steps in comminuting particles to expose 'sub-fractions' may allow fluid separation techniques to create more uniform and, therefore, desirable products.
+It is recommended to repeat this experiment using two additional comminution methods (i.e., knife mill and hammer mill) practiced in the industry to study varying effects of size reduction equipment on friction coefficients.
+#+END_abstract
+
+* Introduction
+:PROPERTIES:
+:CUSTOM_ID: introduction
+:END:
+
+Department of Energy's Bioenergy Technology Office (BETO) considers corn stover a key candidate as a biomass source for its abundance and current use in integrated biorefineries (IBR) [[citep:&doyle_integrated_2014;&usdoe_u.s._2011;&langholtz_2016_2016;&perlack_us_2011]]. Corn stover refers to the remaining corn plant fractions (i.e., stalk, husk, and cob) after the lower stalk is cut away and the grain has been harvested.
+While many want to bring the advantages of new biofuel technologies to industrial production, there is a significant financial risk due to frequent misrepresentation of physical and chemical variabilities in effective lignocellulosic biomass handling and feeding [[citep:&crawford_effects_2016;&ray_multiscale_2020;&Ray_BiomassBlendingDensification_2017]].
+In the most recent 2016 evaluation, total biofuel production only reached 7% of the expected 58 billion gallons per year design capacity [[citep:&westover_biomass_2018]].
+The challenges in the handling of biomass are one of the crucial impediments to adopting biomass as feedstocks for biofuel production.
+
+[[citet:&beto_biorefinery_2016]] reports that flowability challenges are mainly associated with biomass density, particle size distribution, moisture content, angle of repose, shear stress, bridging tendency, cohesive strength, and friction of equipment surfaces [[citep:&westover_biomass_2018]].
+The variations in biomass factors such as shape, size, moisture content, and low bulk density are considered to make it challenging to handle and transport in its original form [[citep:&kaliyan_roll_2009]].
+
+The root cause of such variations in bulk behavior of milled biomass originates from the multiscale-nature as depicted in the Figure [[fig:biomass_multiscale_shematic]].
+This means in order to develop a first-principle based understanding of bulk biomass behavior, quantitative knowledge of interactions between particles is necessary.
+With such knowledge, one can investigate and develop a predictive model of the mechanical behavior of bulk biomass.
+
+#+NAME: fig:biomass_multiscale_shematic
+#+CAPTION: Schematic of the emerging bulk mechanical properties from the mechanical interactions between biomass particles to the bulk mechanical behavior of milled biomass
+#+ATTR_LATEX: :height 2.75in
+[[file:./figures/biomass_multiscale_schematic.png]]
+
+However, the majority of the metrics used for the mentioned flow challenges are focused on bulk behavior and do not address the inter-particle mechanics leading to bulk observation.
+
+- Janssen's equation [[citet:&janssen1895versuche]] and stresses on silo wall[[citet:&schulze_examination_1994]]
+- Still not quantified Reynolds' question on the relationship between the angle of repose and friction between particles [[citet:&reynolds_lvii_1885]]
+- Recent studies with DEM still relying on fitted parameters that are not determined with particles [[citet:&xia_defining_2023;&chen_hopper_2023;&chen_set_2022]]
+
+Understanding interparticle mechanics associated with each corn stover fraction will provide valuable information for understanding the overall poor flow behavior of milled corn stover.
+More specifically, such quantitative information will help identify certain fractions that may be significantly responsible for the poor flowability behavior of comingled corn stover fractions.
+
+There exists a ASTM standards concerning the measuring friction coefficient including [[textcite:&astmg115-10_guide_2018]].
+However, listed methods in  [[textcite:&astmg115-10_guide_2018]] assumes a specific geometry, e.g., flat surface or sphere, and not feasible to implement for testing milled biomass particles,
+which are much smaller in size and irregular in shape.
+Also test protocols reflects repeated sliding in cyclic motion or rotation, which is implemented in a typical tribometer.
+QThis also reflects specific industrial applications such as ball bearing or sliding frames, which are not applicable to the interactions of biomass particles relevant to the bulk biomass flow.
+
+- In other words, the current friction measurements focus on interactions between sliding surfaces, e.g., bearing.
+  This focus is also reflected in the DEM framework, requiring sliding and rolling friction coefficient.
+  From the perspective of the handling bulk biomass, or any other cohesive particulate materials, the friction coefficient of incipient relative motion between particle is of interest.
+
+Therefore, we developed an in-house instrument and protocol that can determine mechanical interaction between biomass particles following the Derjaguin's adhesive friction model [[citep:&gao_frictional_2004;&derjaguin1934molekulartheorie;&derjaguin_effect_1975]].
+
+This study aims to gain quantitative knowledge of the interparticle mechanics of fractionated corn stover through the development of an interparticle mechanics tester capable of accommodating biomass particles and a test protocol to determine friction and adhesion properties.
+With the novel data on interparticle mechanical properties of corn stover particles from different anatomical origins, this study aims to examine the significance of the difference in friction coefficients between corn stover particles from different anatomical fractions.
+The knowledge gained by this study will contribute to reducing operational challenges by removing fractions with high friction and traction adhesion contributions.
+
+** Other notable quotes
+[[fullcite:&kenney_understanding_2013]] page 121: Variability of biomass exceeds handling machinery design specification: This paper also mentions about the start-up or continuous running efficiency
+* Results and Discussion
+:PROPERTIES:
+:CUSTOM_ID: results-and-discussion
+:END:
+
+** Validation of the IPM
+#+begin_comment
+  from '/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/studies/ipm_validation/agg_plots/'
+#+end_comment
+- reference material test: paper
+- reference material test: polypropylene
+
+Table [[tab:dt_pp]] lists the results of the validation experiment.
+
+#+NAME: tab:dt_pp
+#+CAPTION:Validation test results of polypropylene
+\begin{table}
+  \begingroup\footnotesize
+  \begin{longtable}{lrrrrrrrrrr}
+    \textbf{Variable} & $\mathbf{n}$ & \textbf{Min} & $\mathbf{q_1}$ & $\mathbf{\widetilde{x}}$ & $\mathbf{\bar{x}}$ & $\mathbf{q_3}$ & \textbf{Max} & $\mathbf{s}$ & \textbf{IQR} & \textbf{\#NA} \\
+    \hline
+    mu & 20 &  0.194 & 0.221 & 0.250 & 0.258 & 0.288 & 0.394 & 0.051 & 0.067 & 0 \\
+    c & 20 & -8.472 & 2.048 & 3.790 & 3.309 & 5.488 & 8.931 & 3.657 & 3.441 & 0 \\
+    \hline
+  \end{longtable}
+  \endgroup
+\end{table}
+
+#+NAME: fig:pp_pp_forces_all
+#+CAPTION: Validation test results of polyprophylene
+#+ATTR_LATEX: :height 2.75in
+[[file:./figures/pp_pp_normal_traction_forces_all.png]]
+
+
+#+NAME: fig:pp_pp_c
+#+CAPTION: Validation test results of polyprophylene; adhesion force
+#+ATTR_LATEX: :height 2.75in
+[[file:./figures/pp_pp_coeff_c_box.png]]
+
+
+#+NAME: fig:pp_pp_mu
+#+CAPTION: Validation test results of polyprophylene; friction coefficient
+#+ATTR_LATEX: :height 2.75in
+[[file:./figures/pp_pp_coeff_mu_box.png]]
+
+** COMMENT Alternative method (fixed weight vs. traction force)
+** Corn stover particles from different tissue types
+
+Corn stover interactions involving cob fractions were found to contain the largest peaks and variance in friction coefficients (Table [[tab_wilcox_test_rt]]).
+Cob particles with woody-ring sub-fractions on the contacting surface were observed to be significantly harder and 'claw-like' in nature.
+Whereas the pith region of the cob was very similar to the exposed pith in stalk particles.
+Particles of stalk and husk both showed moderate friction coefficients.
+
+#+NAME: tab_wilcox_test_rt
+#+CAPTION: Wilcox Signed Rank Test Critical Values Table
+#+ATTR_LATEX: :align ccc
+|-------------+---------------+-------------|
+| *Paired*    |     *Average* |  *Standard* |
+| *Fractions* |    *Friction* | *Deviation* |
+|             | *Coefficient* |             |
+|-------------+---------------+-------------|
+| stalk-stalk |          0.28 |        0.09 |
+| cob-cob     |          0.86 |        0.26 |
+| husk-husk   |          0.23 |        0.06 |
+| stalk-cob   |          0.53 |        0.25 |
+| cob-husk    |          0.32 |        0.16 |
+| stalk-husk  |          0.21 |        0.07 |
+|-------------+---------------+-------------|
+
+#+NAME: tab_anova_rt
+#+CAPTION: Anova test result
+#+ATTR_LATEX: :align cccc
+|-----------------+-------------------+-----------+----------------|
+| *Particle Pair* | *Comparison Pair* | *Sum<Cr?* | *Result*       |
+|-----------------+-------------------+-----------+----------------|
+| stalk-stalk     | cob-cob           | TRUE      | reject null    |
+|                 | husk-husk         | FALSE     | fail to reject |
+|                 | stalk-cob         | TRUE      | reject null    |
+|                 | cob-husk          | FALSE     | fail to reject |
+|                 | stalk-husk        | FALSE     | fail to reject |
+| cob-cob         | husk-husk         | TRUE      | reject null    |
+|                 | stalk-cob         | TRUE      | reject null    |
+|                 | cob-husk          | TRUE      | reject null    |
+|                 | stalk-husk        | TRUE      | reject null    |
+| husk-husk       | stalk-cob         | TRUE      | reject null    |
+|                 | cob-husk          | FALSE     | fail to reject |
+|                 | stalk-husk        | FALSE     | fail to reject |
+| stalk-cob       | cob-husk          | FALSE     | fail to reject |
+|                 | stalk-husk        | TRUE      | reject null    |
+| cob-husk        | stalk-husk        | TRUE      | reject null    |
+|-----------------+-------------------+-----------+----------------|
+
+An ANOVA test (\(\alpha = 0.05\)) showed the key source of variance in friction coefficients was found to be between different combinations of fractions. Leading to further investigation of key sources of variances.
+Without an understanding of the population distribution, a Wilcoxon signed-rank test was conducted to determine the significance across the variance with each corn stover fraction combination.
+As shown in Table [[tab_anova_rt]], the results suggest that cob fractions had a significantly different friction coefficient.
+
+* Conclusions
+:PROPERTIES:
+:CUSTOM_ID: conclusions
+:END:
+
+From the observation that particles of corn cob show a larger standard deviation in the determined coefficient of friction, it can be hypothesized that particles of corn cob will have a high contribution to an erratic feedstock flow behavior.
+It can also be hypothesized that the cob will generate high frictional forces considering the high cohesive forces and moderate friction coefficients observed in a corn cob.
+The experimental data suggest that high-stress feedstock handling applications may be more stable with the removal of corn cob.
+
+It is planned to repeat tests with variations in moisture content.
+High adhesive forces in cob particles containing 'woody-ring' subfractions may be reduced as moisture levels increase towards the fiber saturation point, but further studies are required to understand any adverse effects on friction coefficients.
+
+The anatomical fractions discussed in this paper were categorized using macro-observations for the purpose of potential mechanical separation.
+Under further review, it appears each corn stover fraction contained an associated set of sub-fractions that could be found in at least one other fraction.
+Sub-fractions could be generally characterized as woody, pithy, or leafy.
+Additional steps in comminuting particles to expose 'sub-fractions' may allow fluid separation techniques to create more uniform and, therefore, desirable products.
+It is recommended to repeat this experiment using two additional comminution methods (i.e., knife mill and hammer mill) practiced in the industry to study varying effects of size reduction equipment on friction coefficients.
+
+** Future studies
+Using DEM in biomass flow studies
+
+* Acknowledgment
+  :PROPERTIES:
+  :CUSTOM_ID: acknowledgment
+  :END:
+
+This material is based upon work supported by the US Department of Energy's Office of Energy Efficiency and Renewable Energy (EERE) under the Bioenergy Technologies Office, Integrated Biorefinery Optimization award number DE-EE0008936.
+
+This work was partially supported by USDA NIFA Agricultural Experiment Station project PEN-4671.
+
+* References
+:PROPERTIES:
+:CUSTOM_ID: references
+:END:
+
+#+begin_comment
+
+Westover, T. L., Hartley,D. S. (2018). Biomass Handling and Feeding. In M. Nageswara-Rao & J. R.
+Soneji (Eds.), /Advances in Biofuels and Bioenergy/. InTech.
+https://doi.org/10.5772/intechopen.74606
+
+N Kaliyan, R V Morey. (2007).
+Roll Press Briquetting of Corn Stover and Switchgrass: A Pilot Scale
+Continuous Briquetting Study. In /2007 Minneapolis, Minnesota, June
+17-20, 2007/. American Society of Agricultural and Biological Engineers.
+https://doi.org/10.13031/2013.24034Pitenis,
+
+N. C., Nagle, N., Sievers, D. A., Stickel, J. J. (2016). The effects of
+physical and chemical preprocessing on the flowability of corn stover.
+/Biomass and Bioenergy/, /85/, 126--134.
+https://doi.org/10.1016/j.biombioe.2015.12.015Feedstock-Conversion
+
+
+Interface Consortium (FCIC). (n.d.), 24.
+
+Bioenergy Technologies Office. (2016). /Biorefinery Optimization
+Workshop Summary Report/ (p. 72). Chicago, IL: Department of
+Energy.Bioenergy Technologies Office. (2017). /2017 Project Peer
+Review---Feedstock Supply and Logistics/. Denver, Colorado: Department
+of Energy. Retrieved from
+https://www.energy.gov/eere/bioenergy/downloads/2017-project-peer-review-feedstock-supply-and-logisticsCrawford,
+
+Sawyer, W. (2014). Leonardo da Vinci's Friction Experiments: An Old
+Story Acknowledged and Repeated. /Tribology Letters/, /56/(3), 509--515.
+https://doi.org/10.1007/s11249-014-0428-7Ray, A. E., Williams, C. L.,
+
+A. A., Dowson, D., Gregory
+https://doi.org/10.1021/acssuschemeng.9b06763
+
+Hoover, A. N., Li, C., Sale, K. L., Emerson, R. M., ... Donohoe, B. S.
+(2020). Multiscale Characterization of Lignocellulosic Biomass
+Variability and Its Implications to Preprocessing and Conversion: a Case
+Study for Corn Stover. /ACS Sustainable Chemistry & Engineering/,
+/8/(8), 3218--3230.
+#+end_comment
+
+#+begin_export latex
+\printbibliography
+#+end_export
