@@ -1425,13 +1425,19 @@ file:./figures/pp_pp_comb_ipm_coeffs_box_plts.png
   print(dt_ad_cs_typical_two_cases.plt)
 #+end_src
 
-#+RESULTS: fig_typical_imt_cs_result
+#+RESULTS: fig:typical_imt_cs_result
 #+CAPTION: Typical corn stover particle result (A is from cob particle vs. cob particle and B is from cob particle vs stalk particle)
 #+ATTR_LATEX: :placement [!htb]
 #+NAME: fig:typical_imt_cs_result
 [[file:./figures/typical_result_cs_two_cases.png]]
 
-To examine the variability in frictional contact mechanics between corn stover particles from different tissue types, corn stover samples were manually fractionated into the cob, husk, leaf, and stalk, then crumbled using a 4 mm screen using Crumbler\textsuperscript{®} by Forest Concepts, LLC. Twenty particle sample pairs for each tissue type were prepared, and the interparticle mechanics tests were conducted. A typical experimental data and regression analysis result is shown in Figure [[fig:typical_imt_cs_result]].
+To examine the variability in frictional contact mechanics between corn stover particles from different tissue types, corn stover samples were manually fractionated into the cob, husk, leaf, and stalk, then crumbled using a 4 mm screen using Crumbler\textsuperscript{\textregistered} by Forest Concepts, LLC. Twenty particle sample pairs for each tissue type were prepared, and the interparticle mechanics tests were conducted. A typical experimental data and regression analysis result is shown in Figure [[fig:typical_imt_cs_result]].
+It is notable that normal force approaches to zero value when compared to the polypropylene validation test (Figure [[fig:typical_imt_cs_result]]).
+Zero traction force with zero normal force is thought to occur because of highly uneven surface of biomass particle.
+In other words, while such rough surface can increase frictional resistance to traction sliding, but
+lateral movement can also reduce the required force to maintain the movement.
+This observation poses an interesting problem in describing cohesive friction interaction between biomass particles, which is discussed in detail below.
+
 Derjaguin’s linear model and other polynomial models reflecting the observation of [[textcite:&sedlak_effect_2017]] hinting that friction coefficient values can be smaller when the applied normal force is smaller.
 #+LATEX: \newpage
 ** Friction coefficient and Adhesion forces between corn stover particles from the same tissue type
@@ -1589,7 +1595,7 @@ Regarding adhesion forces, all fraction pairs exhibit negative values, indicatin
 An interesting inverse relationship emerges between friction and adhesion properties. Notably, cob-cob interactions show the lowest adhesion force at -0.027 despite having high friction, while stalk-leaf and stalk-husk pairs demonstrate relatively lower adhesion forces around -0.043. This pattern suggests that materials with high friction coefficients tend to exhibit lower adhesion forces, while those with strong adhesion generally show moderate friction coefficients. Leaf-based interactions maintain their unique character by consistently showing lower friction coefficients paired with moderate to high adhesion forces.
 
 #+LATEX: \newpage
-** Friction coefficient and Adhesion forces between corn stover particles from the different tissue type
+** Friction coefficient and Adhesion forces between corn stover particles from the different tissue types
 
 #+begin_src R  :session R-b_imt :tangle yes :tangle biomass_ipm.R :results none :exports none :eval never-export
   ## aggregated data EDA; Friction Coefficient of CS same fraction of IPM paper #1
