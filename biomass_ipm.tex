@@ -1,4 +1,4 @@
-% Created 2025-09-30 Tue 14:43
+% Created 2025-10-01 Wed 11:43
 % Intended LaTeX compiler: pdflatex
 \documentclass[xcolor=dvipsnames,10pt,hidelinks]{article}
 \usepackage[utf8]{inputenc}
@@ -65,6 +65,7 @@
 \usepackage{adjustbox}
 \usepackage{tabu}
 \usepackage{longtable}
+\usepackage{marginnote}
 \setcounter{secnumdepth}{2}
 \author{James C. Slosson, Yiming Li, Sena Atsyo, Heather Burkholder, and Hojae Yi}
 \date{\today}
@@ -95,7 +96,7 @@ Additional steps in comminuting particles to expose 'sub-fractions' may allow fl
 It is recommended to repeat this experiment using two additional comminution methods (i.e., knife mill and hammer mill) practiced in the industry to study varying effects of size reduction equipment on friction coefficients.
 \end{abstract}
 \section{Introduction}
-\label{sec:org15fe54c}
+\label{sec:org1c78901}
 Department of Energy's Bioenergy Technology Office (BETO) considers corn stover a key candidate as a biomass source for its abundance and current use in integrated biorefineries (IBR) \citep{doyle_integrated_2014,usdoe_u.s._2011,langholtz_2016_2016,perlack_us_2011}. Corn stover refers to the remaining corn plant fractions (i.e., stalk, husk, and cob) after the lower stalk is cut away and the grain has been harvested.
 While many want to bring the advantages of new biofuel technologies to industrial production, there is a significant financial risk due to frequent misrepresentation of physical and chemical variabilities in effective lignocellulosic biomass handling and feeding \citep{crawford_effects_2016,ray_multiscale_2020,Ray_BiomassBlendingDensification_2017}.
 In the most recent 2016 evaluation, total biofuel production only reached 7\% of the expected 58 billion gallons per year design capacity \citep{westover_biomass_2018}.
@@ -104,14 +105,14 @@ The challenges in the handling of biomass are one of the crucial impediments to 
 \citet{beto_biorefinery_2016} reports that flowability challenges are mainly associated with biomass density, particle size distribution, moisture content, angle of repose, shear stress, bridging tendency, cohesive strength, and friction of equipment surfaces \citep{westover_biomass_2018}.
 The variations in biomass factors such as shape, size, moisture content, and low bulk density are considered to make it challenging to handle and transport in its original form \citep{kaliyan_roll_2009}.
 
-The root cause of such variations in bulk behavior of milled biomass originates from the multiscale-nature as depicted in the Figure \ref{fig:orgf08ba99}.
+The root cause of such variations in bulk behavior of milled biomass originates from the multiscale-nature as depicted in the Figure \ref{fig:orgcfddf21}.
 This means in order to develop a first-principle based understanding of bulk biomass behavior, quantitative knowledge of interactions between particles is necessary.
 With such knowledge, one can investigate and develop a predictive model of the mechanical behavior of bulk biomass.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[height=2.75in]{./figures/biomass_multiscale_schematic.png}
-\caption{\label{fig:orgf08ba99}Schematic of the emerging bulk mechanical properties from the mechanical interactions between biomass particles to the bulk mechanical behavior of milled biomass}
+\caption{\label{fig:orgcfddf21}Schematic of the emerging bulk mechanical properties from the mechanical interactions between biomass particles to the bulk mechanical behavior of milled biomass}
 \end{figure}
 
 However, the majority of the metrics used for the mentioned flow challenges are focused on bulk behavior and do not address the inter-particle mechanics leading to bulk observation.
@@ -144,24 +145,24 @@ This study aims to gain quantitative knowledge of the interparticle mechanics of
 With the novel data on interparticle mechanical properties of corn stover particles from different anatomical origins, this study aims to examine the significance of the difference in friction coefficients between corn stover particles from different anatomical fractions.
 The knowledge gained by this study will contribute to reducing operational challenges by removing fractions with high friction and traction adhesion contributions.
 \subsection{Other notable quotes}
-\label{sec:org9121db7}
+\label{sec:org4111fb0}
 \fullcite{kenney_understanding_2013} page 121: Variability of biomass exceeds handling machinery design specification: This paper also mentions about the start-up or continuous running efficiency
 \section{Materials and Methods}
-\label{sec:orgfc936b2}
+\label{sec:orgd11a23f}
 This section details the method used to determine friction coefficients between anatomical fractions of corn stover.
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{figures/image2.png}
-\caption{\label{fig:org3e0af7e}Sample images of individual corn stover fractions used in the present study. 4mm cob Crumbles® (top left), 4mm husk Crumbles® (top right), 4mm stalk Crumbles® (bottom left), and 4mm leaf Crumbles® (bottom right)}
+\caption{\label{fig:org754a5e8}Sample images of individual corn stover fractions used in the present study. 4mm cob Crumbles® (top left), 4mm husk Crumbles® (top right), 4mm stalk Crumbles® (bottom left), and 4mm leaf Crumbles® (bottom right)}
 \end{figure}
 \subsection{Materials}
-\label{sec:org9d89b57}
+\label{sec:org0b62039}
 A field-dried square bale of corn stover supplied by Antares Corn Stover (Hardin, IA) was manually fractionated into cob, husk, leaf, and stalk tissues.
 Each fraction was comminuted to Forest Concepts Crumbles® with a Crumbler® rotary shear (Forest Concepts, Auburn, WA) and
 screened on a three-deck orbital classifier to achieve a target geometric mean diameter of 4 mm.
 Screen performance was consistent across tissues:
-the geometric mean diameter and sphericity differed by ≤0.2 mm and ≤0.05, respectively (Table \ref{tab:org46dc496}).
+the geometric mean diameter and sphericity differed by ≤0.2 mm and ≤0.05, respectively (Table \ref{tab:orgcf03b76}).
 Despite this size uniformity, loose bulk density varied almost four-fold—from \qty{53}{\kilo\gram\per\cubic\meter} in husk
 to \qty{199}{\kilo\gram\per\cubic\meter} in cob, while tapped density followed the same trend (Wilcoxon rank-sum, p < 0.05).
 
@@ -172,7 +173,7 @@ In contrast, husk and leaf particles are thin, planar, and flexible, creating in
 can lower bulk density and increase compressibility.
 
 \begin{table}[htbp]
-\caption{\label{tab:org46dc496}Physical properties of corn stover particles of different tissue type (Forest Concepts, LLC analytics laboratory in Auburn, WA). Values after \textpm{} represents standard error.}
+\caption{\label{tab:orgcf03b76}Physical properties of corn stover particles of different tissue type (Forest Concepts, LLC analytics laboratory in Auburn, WA). Values after \textpm{} represents standard error.}
 \centering
 \begin{tabular}{llllll}
 \textbf{Anatomical} & \textbf{Moisture} & \textbf{Geometric Mean} &  & \textbf{Bulk Density} & \\
@@ -194,7 +195,7 @@ the divergent bulk densities indicate true solid density, particle morphology, a
 Lower-density, high-aspect-ratio particles, i.e., husk and leaf, are thought to create large interstitial voids leading to lower bulk density and
 exhibit greater compressibility, which is detrimental to mass-flow hoppers and auger feeding systems.
 \subsection{Particle size distribution}
-\label{sec:orgb5f65b6}
+\label{sec:orgb58687f}
 
 Corn Stover Fractions
 Cob shows distinctly different behavior with more material retained at larger sizes (4.75-5 mm) compared to other fractions1
@@ -243,14 +244,14 @@ Surface area available for biological or chemical conversion
 Heat and mass transfer in thermochemical conversion processes
 This understanding can help optimize processing parameters and downstream conversion processes for different biomass fractions.
 \subsection{Inter-particle Mechanics (IPM) Tester}
-\label{sec:org5d4d58d}
+\label{sec:org0dc2923}
 Existing tribometer, similar to the instrument used in \citet{chen_measurements_2020},
 is challenging to be used in determining friction coefficient of milled biomass particles.
 unless employing an additional attachment due to the dimension of typical milled biomass particles.
 In addition, the cyclic reciprocating movement is not simulating the frictional interaction between biomass particles during handling,
 while it is thought to be an adhesive friction following Derjaguin's law \citep{derjaguin_influence_1994,derjaguin1934molekulartheorie}.
 
-To overcome such shortfalls, we developed a new Inter-particle Mechanics (IPM) (Figure \ref{fig:orgb991f36}) to measure the traction force between a stationary and moving particle under a varying magnitude of normal load.
+To overcome such shortfalls, we developed a new Inter-particle Mechanics (IPM) (Figure \ref{fig:org49125db}) to measure the traction force between a stationary and moving particle under a varying magnitude of normal load.
 This arrangement allows for one test run to produce multiple normal force and lateral force measurements and alleviates the requirement to conduct separate tests with different normal forces in a conventional friction tester \citep{pitenis_leonardo_2014,astmg115-10_guide_2018}.
 The development of the new design was essential for simulating any possible orientation of two interacting particles.
 This design allows collecting friction coefficients over multiple untested regions without resampling surfaces or replacing test particles between each repetition.
@@ -259,10 +260,10 @@ With this design, it is also possible to prepare and condition multiple test sam
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{figures/image3.png}
-\caption{\label{fig:orgb991f36}Inter-particle mechanics tester (right) with a detailed view of sample mounting (left).}
+\caption{\label{fig:org49125db}Inter-particle mechanics tester (right) with a detailed view of sample mounting (left).}
 \end{figure}
 \subsection{Specifications and Operational Parameters of Interparticle Mechanics Tester}
-\label{sec:org9ad070d}
+\label{sec:orge56a168}
 The designed Inter-Particle Mechanics Tester (IPMT, \parencite{slosson_characterization_2025}) can to perform friction tests on fully supported particles, unsupported (over-hanging), or combinations of both.
 Sample holders and component position and capacity are easily adjustable to handle particles of any size and shape.
 Considering the need to characterize the frictional contact with the perspective of storage and incipient flow of milled biomass,
@@ -277,7 +278,7 @@ with the accuracy of \qty{\pm 0.02}{\percent} of the full scale.
 Normal and traction force data were collected at \qty{80}{\hertz}, using National Instruments™ LabVIEW (Version 2022, Austin TX) and
 two 24-bit Di-1000U signal digitizers (Loadstar Sensors, Freemont, CA).
 \subsection{Experimental Design and Setup}
-\label{sec:org66af3e7}
+\label{sec:org8b3c2e8}
 An experimental procedure was developed to perform friction tests with minimal experimental error.
 A sample size of 15 was selected for each possible combination of anatomical fractions to ensure the quality of a subsequent analysis of variance (Kruskal-Wallis test with \(\alpha=0.05\)).
 The Wilcoxon signed-rank (signed-rank) test was conducted to test the null hypotheses,
@@ -287,7 +288,7 @@ To prepare an inter-particle mechanics test, approximately \qty{50}{\gram} sampl
 Each sample was held in a controlled environment for 72 hours to allow for particles to reach an equilibrium moisture content at approximately \qty{23}{\celsius} and \qty{40}{\percent} relative humidity.
 The resulting moisture contents of cob, husk, leaf, and stalk are \qty{8.9(1.0)}{\percent}, \qty{7.0(1.4)}{\percent}, \qty{7.0(1.2)}{\percent}, and \qty{8.9(1.1)}{\percent}, respectively (values after \(\pm\) represent the standard error with n = 11).
 
-Once particle moisture was equalized, particles were randomly selected and adhered to removable particle mounts (Figure \ref{fig:org851024d}) using Ultra Bond\textsuperscript{TM} Super Glue (Permatex Inc.).
+Once particle moisture was equalized, particles were randomly selected and adhered to removable particle mounts (Figure \ref{fig:orgc72fb23}) using Ultra Bond\textsuperscript{TM} Super Glue (Permatex Inc.).
 Conservative volumes of adhesives were applied to minimize the absorption into particles and ensure proper curing.
 From the visual inspection, it appeared that no glue sips into the particle samples,
 which is attributed to the high viscosity of the chosen glue and quick initial curing time.
@@ -298,14 +299,14 @@ Finally, the grain orientations were randomly chosen with every particle.
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=.9\linewidth]{figures/image4.jpg}
-\caption{\label{fig:org851024d}Image of corn stover particles adhered to plastic particle mount for conditioning and testing. The upper and lower half of the image contains 4mm husk and cob fractions, respectively.}
+\caption{\label{fig:orgc72fb23}Image of corn stover particles adhered to plastic particle mount for conditioning and testing. The upper and lower half of the image contains 4mm husk and cob fractions, respectively.}
 \end{figure}
 
 Once the adhesive had cured, particle pairs were randomly selected for testing.
-Table \ref{tab:orgdbb0782} lists the combinations of milled corn particles of different tissue types and conducted a number of repetitions for statistical analysis with the chosen significance level (\(\alpha = 0.05\)) to ensure the repeatability.
+Table \ref{tab:org9306ffb} lists the combinations of milled corn particles of different tissue types and conducted a number of repetitions for statistical analysis with the chosen significance level (\(\alpha = 0.05\)) to ensure the repeatability.
 
 \begin{table}[htbp]
-\caption{\label{tab:orgdbb0782}Experimental plan for the required number of corn fraction test pairs and associated repetitions.}
+\caption{\label{tab:org9306ffb}Experimental plan for the required number of corn fraction test pairs and associated repetitions.}
 \centering
 \begin{tabular}{ccc}
 \hline
@@ -345,11 +346,11 @@ From this linear relationship, the coefficient of friction (\(\mu\)) was determi
 and the adhesion force (\(F_0\)) was determined from the intercept of the best-fit line on the y-axis, i.e., the traction force axis.
 For this purpose, linear regression analyses were conducted to determine the coefficient of friction (\(\mu\)) and adhesion force (\(F_0\)) from experimental data.
 \section{Results and Discussion}
-\label{sec:orgdabf9c7}
+\label{sec:orgec9c8e8}
 \subsection{Validation of the IPM}
-\label{sec:orga44eba8}
+\label{sec:orgd54bfad}
 \begin{itemize}
-\item \parencite{gracias_continuum_1998}\href{../../../../../org/mindmap/gracias_continuum_1998.org}{Notes on :Gracias, D. H., \& Somorjai, G. A. (1998: Continuum Force Microscopy Study of the Elastic Modulus, Hardness and Friction of Polyethylene and Polypropylene Surfaces}
+\item \parencite{gracias_continuum_1998}\href{../../../../../../../wd5t/local/docs/org/mindmap/gracias_continuum_1998.org}{Notes on :Gracias, D. H., \& Somorjai, G. A. (1998: Continuum Force Microscopy Study of the Elastic Modulus, Hardness and Friction of Polyethylene and Polypropylene Surfaces}
 \item 
 \end{itemize}
 
@@ -357,7 +358,7 @@ To validate the developed Inter-Particle Mechanics tester, a polypropylene sheet
 A polypropylene sheet with \qty{1.588}{\milli\meter} (1/16 inch) thickness was obtained from McMaster-Carr Supply Company,
 which lists the friction coefficient to range from 0.25 to 0.28 based on the specification of the manufacturer.
 20 samples were prepared and subjected to the IPM test.
-The obtained 20 test results of frictional interaction between two polypropylene sheet samples are shown in Figure \ref{fig:org810e84b},
+The obtained 20 test results of frictional interaction between two polypropylene sheet samples are shown in Figure \ref{fig:org92c85b3},
 which clearly shows a linear relationship between normal force and traction force with detectable traction force.
 It should be noted that a test commenced with a positive normal force and it is maintained through entire test conducted by tractional movement.
 This test procedure resulted in consistent non-zero positive normal force measurements.
@@ -365,17 +366,17 @@ This test procedure resulted in consistent non-zero positive normal force measur
 \begin{figure}[htbp]
 \centering
 \includegraphics[height=2.75in]{./figures/figure06_pp_ipm_raw_measurements.png}
-\caption{\label{fig:org810e84b}Validation test results of polyprophylene}
+\caption{\label{fig:org92c85b3}Validation test results of polyprophylene}
 \end{figure}
 
 Using Derjaguin’s adhesive contact model,
-the coefficient of friction and adhesion force were determined from the slope and intercept of the obtained linear relationship through the linear regression analysis. The summary of the determined friction coefficient (\(\mu\)) and adhesion force (\(c\)) are listed in Table \ref{orgf24feae} and shown in Figure \ref{fig:orgaf4a0ae}.
+the coefficient of friction and adhesion force were determined from the slope and intercept of the obtained linear relationship through the linear regression analysis. The summary of the determined friction coefficient (\(\mu\)) and adhesion force (\(c\)) are listed in Table \ref{org54557c5} and shown in Figure \ref{fig:org5aef3b8}.
 The determined \(\mu\) and \(c\) values are consistent but smaller than the above-mentioned vendor specification.
 The determined friction coefficient is smaller than the listed range.
 This is an expected trend because the friction coefficient is reported to be smaller with the smaller normal force and initial sliding friction segment for polypropylene \parencite{gracias_continuum_1998,sedlak_effect_2017}.
 This observation supports the accuracy of the Interparticle Mechanics Tester in determining frictional characteristics.
 
-Table \ref{orgf24feae} lists the results of the validation experiment.
+Table \ref{org54557c5} lists the results of the validation experiment.
 
 \begin{table}
   \begingroup\footnotesize
@@ -387,30 +388,27 @@ Table \ref{orgf24feae} lists the results of the validation experiment.
     \hline
   \end{longtable}
   \endgroup
-\caption{\label{orgf24feae}Validation test results of polypropylene}
+\caption{\label{org54557c5}Validation test results of polypropylene}
 \end{table}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[height=4in]{./figures/pp_pp_comb_ipm_coeffs_box_plts.png}
-\caption{\label{fig:orgaf4a0ae}Interparticle Mechanics Test results of polypropylene sheet samples. Each color represents a different run of the experiments (n=20)}
+\caption{\label{fig:org5aef3b8}Interparticle Mechanics Test results of polypropylene sheet samples. Each color represents a different run of the experiments (n=20)}
 \end{figure}
 
 \newpage
 \subsection{Typical corn stover particles IPM results}
-\label{sec:org9f7a788}
-\begin{itemize}
-\item figure, results and discussion
-\label{sec:org35ab072}
-
+\label{sec:orgb9add37}
 \begin{figure}[!htb]
 \centering
 \includegraphics[width=.9\linewidth]{./figures/typical_result_cs_two_cases.png}
-\caption{\label{fig:org3d0df44}Typical corn stover particle result (A is from cob particle vs. cob particle and B is from cob particle vs stalk particle)}
+\caption{\label{fig:orgd5c4e18}Typical corn stover particle result (A is from cob particle vs. cob particle and B is from cob particle vs stalk particle)}
 \end{figure}
 
-To examine the variability in frictional contact mechanics between corn stover particles from different tissue types, corn stover samples were manually fractionated into the cob, husk, leaf, and stalk, then crumbled using a 4 mm screen using Crumbler\textsuperscript{\textregistered} by Forest Concepts, LLC. Twenty particle sample pairs for each tissue type were prepared, and the interparticle mechanics tests were conducted. A typical experimental data and regression analysis result is shown in Figure \ref{fig:org3d0df44}.
-It is notable that normal force approaches to zero value when compared to the polypropylene validation test (Figure \ref{fig:org3d0df44}).
+
+To examine the variability in frictional contact mechanics between corn stover particles from different tissue types, corn stover samples were manually fractionated into the cob, husk, leaf, and stalk, then crumbled using a 4 mm screen using Crumbler\textsuperscript{\textregistered} by Forest Concepts, LLC. Twenty particle sample pairs for each tissue type were prepared, and the interparticle mechanics tests were conducted. A typical experimental data and regression analysis result is shown in Figure \ref{fig:orgd5c4e18}. \marginnote{may want to use different result for dt\_ad\_cs typical\_stalk\_stalk 20230505\_11 plt}
+It is notable that normal force approaches to zero value when compared to the polypropylene validation test (Figure \ref{fig:orgd5c4e18}).
 Zero traction force with zero normal force is thought to occur because of highly uneven surface of biomass particle.
 In other words, while such rough surface can increase frictional resistance to traction sliding, but
 lateral movement can also reduce the required force to maintain the movement.
@@ -418,13 +416,12 @@ This observation poses an interesting problem in describing cohesive friction in
 
 Derjaguin’s linear model and other polynomial models reflecting the observation of \textcite{sedlak_effect_2017} hinting that friction coefficient values can be smaller when the applied normal force is smaller.
 \newpage
-\end{itemize}
 \subsection{Friction coefficient and Adhesion forces between corn stover particles from the same tissue type}
-\label{sec:org82c0a2d}
+\label{sec:orgef780ea}
 \begin{figure}[htbp]
 \centering
 \includegraphics[height=4in]{./figures/cs_cs_same_fraction_coeff_mu_box_plt.png}
-\caption{\label{fig:org3a1c5d4}Friction coefficient between corn stover particles of same tissue type}
+\caption{\label{fig:orgd86d323}Friction coefficient between corn stover particles of same tissue type}
 \end{figure}
 
 \newpage
@@ -432,11 +429,32 @@ Derjaguin’s linear model and other polynomial models reflecting the observatio
 \begin{figure}[htbp]
 \centering
 \includegraphics[height=4in]{./figures/cs_cs_same_fraction_coeff_c_box_plt.png}
-\caption{\label{fig:org72ceeb9}Adhesion force between corn stover particles of same tissue type}
+\caption{\label{fig:orgebc7d40}Adhesion force between corn stover particles of same tissue type}
 \end{figure}
 
 
+The determined friction coefficient and adhesion forces of corn stover particles are shown in Figure \ref{fig:orgd86d323} and Figure \ref{fig:orgebc7d40}.
+The analysis of corn stover particle interactions reveals distinct patterns in both friction coefficients and adhesion forces across different fraction pairs. Among the friction coefficients, cob-cob and stalk-cob interactions demonstrate the highest values at 0.636 and 0.629 respectively, indicating substantial frictional resistance between these particle types. The moderate friction range includes husk-cob and stalk-husk combinations, showing coefficients of 0.464 and 0.437, while stalk-stalk interactions exhibit intermediate friction behavior with a coefficient of 0.483.
 
+Leaf-based interactions consistently display lower friction coefficients, with leaf-leaf pairs showing 0.255, leaf-husk pairs at 0.275, and leaf-cob combinations reaching 0.445. This pattern suggests that leaf material generally creates less frictional resistance compared to other corn stover components.
+
+Regarding adhesion forces, all fraction pairs exhibit negative values, indicating repulsive forces between particles.
+This observation indicates that when two biomass particles are contacting each other with less than a couple of Newtons (100 gf or less),
+it will make each particles displaced away from each other.
+Depending on the direction of such relative motion, this phenomenon can help the bulk flow in the gravity direction or hinder the initiation of flow.
+At higher normal force (\(\gamma\times h\), where \(\gamma\) is bulk density and \(h\) is height of the bulk) condition,
+the observed small adhesion force can be interpreted as cohesive interaction.
+This observation alludes the complex problem of the incipient flow of the bulk.
+On the other hand, for the particles in motion, the normal force between particles can be thought to be minuscule, which will make the contact cohesionless.
+
+Stalk-stalk pairs demonstrate the strongest adhesion with a value of -0.074, closely followed by husk-husk interactions at -0.071.
+Stalk-cob and leaf-husk pairs show moderate adhesion forces around -0.060, with husk-cob interactions similarly positioned at -0.057.
+An interesting inverse relationship emerges between friction and adhesion properties. Notably, cob-cob interactions show the lowest adhesion force at -0.027 despite having high friction, while stalk-leaf and stalk-husk pairs demonstrate relatively lower adhesion forces around -0.043. This pattern suggests that materials with high friction coefficients tend to exhibit lower adhesion forces, while those with strong adhesion generally show moderate friction coefficients. Leaf-based interactions maintain their unique character by consistently showing lower friction coefficients paired with moderate to high adhesion forces.
+\begin{itemize}
+\item summary observations
+\label{sec:org9330502}
+\newline
+\begingroup\footnotesize
 The mechanical properties of agricultural residues, particularly corn stover, are critical parameters in the design and optimization of biomass processing systems. Understanding the frictional interactions between particles of different tissue types provides fundamental insights into powder mechanics behavior, flow characteristics, and processing efficiency. This investigation focuses exclusively on homogeneous tissue interactions to isolate the intrinsic mechanical properties of individual corn stover components.
 
 Results and Discussion
@@ -518,20 +536,16 @@ Conclusions
 Friction coefficients exceeding 1 signify intense interlocking and viscoelastic dissipation, values below 0 arise from measurement artefacts or exotic nanoscale phenomena, and negative adhesion indicates electrostatic or roughness-induced repulsion.
 The dataset conforms to Dejarguin’s linear cohesive model, where the shear force depends on both load and an adhesion intercept, seamlessly nesting Amonton’s law as a limiting case when \(c \to 0\).
 These insights refine mechanical design margins for biomass processing and underscore the nuanced interplay of adhesion and friction in lignocellulosic particle systems.
-
-The determined friction coefficient and adhesion forces of corn stover particles are shown in Figure 8 and Figure 9. The analysis of corn stover particle interactions reveals distinct patterns in both friction coefficients and adhesion forces across different fraction pairs. Among the friction coefficients, cob-cob and stalk-cob interactions demonstrate the highest values at 0.636 and 0.629 respectively, indicating substantial frictional resistance between these particle types. The moderate friction range includes husk-cob and stalk-husk combinations, showing coefficients of 0.464 and 0.437, while stalk-stalk interactions exhibit intermediate friction behavior with a coefficient of 0.483.
-Leaf-based interactions consistently display lower friction coefficients, with leaf-leaf pairs showing 0.255, leaf-husk pairs at 0.275, and leaf-cob combinations reaching 0.445. This pattern suggests that leaf material generally creates less frictional resistance compared to other corn stover components.
-Regarding adhesion forces, all fraction pairs exhibit negative values, indicating attractive forces between particles. Stalk-stalk pairs demonstrate the strongest adhesion with a value of -0.074, closely followed by husk-husk interactions at -0.071. Stalk-cob and leaf-husk pairs show moderate adhesion forces around -0.060, with husk-cob interactions similarly positioned at -0.057.
-An interesting inverse relationship emerges between friction and adhesion properties. Notably, cob-cob interactions show the lowest adhesion force at -0.027 despite having high friction, while stalk-leaf and stalk-husk pairs demonstrate relatively lower adhesion forces around -0.043. This pattern suggests that materials with high friction coefficients tend to exhibit lower adhesion forces, while those with strong adhesion generally show moderate friction coefficients. Leaf-based interactions maintain their unique character by consistently showing lower friction coefficients paired with moderate to high adhesion forces.
-
+\endgroup
 \newpage
+\end{itemize}
 \subsection{Friction coefficient and Adhesion forces between corn stover particles from the different tissue types}
-\label{sec:org16f7ca5}
+\label{sec:orgec56c1a}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics[height=4in]{./figures/cs_cs_different_fraction_coeff_mu_box_plt.png}
-\caption{\label{fig:org4d3e456}Friction coefficient between corn stover particles of different tissue type}
+\caption{\label{fig:org2440e33}Friction coefficient between corn stover particles of different tissue type}
 \end{figure}
 
 \newpage
@@ -539,7 +553,7 @@ An interesting inverse relationship emerges between friction and adhesion proper
 \begin{figure}[htbp]
 \centering
 \includegraphics[height=4in]{./figures/cs_cs_different_fraction_coeff_c_box_plt.png}
-\caption{\label{fig:orga7dd0ce}Adhesion force between corn stover particles of different tissue types}
+\caption{\label{fig:org90cda40}Adhesion force between corn stover particles of different tissue types}
 \end{figure}
 
 
@@ -551,13 +565,13 @@ An interesting inverse relationship emerges between friction and adhesion proper
 
 
 
-Corn stover interactions involving cob fractions were found to contain the largest peaks and variance in friction coefficients (Table \ref{tab:org68a1880}).
+Corn stover interactions involving cob fractions were found to contain the largest peaks and variance in friction coefficients (Table \ref{tab:orgceb3542}).
 Cob particles with woody-ring sub-fractions on the contacting surface were observed to be significantly harder and 'claw-like' in nature.
 Whereas the pith region of the cob was very similar to the exposed pith in stalk particles.
 Particles of stalk and husk both showed moderate friction coefficients.
 
 \begin{table}[htbp]
-\caption{\label{tab:org68a1880}Wilcox Signed Rank Test Critical Values Table}
+\caption{\label{tab:orgceb3542}Wilcox Signed Rank Test Critical Values Table}
 \centering
 \begin{tabular}{ccc}
 \hline
@@ -576,7 +590,7 @@ stalk-husk & 0.21 & 0.07\\
 \end{table}
 
 \begin{table}[htbp]
-\caption{\label{tab:org20a6758}Anova test result}
+\caption{\label{tab:org53c57a9}Anova test result}
 \centering
 \begin{tabular}{cccc}
 \hline
@@ -603,12 +617,12 @@ cob-husk & stalk-husk & TRUE & reject null\\
 
 An ANOVA test (\(\alpha = 0.05\)) showed the key source of variance in friction coefficients was found to be between different combinations of fractions. Leading to further investigation of key sources of variances.
 Without an understanding of the population distribution, a Wilcoxon signed-rank test was conducted to determine the significance across the variance with each corn stover fraction combination.
-As shown in Table \ref{tab:org20a6758}, the results suggest that cob fractions had a significantly different friction coefficient.
+As shown in Table \ref{tab:org53c57a9}, the results suggest that cob fractions had a significantly different friction coefficient.
 \subsection{Relationship of particle-particle interaction model parameters and continuum scale elasto-plasticity model parameters}
-\label{sec:orge3b5b93}
+\label{sec:org11ec0ac}
 \begin{itemize}
 \item Derjaguin's model
-\label{sec:org329d4e3}
+\label{sec:org1cce009}
 \begin{equation}
   \label{eq:Derjaguin}
  N_t =  N_f + \mu N_n
@@ -617,14 +631,14 @@ where \(N_f\) is the adhesion force, \(\mu\) is the friction coefficient, and \(
 
 These equations include definitions of adhesion/cohesion and friction coeffient at different scale, yet they convey similar connotation without a physical connection  \parencite{reynolds_lvii_1885}.
 \item Mohr-Coulomb model
-\label{sec:org2889b10}
+\label{sec:org40473dc}
 \begin{equation}
   \label{eq:mc}
   \tau = c + \sigma\tan\phi
 \end{equation}
 where \(\tau\) is the shear stress, \(c\) is cohesion coefficient, \(\sigma\) is normal stress, and \(\phi\) is the angle of internal friction
 \item Similar discussions can be made on Rankine/Janssen equation.
-\label{sec:org5f09e81}
+\label{sec:org7526077}
 
 \begin{itemize}
 \item Rankin's
@@ -751,7 +765,7 @@ Citations:
 \item \url{https://testbook.com/civil-engineering/boussinesqs-equation-definition-and-hypothesis}
 \end{enumerate}
 \item Counter arguments to Reynolds' claim
-\label{sec:orgea7227d}
+\label{sec:orga612547}
 ```scratchpad
 {[}AttentionFocus:
 PrimaryFocus: Connection between angle of repose, particle friction, and Mohr-Coulomb's angle of internal friction
@@ -841,10 +855,10 @@ Citations:
 \end{enumerate}
 \end{itemize}
 \subsection{Discussion (Elicit)}
-\label{sec:orgb04b80e}
+\label{sec:orgda578f4}
 \begin{itemize}
 \item Abstract
-\label{sec:org97855ac}
+\label{sec:org00a1601}
 
 Five experimental studies probed friction- and adhesion-related characteristics of milled corn stover.
 \begin{itemize}
@@ -856,14 +870,14 @@ Five experimental studies probed friction- and adhesion-related characteristics 
 
 None of the studies provided direct, quantitative measurements of particle-scale friction coefficients or adhesion forces. Most offered qualitative and proxy evaluations.
 \item Methods
-\label{sec:orge1c9864}
+\label{sec:org8a99ce4}
 
 \begin{itemize}
 \item Analyzed 5 sources from an initial pool of 50, using 7 screening criteria.
 \item Each paper reviewed for 5 key aspects relevant to the research question.
 \end{itemize}
 \item Results
-\label{sec:orgb2a7480}
+\label{sec:org098ed93}
 
 \textbf{\textbf{Characteristics of Included Studies}}
 
@@ -905,9 +919,9 @@ Finney & Flow additives effect on flowability & Bulk (not specified) & FT4 powde
 \item Cohesion/adhesion, roughness, porosity, density, etc.: 1 study each.
 \end{itemize}
 \item None of the included studies provided direct, quantitative friction coefficient or adhesion force measurements at particle scale.
-\label{sec:org1c233d9}
+\label{sec:org45b4c16}
 \item Most reported trends or related properties (wall friction angle, surface energy) and qualitative trends.
-\label{sec:org6a5f020}
+\label{sec:orgfd349b2}
 
 \textbf{\textbf{Friction Coefficient Measurements}}
 
@@ -946,11 +960,11 @@ Finney et al. & -- & 0, 15, 30\% & -- & Wall friction angle reduced w/ mag. stea
 \item Finney: Mg stearate improves flow (dry/15\%), reduces wall friction angle, little effect for high-moisture.
 \end{itemize}
 \item No study gave full flow energy/compressibility data, and only some gave quantitative values.
-\label{sec:org2442d15}
+\label{sec:org25a298e}
 
 ---
 \item Discussion
-\label{sec:orgdfd5724}
+\label{sec:orgbec5c83}
 
 \begin{itemize}
 \item \texttt{Moisture and surface chemistry are keys to bulk flowability.}
@@ -961,7 +975,7 @@ Finney et al. & -- & 0, 15, 30\% & -- & Wall friction angle reduced w/ mag. stea
 
 ---
 \item References
-\label{sec:org23f1fb3}
+\label{sec:org9182edf}
 
 \begin{enumerate}
 \item Fang, M., Yu, Z., Zhang, W., Cao, J., Liu, W. (2021). Friction coefficient calibration of corn stalk particle mixtures using Plackett-Burman design and response surface methodology. \textbf{Powder Technology.} {[}BROKEN LINK: PDF Link](\url{https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/fc30f087ff674611bd9be8fb92e90fd1})
@@ -974,7 +988,7 @@ Finney et al. & -- & 0, 15, 30\% & -- & Wall friction angle reduced w/ mag. stea
 ---
 \end{itemize}
 \section{Conclusions}
-\label{sec:org04718ba}
+\label{sec:org918750b}
 From the observation that particles of corn cob show a larger standard deviation in the determined coefficient of friction, it can be hypothesized that particles of corn cob will have a high contribution to an erratic feedstock flow behavior.
 It can also be hypothesized that the cob will generate high frictional forces considering the high cohesive forces and moderate friction coefficients observed in a corn cob.
 The experimental data suggest that high-stress feedstock handling applications may be more stable with the removal of corn cob.
@@ -988,14 +1002,14 @@ Sub-fractions could be generally characterized as woody, pithy, or leafy.
 Additional steps in comminuting particles to expose 'sub-fractions' may allow fluid separation techniques to create more uniform and, therefore, desirable products.
 It is recommended to repeat this experiment using two additional comminution methods (i.e., knife mill and hammer mill) practiced in the industry to study varying effects of size reduction equipment on friction coefficients.
 \subsection{Future studies}
-\label{sec:orgf23ba1c}
+\label{sec:org8172cbc}
 Using DEM in biomass flow studies
 \section{Acknowledgment}
-\label{sec:org819553f}
+\label{sec:org9f53369}
 This material is based upon work supported by the US Department of Energy's Office of Energy Efficiency and Renewable Energy (EERE) under the Bioenergy Technologies Office, Integrated Biorefinery Optimization award number DE-EE0008936.
 
 This work was partially supported by USDA NIFA Agricultural Experiment Station project PEN-4671.
 \section{References}
-\label{sec:orgccf9461}
+\label{sec:org5d4f4bc}
 \printbibliography
 \end{document}
