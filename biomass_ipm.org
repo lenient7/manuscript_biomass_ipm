@@ -1524,7 +1524,6 @@ Stalk-cob and leaf-husk pairs show moderate adhesion forces around -0.060, with 
 An interesting inverse relationship emerges between friction and adhesion properties. Notably, cob-cob interactions show the lowest adhesion force at -0.027 despite having high friction, while stalk-leaf and stalk-husk pairs demonstrate relatively lower adhesion forces around -0.043. This pattern suggests that materials with high friction coefficients tend to exhibit lower adhesion forces, while those with strong adhesion generally show moderate friction coefficients. Leaf-based interactions maintain their unique character by consistently showing lower friction coefficients paired with moderate to high adhesion forces.
 
 *** summary observations
-\newline
 \begingroup\footnotesize
 The mechanical properties of agricultural residues, particularly corn stover, are critical parameters in the design and optimization of biomass processing systems. Understanding the frictional interactions between particles of different tissue types provides fundamental insights into powder mechanics behavior, flow characteristics, and processing efficiency. This investigation focuses exclusively on homogeneous tissue interactions to isolate the intrinsic mechanical properties of individual corn stover components.
 
@@ -1664,14 +1663,6 @@ file:./figures/cs_cs_different_fraction_coeff_mu_box_plt.png
 file:./figures/cs_cs_different_fraction_coeff_c_box_plt.png
 
 
-
-
-
-
-
-
-
-
 Corn stover interactions involving cob fractions were found to contain the largest peaks and variance in friction coefficients (Table [[tab_wilcox_test_rt]]).
 Cob particles with woody-ring sub-fractions on the contacting surface were observed to be significantly harder and 'claw-like' in nature.
 Whereas the pith region of the cob was very similar to the exposed pith in stalk particles.
@@ -1716,9 +1707,18 @@ Particles of stalk and husk both showed moderate friction coefficients.
 | cob-husk        | stalk-husk        | TRUE      | reject null    |
 |-----------------+-------------------+-----------+----------------|
 
+#+begin_comment
 An ANOVA test (\(\alpha = 0.05\)) showed the key source of variance in friction coefficients was found to be between different combinations of fractions. Leading to further investigation of key sources of variances.
 Without an understanding of the population distribution, a Wilcoxon signed-rank test was conducted to determine the significance across the variance with each corn stover fraction combination.
 As shown in Table [[tab_anova_rt]], the results suggest that cob fractions had a significantly different friction coefficient.
+#+end_comment
+
+Without an understanding of the population distribution,
+Kruskal-Wallis test was conducted to determine the significance across the variance with each corn stover fraction combination with Dunn test as the post-hoc test.
+It is found that the tissue type can be a source of variance in friction coefficients (\(\chi^2 = 86\), \(df = 3\), and \(p < 2e-16\)).
+Post-hoc Dunn test results (α=0.05, Table 5) show that particles of different tissue types exhibit significantly different friction coefficients except husk and leaf particles.
+On the other hand, the adhesion forces are not found to be significantly different (Kruska-Wallis test, \(\chi^2 = 4.8)\), \(df = 3\), and \(p = 0.2\).
+
 ** Relationship of particle-particle interaction model parameters and continuum scale elasto-plasticity model parameters
 *** Derjaguin's model
   #+begin_export latex
@@ -1738,7 +1738,9 @@ These equations include definitions of adhesion/cohesion and friction coeffient 
     \tau = c + \sigma\tan\phi
   \end{equation}
   #+end_export
-  where \(\tau\) is the shear stress, \(c\) is cohesion coefficient, \(\sigma\) is normal stress, and \(\phi\) is the angle of internal friction
+  where \(\tau\) is the shear stress, \(c\) is cohesion coefficient, \(\sigma\) is normal stress, and \(\phi\) is the angle of internal friction.
+
+
 *** Similar discussions can be made on Rankine/Janssen equation.
 
 - Rankin's

@@ -1,20 +1,19 @@
 [0] Config.pm:328> INFO - This is Biber 2.21
 [0] Config.pm:331> INFO - Logfile is 'biomass_ipm.blg'
-[104] biber:342> INFO - === Wed Oct  1, 2025, 11:28:46
-[122] Biber.pm:421> INFO - Reading 'biomass_ipm.bcf'
-[221] Biber.pm:1002> INFO - Found 31 citekeys in bib section 0
-[239] Biber.pm:4487> INFO - Processing section 0
-[251] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
-[415] bibtex.pm:1713> INFO - LaTeX decoding ...
-[11329] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
-[12345] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[12345] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[12345] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
-[12345] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
-[12376] bbl.pm:676> INFO - Writing 'biomass_ipm.bbl' with encoding 'UTF-8'
-[12403] bbl.pm:779> INFO - Output to biomass_ipm.bbl
-[12404] Biber.pm:132> WARN - Citekey alias 'choi_numerical_2022a' is also a real entry key, skipping ...
-[12404] Biber.pm:132> WARN - Citekey alias 'd18_committee_test_nodate-2' is also a real entry key, skipping ...
-[12404] Biber.pm:132> WARN - ISBN '978-1-78923-286-8 978-1-78923-287-5' in entry 'westover_biomass_2018' is invalid - run biber with '--validate_datamodel' for details.
-[12404] Biber.pm:132> WARN - I didn't find a database entry for 'astmg115-10_guide_2018' (section 0)
-[12404] Biber.pm:134> INFO - WARNINGS: 4
+[36] biber:342> INFO - === Mon Oct  6, 2025, 15:07:24
+[44] Biber.pm:421> INFO - Reading 'biomass_ipm.bcf'
+[86] Biber.pm:1002> INFO - Found 31 citekeys in bib section 0
+[93] Biber.pm:4487> INFO - Processing section 0
+[98] Biber.pm:4678> INFO - Looking for bibtex file 'references.bib' for section 0
+[193] bibtex.pm:1713> INFO - LaTeX decoding ...
+[4520] bibtex.pm:1519> INFO - Found BibTeX data source 'references.bib'
+[4979] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[4980] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[4980] Biber.pm:4307> INFO - Sorting list 'none/global//global/global/global' of type 'entry' with template 'none' and locale 'en-US'
+[4980] Biber.pm:4313> INFO - No sort tailoring available for locale 'en-US'
+[4996] bbl.pm:676> INFO - Writing 'biomass_ipm.bbl' with encoding 'UTF-8'
+[5007] bbl.pm:779> INFO - Output to biomass_ipm.bbl
+[5007] Biber.pm:132> WARN - Citekey alias 'choi_numerical_2022a' is also a real entry key, skipping ...
+[5007] Biber.pm:132> WARN - ISBN '978-1-78923-286-8 978-1-78923-287-5' in entry 'westover_biomass_2018' is invalid - run biber with '--validate_datamodel' for details.
+[5007] Biber.pm:132> WARN - I didn't find a database entry for 'astmg115-10GuideMeasuringReporting2018' (section 0)
+[5007] Biber.pm:134> INFO - WARNINGS: 3
