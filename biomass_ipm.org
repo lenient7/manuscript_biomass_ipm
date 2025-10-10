@@ -17,7 +17,9 @@
 #+OPTIONS: H:2 num:2 toc:nil
 # +OPTIONS: H:3 num:3 toc:3
 # +OPTIONS: toc:nil num:nil # by Elicit
-#+LATEX_HEADER: \usepackage[backend=biber,style=phys,giveninits=true,biblabel=brackets,uniquename=init,natbib=true,doi=false,url=false,eprint=false,isbn=false,maxcitenames=2,maxnames=2,uniquelist=false,maxbibnames=99,autocite=inline]{biblatex}
+# +LATEX_HEADER: \usepackage[backend=biber,style=phys,giveninits=true,biblabel=brackets,uniquename=init,natbib=true,doi=false,url=false,eprint=false,isbn=false,maxcitenames=2,maxnames=2,uniquelist=false,maxbibnames=99,autocite=inline]{biblatex}
+# +LATEX_HEADER: \usepackage{biblatex-chicago}
+#+LATEX_HEADER: \usepackage[backend=biber,style=chicago-authordate,giveninits=true,uniquename=init,natbib=true,doi=false,url=false,eprint=false,isbn=false,maxcitenames=2,maxnames=2,uniquelist=false,maxbibnames=99,autocite=inline]{biblatex}
 #+INCLUDE: "~/local/docs/prj/hy_manuscript_head.org"
 # +INCLUDE: "~/local/docs/prj/hy_presentation_head.org"
 # +LATEX_HEADER: \renewcommand*{\citesetup}{\scriptsize}
@@ -104,21 +106,55 @@ However, the majority of the metrics used for the mentioned flow challenges are 
 - Still not quantified Reynolds' question on the relationship between the angle of repose and friction between particles [[citet:&reynolds_lvii_1885]]
 - Recent studies with DEM still relying on fitted parameters that are not determined with particles [[citet:&xia_defining_2023;&chen_hopper_2023;&chen_set_2022]]
 
+Five experimental studies probed friction- and adhesion-related characteristics of milled corn stover.
+- [[textcite:&fang_friction_2022]] : Calibrated friction proxies using repose angle tests on internodal, pith, and nodal tissues.
+  DEM parameter calibration, repose angle tests, simulation on different tissue types including internodal, pith, nodal tissue
+  While this study examined angle of repose,
+- [[textcite:&cheng_effect_2022]] : Measured wall friction angles on various surfaces over 0 \(\sim\) 75% moisture; friction increased with moisture on hydrophilic surfaces but showed non-monotonic behavior on hydrophobic surfaces.
+  using Experimental, FT4 powder rheometry. comingled bulk milled corn stover measuring flow energy, compressiblity, and wall friction, that are standard test protocols by FT4 powder rheometer.
+- [[textcite:&leal_impacts_2022]] & [[textcite:&bose_impacts_2020]] : Found biological degradation increases surface energy and work of cohesion for most tissues (stalk, leaf, cob) except cob tissue.
+  Surface energy/cohesion anatomical fractions of stalk, leaf, and cob using BET, Surface Energy Analyzer, IGC, vOCG and determined surface area, surface energy, wettability, cohesion/adhesion at the bulk scale.
+
+- textcite:&bose_impacts_2020  measured  Surface property changes by biological degradation of leaf, stalk, cob using Stereomicroscopy, SEM, and IGC and measured surface roughness, energy, porosity, microbial degradation.
+
+- [[textcite:&finney_go_2025]] : Magnesium stearate reduces surface energy (up to 40%) and improves flowability in dry/moderately moist samples.
+  Examined comingled corn stover using FT power rheometer and IGC and determined flowability, wall friction, surface energy, additive effect, and moisture
+
+However, none of the studies provided direct, quantitative measurements of particle-scale friction coefficients or adhesion forces.
+Most reported trends or related properties (wall friction angle, surface energy) and qualitative trends.
+
+**Surface Properties and Adhesion**
+- Leal et al., 2022: Degradation increases surface energy/cohesion except cob. Computed (not measured) adhesion.
+- Bose et al., 2020: Degradation increases aggregation. No direct adhesion measurement.
+- Finney et al., "Go with the Flow": Additive reduces surface energy and improves flow, no direct adhesion numbers.
+
+**Moisture Content Effects**
+- Cheng et al., 2022: Moisture reduces flowability, increases compressibility, raises wall friction (hydrophilic), hydrophobic: non-monotonic.
+- Finney: Mg stearate effective at \(\leq\) 15% moisture, not above.
+- Leal/Bose: Moisture and degradation increase cohesion/aggregation.
+
+**Flow Characteristics**
+- Fang et al., 2021: Friction coefficients (by tissue type) affect repose angle and flow, validated in simulation.
+- Cheng et al., 2022: 15% moisture = max flow energy; 75% = lowest. Increased moisture increases compressibility, reduces flowability.
+- Leal/Bose: Degraded tissues leads to poor flow, agglomeration, arching. Bose: microbial degradation increases aggregation, blockage.
+- Finney: Mg stearate improves flow (dry/15%), reduces wall friction angle, little effect for high-moisture.
+
+In these studies, it was found that misture and surface chemistry are keys to bulk flowability.
+However, direct quantitative friction or adhesion values for plant tissues/particles are missing in all studies.
+Main handling challenges: friction, agglomeration, arching, rat-holing, surface modification by moisture and degradation-all are repeatedly noted.
 Understanding interparticle mechanics associated with each corn stover fraction will provide valuable information for understanding the overall poor flow behavior of milled corn stover.
 More specifically, such quantitative information will help identify certain fractions that may be significantly responsible for the poor flowability behavior of comingled corn stover fractions.
 
 There exists a ASTM standards concerning the measuring friction coefficient including [[textcite:&astmg115-10GuideMeasuringReporting2018]].
-However, listed methods in  [[textcite:&astmg115-10_guide_2018]] assumes a specific geometry, e.g., flat surface or sphere, and not feasible to implement for testing milled biomass particles,
-which are much smaller in size and irregular in shape.
+However, listed methods in [[textcite:&astmg115-10GuideMeasuringReporting2018]] assumes a specific geometry, e.g., flat surface or sphere, and not feasible to implement for testing milled biomass particles, which are much smaller in size and irregular in shape.
 Also test protocols reflects repeated sliding in cyclic motion or rotation, which is implemented in a typical tribometer.
 This also reflects specific industrial applications such as ball bearing or sliding frames, which are not applicable to the interactions of biomass particles relevant to the bulk biomass flow.
 
-- In other words, the current friction measurements focus on interactions between sliding surfaces, e.g., bearing.
-  This focus is also reflected in the DEM framework, requiring sliding and rolling friction coefficient.
-  From the perspective of the handling bulk biomass, or any other cohesive particulate materials, the friction coefficient of incipient relative motion between particle is of interest.
+In other words, the current friction measurements focus on interactions between sliding surfaces, e.g., bearing.
+This focus is also reflected in the DEM framework, requiring sliding and rolling friction coefficient.
+From the perspective of the handling bulk biomass, or any other cohesive particulate materials, the friction coefficient of incipient relative motion between particle is of interest.
 
 Therefore, we developed an in-house instrument and protocol that can determine mechanical interaction between biomass particles following the Derjaguin's adhesive friction model [[citep:&gao_frictional_2004;&derjaguin1934molekulartheorie;&derjaguin_effect_1975]].
-
 
 This study aims to gain quantitative knowledge of the interparticle mechanics of fractionated corn stover through the development of an interparticle mechanics tester capable of accommodating biomass particles and a test protocol to determine friction and adhesion properties.
 With the novel data on interparticle mechanical properties of corn stover particles from different anatomical origins, this study aims to examine the significance of the difference in friction coefficients between corn stover particles from different anatomical fractions.
@@ -156,8 +192,8 @@ A field-dried square bale of corn stover supplied by Antares Corn Stover (Hardin
 Each fraction was comminuted to Forest Concepts Crumbles® with a Crumbler® rotary shear (Forest Concepts, Auburn, WA) and
 screened on a three-deck orbital classifier to achieve a target geometric mean diameter of 4 mm.
 Screen performance was consistent across tissues:
-the geometric mean diameter and sphericity differed by ≤0.2 mm and ≤0.05, respectively (Table [[tab_cs_particle_physical_properties]]).
-Despite this size uniformity, loose bulk density varied almost four-fold—from \qty{53}{\kilo\gram\per\cubic\meter} in husk
+the geometric mean diameter and sphericity differed by \(leq)\) 0.2 mm and \(\leq\) 0.05, respectively (Table [[tab_cs_particle_physical_properties]]).
+Despite this size uniformity, loose bulk density varied almost four-fold-from \qty{53}{\kilo\gram\per\cubic\meter} in husk
 to \qty{199}{\kilo\gram\per\cubic\meter} in cob, while tapped density followed the same trend (Wilcoxon rank-sum, p < 0.05).
 
 These differences reflect intrinsic anatomical and compositional contrasts among tissues.
@@ -962,7 +998,7 @@ In addition, the cyclic reciprocating movement is not simulating the frictional 
 while it is thought to be an adhesive friction following Derjaguin's law [[citep:&derjaguin_influence_1994;&derjaguin1934molekulartheorie]].
 
 To overcome such shortfalls, we developed a new Inter-particle Mechanics (IPM) (Figure [[ipmt]]) to measure the traction force between a stationary and moving particle under a varying magnitude of normal load.
-This arrangement allows for one test run to produce multiple normal force and lateral force measurements and alleviates the requirement to conduct separate tests with different normal forces in a conventional friction tester [[citep:&pitenis_leonardo_2014;&astmg115-10_guide_2018]].
+This arrangement allows for one test run to produce multiple normal force and lateral force measurements and alleviates the requirement to conduct separate tests with different normal forces in a conventional friction tester [[citep:&pitenis_leonardo_2014;astmg115-10GuideMeasuringReporting2018]].
 The development of the new design was essential for simulating any possible orientation of two interacting particles.
 This design allows collecting friction coefficients over multiple untested regions without resampling surfaces or replacing test particles between each repetition.
 With this design, it is also possible to prepare and condition multiple test samples, e.g., conduct friction experiments in an environment-controlled chamber at a different environmental relative humidity.
@@ -986,7 +1022,7 @@ For vertical direction movement, the maximum displacement of the normal force ac
 The resolution of the both actuators are \qty{6}{\nano\meter}.
 Combined vertical and lateral displacement actuators make it possible to control the initial particle contact location if there exists a specific region of interest. The maximum forces of vertical and normal force censors are \qty{20.02}{\newton} and \qty{2.94}{\newton}, respectively,
 with the accuracy of \qty{\pm 0.02}{\percent} of the full scale.
-Normal and traction force data were collected at \qty{80}{\hertz}, using National Instruments™ LabVIEW (Version 2022, Austin TX) and
+Normal and traction force data were collected at \qty{80}{\hertz}, using National Instruments\textsuperscript{TM} LabVIEW (Version 2022, Austin TX) and
 two 24-bit Di-1000U signal digitizers (Loadstar Sensors, Freemont, CA).
 #+begin_comment
 # Sampling rates of displacement and force sensors are equal to or higher than \qty{1}{\kilo\hertz}.
@@ -1023,7 +1059,7 @@ The signed-rank test is a useful alternative to a paired student t-test when the
 
 Approximately 50 g samples were collected from each anatomical fraction of corn stover.
 Each sample was held in a controlled environment for 72 hours to allow for particles to reach equilibrium moisture content (~10% MCwb).
-Once particle moisture was equalized, particles were randomly selected and adhered to removable particle mounts (Figure 3) using Permatex /Ultra Bond™ Super Glue/.
+Once particle moisture was equalized, particles were randomly selected and adhered to removable particle mounts (Figure [[mounted_samples]]) using Permatex /Ultra Bond\textsuperscript{TM} Super Glue/.
 Mounting methods (fully vs. singly supported) and grain orientations were performed randomly with every particle.
 Conservative volumes of adhesives were applied to reduce absorption into particles as well as to ensure proper curing.
 A curing period of 24 hours (\(\pm 2\) \unit{\hour}) (±2 hours) was established for experimental consistency.
@@ -1061,16 +1097,13 @@ The normal and lateral forces were tracked and recorded simultaneously until the
 which resulted in a sudden change in the measured force.
 The middle two quantifies were selected and extracted as steady-state frictional interaction data for further analysis and the determination of friction coefficient and adhesion force.
 
-To determine the cohesive frictional contact, a modified Amonton’s equation by Derjaguin [[parencite:&derjaguin1934molekulartheorie;&gao_frictional_2004;&derjaguin_effect_1975]], as defined in the Equation [[eq:Derjaguin_1934]], was used.
-#+NAME: eq:Derjaguin_1934
+To determine the cohesive frictional contact, a modified Amonton's equation by Derjaguin [[parencite:&derjaguin1934molekulartheorie;&gao_frictional_2004;&derjaguin_effect_1975]], as defined in the Equation eqref:eq:Derjaguin_1934, was used.
 
-#+begin_export latex
+# +NAME: eq:Derjaguin_1934
 \begin{equation}
+\label{eq:Derjaguin_1934}
 F_{\text{traction}} = F_{0} + \mu\cdot F_{\text{normal}}
 \end{equation}
-
-#+end_export
-
 ,where \(F_{\text{traction}}\) is the tractional force in the lateral direction,
 \(F_0\) is the adhesion force,
 \(\mu\) is the coefficient of friction, and
@@ -1091,14 +1124,14 @@ Data collection is terminated once particles are no longer in contact or upon se
 :CUSTOM_ID: data-collection-and-analysis-methods
 :END:
 
-Normal and traction force data were collected at 80Hz, using National Instruments™ LabVIEW and two 24-bit Di-1000U signal digitizers (Loadstar Sensors - Freemont, CA).
+Normal and traction force data were collected at 80Hz, using National Instruments\textsuperscript{TM} LabVIEW and two 24-bit Di-1000U signal digitizers (Loadstar Sensors - Freemont, CA).
 The middle two quartiles were selected and extracted as steady-state data for further analysis for each data collection experiment performed.
 
 #+NAME: cohesive_friction_schematic
 #+CAPTION: Theoretical plot of traction force versus normal force (Left). Force diagram of two particles (grey and blue) under applied normal and pulling force (Right).
 [[file:figures/image5.png]]
 
-Similar to as shown in Figure [[cohesive_friction_schematic]], the coefficient of friction (μ) will be determined using the average ratio of traction force to the applied normal force during steady-state conditions.
+Similar to as shown in Figure [[cohesive_friction_schematic]], the coefficient of friction (\(\mu\)) will be determined using the average ratio of traction force to the applied normal force during steady-state conditions.
 #+end_comment
 
 * Results and Discussion
@@ -1160,12 +1193,11 @@ Similar to as shown in Figure [[cohesive_friction_schematic]], the coefficient o
 #+begin_comment
   from '/home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/studies/ipm_validation/agg_plots/'
   also from [[id:cd269f41-7a7e-46f8-b689-e77c5129896d][Polypropylene Validation]] in /home/huy1/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BETO-Interparticle.org
-
   - reference material test: paper
   - reference material test: polypropylene
+  - [[parencite:&gracias_continuum_1998]]
+    [[id:d4101a76-7c0d-4498-9daf-a09376f3895e][Notes on :Gracias, D. H., & Somorjai, G. A. (1998: Continuum Force Microscopy Study of the Elastic Modulus, Hardness and Friction of Polyethylene and Polypropylene Surfaces]]
 #+end_comment
-  - [[parencite:&gracias_continuum_1998]][[id:d4101a76-7c0d-4498-9daf-a09376f3895e][Notes on :Gracias, D. H., & Somorjai, G. A. (1998: Continuum Force Microscopy Study of the Elastic Modulus, Hardness and Friction of Polyethylene and Polypropylene Surfaces]]
-  -
 
 To validate the developed Inter-Particle Mechanics tester, a polypropylene sheet was used as a reference material.
 A polypropylene sheet with \qty{1.588}{\milli\meter} (1/16 inch) thickness was obtained from McMaster-Carr Supply Company,
@@ -1185,7 +1217,7 @@ file:./figures/figure06_pp_ipm_raw_measurements.png
 [[file:./figures/pp_pp_normal_traction_forces_all.png]]
 #+end_comment
 
-Using Derjaguin’s adhesive contact model,
+Using Derjaguin's adhesive contact model,
 the coefficient of friction and adhesion force were determined from the slope and intercept of the obtained linear relationship through the linear regression analysis. The summary of the determined friction coefficient (\(\mu\)) and adhesion force (\(c\)) are listed in Table [[tab:dt_pp]] and shown in Figure [[fig:pp_pp_comb_ipm_coefs_box]].
 The determined \(\mu\) and \(c\) values are consistent but smaller than the above-mentioned vendor specification.
 The determined friction coefficient is smaller than the listed range.
@@ -1352,7 +1384,7 @@ In other words, while such rough surface can increase frictional resistance to t
 lateral movement can also reduce the required force to maintain the movement.
 This observation poses an interesting problem in describing cohesive friction interaction between biomass particles, which is discussed in detail below.
 
-Derjaguin’s linear model and other polynomial models reflecting the observation of [[textcite:&sedlak_effect_2017]] hinting that friction coefficient values can be smaller when the applied normal force is smaller.
+Derjaguin's linear model and other polynomial models reflecting the observation of [[textcite:&sedlak_effect_2017]] hinting that friction coefficient values can be smaller when the applied normal force is smaller.
 #+LATEX: \newpage
 *** COMMENT [[~/local/docs/prj/Active/Powder Flow/MT-PSU/Tasks/BP3/data_analysis/airdried_ipm/cs_calibrated_traction_force/dt_ipm/cs_cob_stalk_ad_sena/05_26_2023_CS_4mm_20.txt]]
   #+begin_src R  :session R-b_imt :tangle yes :tangle biomass_ipm.R :results output graphics file :file ./figures/typical_result_cs_cob_stalk_02_15_23_CCCS_4mm_10.png :width 9 :height 6 :units "in" :res 300 :bg white :exports results :eval no-export
@@ -1527,84 +1559,99 @@ An interesting inverse relationship emerges between friction and adhesion proper
 \begingroup\footnotesize
 The mechanical properties of agricultural residues, particularly corn stover, are critical parameters in the design and optimization of biomass processing systems. Understanding the frictional interactions between particles of different tissue types provides fundamental insights into powder mechanics behavior, flow characteristics, and processing efficiency. This investigation focuses exclusively on homogeneous tissue interactions to isolate the intrinsic mechanical properties of individual corn stover components.
 
-Results and Discussion
-Friction Coefficient Analysis
-The analysis of homogeneous tissue interactions revealed distinct frictional characteristics across the four corn stover tissue types. Cob particles exhibited the highest mean friction coefficient (μ = 0.669 ± 0.221), followed by stalk (μ = 0.515 ± 0.786), husk (μ = 0.392 ± 0.331), and leaf tissues 0.342 ± 0.274).
+**** Results and Discussion
+***** Friction Coefficient Analysis \newline
+The analysis of homogeneous tissue interactions revealed distinct frictional characteristics across the four corn stover tissue types. Cob particles exhibited the highest mean friction coefficient (\(\mu = 0.669 \pm 0.221\)), followed by stalk (\(\mu = 0.515 \pm 0.786\)) husk (\(\mu = 0.392 \pm 0.331\), and leaf tissues (\(0.342 \pm 0.274\)).
 
-Friction coefficient and adhesion force distributions for corn stover tissue homogeneous interactions
-Friction coefficient and adhesion force distributions for corn stover tissue homogeneous interactions
+***** Friction coefficient and adhesion force distributions for corn stover tissue homogeneous interactions \newline
 The coefficient of variation analysis demonstrated considerable heterogeneity within tissue types, with stalk particles showing the highest variability (CV = 152.5%) and cob particles exhibiting the most consistent behavior (CV = 33.1%). This variability pattern suggests that stalk tissues possess more heterogeneous surface properties, potentially due to the complex vascular structure and varying lignification patterns within this tissue type.
 
-Adhesion Force Characteristics
-Adhesion forces followed a different ranking pattern compared to friction coefficients. Cob particles demonstrated the highest mean adhesion force (c = 0.078 ± 0.131), followed by husk (c = 0.068 ± 0.231), stalk (c = 0.064 ± 0.221), and leaf tissues (c = 0.024 ± 0.131). The relatively low magnitude of adhesion forces across all tissue types indicates weak cohesive interactions, consistent with the dry agricultural residue nature of corn stover.
+***** Adhesion Force Characteristics \newline
+Adhesion forces followed a different ranking pattern compared to friction coefficients. Cob particles demonstrated the highest mean adhesion force (\(c = 0.078 \pm 0.131\)), followed by husk (\(c= 0.068 \pm 0.231\), stalk (\(c = 0.064 \pm 0.221)\)), and leaf tissues (\(c = 0.024 \pm 0.131\)).
+The relatively low magnitude of adhesion forces across all tissue types indicates weak cohesive interactions,
+consistent with the dry agricultural residue nature of corn stover.
 
-Statistical Significance and Distribution Patterns
-One-way ANOVA analysis revealed that while differences in friction coefficients approached statistical significance (F = 2.280, p = 0.085), adhesion forces showed no significant inter-tissue variation (F = 0.380, p = 0.768). This finding suggests that friction coefficients are more discriminative parameters for characterizing tissue-specific mechanical properties.
+***** Statistical Significance and Distribution Patterns \newline
+One-way ANOVA analysis revealed that while differences in friction coefficients approached statistical significance (\(F = 2.280, p = 0.085\)),
+adhesion forces showed no significant inter-tissue variation (\(F = 0.380, p = 0.768\)).
+This finding suggests that friction coefficients are more discriminative parameters for characterizing tissue-specific mechanical properties.
 
-Distribution analysis revealed notable skewness patterns across tissue types. Stalk particles exhibited strong negative skewness in friction coefficient distribution (skewness = -2.733), indicating the presence of low-friction outliers, while husk and leaf tissues showed positive skewness (1.183 and 1.261, respectively). These distribution characteristics reflect the inherent structural complexity and surface heterogeneity of different corn stover components.
+***** Distribution analysis revealed notable skewness patterns across tissue types: \newline
+Stalk particles exhibited strong negative skewness in friction coefficient distribution (skewness = -2.733), indicating the presence of low-friction outliers, while husk and leaf tissues showed positive skewness (1.183 and 1.261, respectively). These distribution characteristics reflect the inherent structural complexity and surface heterogeneity of different corn stover components.
 
-Correlation Analysis and Mechanical Coupling
+***** Correlation Analysis and Mechanical Coupling \newline
 The correlation between friction coefficient and adhesion force varied significantly among tissue types. Leaf particles showed the strongest negative correlation (r = -0.395), suggesting an inverse relationship between surface roughness and cohesive forces. Conversely, husk particles exhibited a positive correlation (r = 0.311), indicating potential coupling between frictional and adhesive mechanisms. Cob and stalk tissues showed weak correlations (r = -0.201 and -0.033, respectively), suggesting independent friction and adhesion mechanisms.
 
-Implications for Powder Mechanics
+***** Implications for Powder Mechanics \newline
 The observed tissue-specific variations have significant implications for corn stover processing systems. The higher friction coefficients observed in cob particles suggest increased energy requirements for size reduction and handling operations. The high variability in stalk particle properties indicates the need for adaptive processing strategies to accommodate the heterogeneous nature of this tissue type.
 
 The relatively low adhesion forces across all tissue types suggest that corn stover particles exhibit free-flowing characteristics under dry conditions, which is advantageous for bulk handling and storage applications. However, the tissue-specific differences may lead to segregation phenomena in mixed-tissue systems.
 
-Materials and Methods
+***** Materials and Methods \newline
 The experimental dataset comprised 94 measurements of homogeneous tissue interactions (cob-cob: n=23, stalk-stalk: n=24, husk-husk: n=24, leaf-leaf: n=23) conducted on 4mm corn stover particles. Friction coefficients and adhesion forces were determined using Dejaguin's cohesive friction relationship. Statistical analysis included descriptive statistics, ANOVA, correlation analysis, and outlier detection using the interquartile range method.
 
-Conclusions
+***** Conclusions \newline
 This comprehensive analysis of corn stover homogeneous tissue interactions reveals significant inter-tissue variability in frictional properties. Cob particles demonstrate superior frictional characteristics with the highest friction coefficients and adhesion forces, while leaf particles exhibit the lowest values for both parameters. The high variability observed in stalk particles highlights the structural complexity of vascular tissues. These findings provide fundamental insights for optimizing biomass processing operations and designing efficient handling systems for corn stover utilization.
 
 The weak correlation between friction and adhesion parameters across most tissue types suggests that these mechanical properties are governed by different surface phenomena, requiring independent consideration in processing system design. Future research should investigate the influence of moisture content, particle size, and surface modifications on these fundamental mechanical properties.
 
-Interpreting Friction Coefficients > 1
-Macroscopic perspective – A coefficient of friction (COF) exceeding 1 simply states that the shear force required to initiate sliding surpasses the normal load; rubber-on-rubber and tacky polymer contacts regularly exhibit μ ≈ 2.
+***** Interpreting Friction Coefficients > 1 \newline
+Macroscopic perspective - A coefficient of friction (COF) exceeding 1 simply states that the shear force required to initiate sliding surpasses the normal load; rubber-on-rubber and tacky polymer contacts regularly exhibit \(\mu\approx 2\).
 
-Corn stover mechanics – For stalk–cob and leaf-leaf subsets, μ > 1 arises in measurements where deformable asperities interlock deeply, making shear‐induced deformation more energy-intensive than vertical unloading. Lignin-rich rind fragments with fibrous asperities are likely contributors.
+Corn stover mechanics - For stalk-cob and leaf-leaf subsets, \(\mu > 1\)  arises in measurements where deformable asperities interlock deeply, making shear-induced deformation more energy-intensive than vertical unloading. Lignin-rich rind fragments with fibrous asperities are likely contributors.
 
-Model consistency – Deformable contacts break the geometric assumptions of Amonton’s law (rigid bodies, constant real area), introducing additional dissipative mechanisms (ploughing, fibrillation) that inflate μ without violating momentum conservation.
+Model consistency - Deformable contacts break the geometric assumptions of Amonton's law (rigid bodies, constant real area), introducing additional dissipative mechanisms (ploughing, fibrillation) that inflate \(\mu\) without violating momentum conservation.
 
-How Can μ < 0 Appear?
-Signal artefacts – Low-load regimes amplify sensor noise; any slight over-correction in offset subtraction can numerically invert μ.
+***** How Can \(\mu < 0\) Appear? \newline
+1) Signal artefacts \newline
+   Low-load regimes amplify sensor noise; any slight over-correction in offset subtraction can numerically invert \(\mu\).
 
-Nanoscale negative‐slope friction – At atomic force microscope (AFM) scales, enhanced adhesion can produce a negative friction coefficient (friction increases as load decreases, giving an apparent negative μ) due to layer exfoliation in lamellar solids.
+2) Nanoscale negative slope friction\newline
+   At atomic force microscope (AFM) scales, enhanced adhesion can produce a negative friction coefficient
+    (friction increases as load decreases, giving an apparent negative \(\mu\)) due to layer exfoliation in lamellar solids.
 
-Dataset context – Stalk–stalk and leaf-leaf outliers with μ < 0 reflect rare instances where tangential force reverses sign during stick–slip transients, likely because elastic recoil exceeded the load cell’s static calibration window. Such points do not imply energy generation; they require re-smoothing or exclusion before continuum modelling.
+3) Dataset context \newline
+   Stalk-stalk and leaf-leaf outliers with \(\mu < 0\) reflect rare instances where tangential force reverses sign during stick-slip transients,
+   likely because elastic recoil exceeded the load cell's static calibration window.
+   Such points do not imply energy generation; they require re-smoothing or exclusion before continuum modelling.
 
-Why Do Some Adhesion Forces Become Negative?
-Repulsive surface forces – Electrostatic double-layer repulsion between partially de-ionized hemicellulose surfaces can yield a negative “pull-off” (net separation force).
+***** Why Do Some Adhesion Forces Become Negative? \newline
+Repulsive surface forces - Electrostatic double-layer repulsion between partially de-ionized hemicellulose surfaces can yield a negative "pull-off" (net separation force).
 
-Surface roughness mismatch – When asperity valleys align poorly, contact population is sparse; the JKR-style attractive term (c) becomes dominated by small elastic recoveries that appear as repulsion in inverse force mapping.
+Surface roughness mismatch - When asperity valleys align poorly, contact population is sparse; the JKR-style attractive term (\(c\)) becomes dominated by small elastic recoveries that appear as repulsion in inverse force mapping.
 
-Measurement bandwidth – Dynamic “c” estimates captured during unloading sometimes inherit inertia, producing a slightly negative intercept even when quasi-static adhesion is near zero.
+Measurement bandwidth - Dynamic "c" estimates captured during unloading sometimes inherit inertia, producing a slightly negative intercept even when quasi-static adhesion is near zero.
 
-Linearity in Dejarguin’s vs Amonton’s Models
-a. Fundamental Forms
-Amonton’s law:
-\[F_s = \mu N\]
- assuming the zero intercept; true for rigid, non-adhesive, multi-asperity contacts.
+***** Linearity in Dejarguin's vs Amonton's Models \newline
+1) Fundamental Forms
+   Amonton's law:
+   \[F_s = \mu N\]
+    assuming the zero intercept; true for rigid, non-adhesive, multi-asperity contacts.
 
-Dejarguin’s cohesive model:
-\[F_s = \mu N + c\]
-retaining the linear slope but adding an intercept representing surface energy contributions.
+   Dejarguin's cohesive model:
+   \[F_s = \mu N + c\]
+   retaining the linear slope but adding an intercept representing surface energy contributions.
 
-b. Dataset Alignment
-Regression of homogeneous tissue pairs confirms an average \(r^2 > 0.90]\) for all tissues: shear force scales linearly with normal load, but non-zero \(c\) shifts the curves vertically. Cob contacts possess the largest \(c\) and \(\mu\), consistent with husk-less geometry that enhances intimate cell-wall contact. Leaf tissues show the shallowest slope and smallest intercept, reflecting their waxy cuticle and lower lignification.
+2) Dataset Alignment
+   Regression of homogeneous tissue pairs confirms an average \(r^2 > 0.90]\) for all tissues:
+   shear force scales linearly with normal load, but non-zero \(c\) shifts the curves vertically.
+   Cob contacts possess the largest \(c\) and \(\mu\), consistent with husk-less geometry that enhances intimate cell-wall contact.
+   Leaf tissues show the shallowest slope and smallest intercept, reflecting their waxy cuticle and lower lignification.
 
-c. Transition Regimes
-When \(c\approx 0\) or normal stresses dominate adhesion (e.g., high-bulk loads), Dejarguin’s equation collapses to Amonton’s. Conversely, at very low normal stresses (tensile or near-zero loads), the \(c\) term governs, explaining why some leaf samples stick (positive \(c\)) yet exhibit negligible \(\mu\), mirroring liquid–solid Amonton analogies for droplets.
+3) Transition Regimes
+   When \(c\approx 0\) or normal stresses dominate adhesion (e.g., high-bulk loads), Dejarguin's equation collapses to Amonton's.
+   Conversely, at very low normal stresses (tensile or near-zero loads), the \(c\) term governs,
+   explaining why some leaf samples stick (positive \(c\)) yet exhibit negligible \(\mu\), mirroring liquid-solid Amonton analogies for droplets.
 
-d. Implications for Powder Handling
-Design margin – Systems assuming a pure Amonton response will underestimate startup torque when \(c > 0\),
-Segregation risk – Differences in \(c\) across tissues encourage differential agglomeration, exacerbating flow non-uniformity in mixed biomass streams.
+4) Implications for Powder Handling
+   Design margin - Systems assuming a pure Amonton response will underestimate startup torque when \(c > 0\),
+   Segregation risk - Differences in \(c\) across tissues encourage differential agglomeration, exacerbating flow non-uniformity in mixed biomass streams.
 
-Scale translation – At millimetre scales, linearity is preserved, but the slope and intercept depend on tissue chemistry, moisture, and surface conditioning; extrapolation to equipment design therefore requires tissue-specific calibration.
+5) Scale translation - At millimetre scales, linearity is preserved, but the slope and intercept depend on tissue chemistry, moisture, and surface conditioning; extrapolation to equipment design therefore requires tissue-specific calibration.
 
 Conclusions
 Friction coefficients exceeding 1 signify intense interlocking and viscoelastic dissipation, values below 0 arise from measurement artefacts or exotic nanoscale phenomena, and negative adhesion indicates electrostatic or roughness-induced repulsion.
-The dataset conforms to Dejarguin’s linear cohesive model, where the shear force depends on both load and an adhesion intercept, seamlessly nesting Amonton’s law as a limiting case when \(c \to 0\).
+The dataset conforms to Dejarguin's linear cohesive model, where the shear force depends on both load and an adhesion intercept, seamlessly nesting Amonton's law as a limiting case when \(c \to 0\).
 These insights refine mechanical design margins for biomass processing and underscore the nuanced interplay of adhesion and friction in lignocellulosic particle systems.
 \endgroup
 #+LATEX: \newpage
@@ -1716,116 +1763,183 @@ As shown in Table [[tab_anova_rt]], the results suggest that cob fractions had a
 Without an understanding of the population distribution,
 Kruskal-Wallis test was conducted to determine the significance across the variance with each corn stover fraction combination with Dunn test as the post-hoc test.
 It is found that the tissue type can be a source of variance in friction coefficients (\(\chi^2 = 86\), \(df = 3\), and \(p < 2e-16\)).
-Post-hoc Dunn test results (α=0.05, Table 5) show that particles of different tissue types exhibit significantly different friction coefficients except husk and leaf particles.
-On the other hand, the adhesion forces are not found to be significantly different (Kruska-Wallis test, \(\chi^2 = 4.8)\), \(df = 3\), and \(p = 0.2\).
+Post-hoc Dunn test results (\(\alpha = 0.05\), Table 5) show that particles of different tissue types exhibit significantly different friction coefficients except husk and leaf particles.
+On the other hand, the adhesion forces are not found to be significantly different (Kruskal-Wallis test, \(\chi^2 = 4.8)\), \(df = 3\), and \(p = 0.2\).
 
 ** Relationship of particle-particle interaction model parameters and continuum scale elasto-plasticity model parameters
 *** Derjaguin's model
-  #+begin_export latex
-  \begin{equation}
-    \label{eq:Derjaguin}
-   N_t =  N_f + \mu N_n
-  \end{equation}
-  #+end_export
-  where \(N_f\) is the adhesion force, \(\mu\) is the friction coefficient, and \(N_n\) is the normal force
+#+NAME: eq:Derjaguin
+#+begin_export latex
+\begin{equation}
+  % \label{eq:Derjaguin}
+  N_t =  N_f + \mu N_n
+\end{equation}
+#+end_export
+where \(N_f\) is the adhesion force, \(\mu\) is the friction coefficient, and \(N_n\) is the normal force
 
 These equations include definitions of adhesion/cohesion and friction coeffient at different scale, yet they convey similar connotation without a physical connection  [[parencite:&reynolds_lvii_1885]].
 
 *** Mohr-Coulomb model
-  #+begin_export latex
-  \begin{equation}
-    \label{eq:mc}
-    \tau = c + \sigma\tan\phi
-  \end{equation}
-  #+end_export
-  where \(\tau\) is the shear stress, \(c\) is cohesion coefficient, \(\sigma\) is normal stress, and \(\phi\) is the angle of internal friction.
+If the friction coefficient and adhesion force between particles are related to the internal angle of friction and cohesion coefficient of the Mohr-Coulomb model, we should observe the correlation between these.
+Also, for materials with significantly different friction or adhesion forces at the particle scale should exhibit different bulk behavior.
 
+There exist two different challenges in substantiating this.
+First, what is an appropriate bulk mechanical test. For Mohr-Coulomb model calibration, sliding or rotating shear cell are most widely used.
+In their respective test protocols, the angle of internal friction is determined by the common tangent angle of Mohr circles produced with different consolidation stress.
+In this process, the zero-consolidation pressure corresponds to the determination of unconfined yield stress of the subject bulk material.
+But, is it really so?
+
+The shear cell uses a metal wall as a sample holder, and the reactive lateral stress applied to the test specimen is not known yet it is expected to be non-zero.  Therefore, the response of bulk material sample includes the combination of active and passive lateral pressure development during shearing.
+A rotational shear cell is thought to have less of such effect.
+However, it still includes the frictional resistance between metal wall material and sample specimen.
+While it is reasonable to assume that such die-wall effect diminishes rapidly following St Venant's principle,
+the overall torque measurement includes such effect at the largest diameter, which is expected to be larger because of the distance from the rotation axis.
+
+This also leads to the second challenge, which is the nature of existing plasticity models.
+Almost all of these constitutive models assume that the bulk material behavior is isotropic and homogeneous.
+While the latter is generally true, the isotropy assumption should be closely validated.
+The adoption of plasticity models in soil mechanics is also contested from this perspective.
+It is understandable that anisotropic constitutive models become too complex to be practical.
+However, it can be argued that the sophisticated constitutive models, e.g., hypoplasticity [[parencite:&vonwolffersdorff_hypoplastic_1996]],
+and variants of critical state models [[parencite:&yin_modeling_2017;&massoudi_remarks_2023;&roscoe_generalized_1968;&schofield_critical_1968]],
+developed to overcome the gap between model prediction and observations of the real world are quite complex.
+However, there still exist scarce or less clear experimental calibration procedures of these sophisticated constitutive models.
+
+Considering these limitations,
+it is necessary to consider experimental methods that minimize the influences from interaction between test specimen and the instrument.
+We plan to investigate such experimental calibration of the widely considered elasto-plasticity constitutive model.
+Then, we will be able to investigate the hypothesized relationship between the bulk mechanical properties of milled biomass and experimental measurements of particle-to-particle mechanical interactions.
+
+In addition to the relationship between friction coefficient and adhesion force between particles and the corresponding mechanical properties of bulk biomass,
+we should be able to examine the origin of Reynolds dilatancy [[parencite:&reynolds_lvii_1885;&rowe_osborne_1969]] during shearing.
+While strength can arise from interparticle friction, dilatancy concerns volumetric deformation, which is related to the morphology of particles.
+Therefore, particle size and shape should be considered at the same time.
+# By decoupling the contact behavior between particles, particle size, and particle shape from the cohort of parameters of a discrete element model.
+In other words, the core parameters of DEM contact model can now be quantified with the experimental observation reported in this paper.
+We envision that this approach will make it possible to investigate how the bulk flow behavior emerges from mechanical interactions between particles at the underlying scale.
+
+#+NAME: eq:mc
+#+begin_export latex
+\begin{equation}
+  % \label{eq:mc}
+  \tau = c + \sigma\tan\phi
+\end{equation}
+#+end_export
+where \(\tau\) is the shear stress, \(c\) is cohesion coefficient, \(\sigma\) is normal stress, and \(\phi\) is the angle of internal friction.
 
 *** Similar discussions can be made on Rankine/Janssen equation.
 
 - Rankin's
   Rankine's lateral earth pressure theory, developed in 1857, is a fundamental model in geotechnical engineering used to analyze the pressure relationship between retaining walls and soil masses. This theory provides a stress field solution that predicts active and passive earth pressures under specific conditions.
 
-  The theory is based on several key assumptions. It considers the soil to be isotropic and homogeneous, assumes an infinitely long wall (plane strain condition), and requires a planar ground surface (not necessarily level). Importantly, Rankine's model assumes no wall friction (δ = 0) and sufficient wall movement to develop active or passive conditions.
+  The theory is based on several key assumptions.
+  It considers the soil to be isotropic and homogeneous, assumes an infinitely long wall (plane strain condition),
+  and requires a planar ground surface (not necessarily level).
+  Importantly, Rankine's model assumes no wall friction (\(\delta = 0\)) and sufficient wall movement to develop active or passive conditions.
 
-  Rankine's theory considers three main states of earth pressure: at-rest, active, and passive. The at-rest condition occurs when there is no lateral movement of the retaining wall. The coefficient of earth pressure at rest (\(K_0\)) is defined as:
+  Rankine's theory considers three main states of earth pressure: at-rest, active, and passive.
+  The at-rest condition occurs when there is no lateral movement of the retaining wall.
 
+  The coefficient of earth pressure at rest (\(K_0\)) is defined as:
   $$ K_0 = \frac{\sigma_h}{\sigma_v} $$
-
   where \(\sigma_{h}\) is the lateral pressure and \(\sigma_v\) is the vertical pressure.
 
-  Active earth pressure develops when the wall moves away from the soil mass. For cohesionless soil, the active earth pressure coefficient (\(K_a\)) is given by:
-
-  $$ K_a = \tan^2(45° - \frac{\phi}{2}) $$
-
+  Active earth pressure develops when the wall moves away from the soil mass.
+  For cohesionless soil, the active earth pressure coefficient (\(K_a\)) is given by:
+  $$ K_a = \tan^2(45^{\circ} - \frac{\phi}{2}) $$
   where \(\phi\) is the internal friction angle of the soil.
 
-  Conversely, passive earth pressure occurs when the wall moves towards the soil mass. The passive earth pressure coefficient (\(K_p\)) for cohesionless soil is:
-
-  $$ K_p = \tan^2(45° + \frac{\phi}{2}) $$
+  Conversely, passive earth pressure occurs when the wall moves towards the soil mass.
+  The passive earth pressure coefficient (\(K_p\)) for cohesionless soil is:
+  $$ K_p = \tan^2(45^{\circ} + \frac{\phi}{2}) $$
 
   For a cohesionless soil at depth \(z\), the lateral pressures are calculated as:
-
   $$ \sigma_a = K_a \gamma z $$
   $$ \sigma_p = K_p \gamma z $$
-
   where \(\gamma\) is the unit weight of the soil.
 
-  In 1915, Bell extended Rankine's theory to cohesive soils. For soils with cohesion (\(c\)), the total lateral earth pressures are given by:
+  In 1915, Bell extended Rankine's theory to cohesive soils.
+  For soils with cohesion (\(c\)), the total lateral earth pressures are given by:
+  #+begin_export latex
+  \begin{align*}
+   \sigma_a &= K_a \gamma z - 2c\sqrt{K_a} \\
+   \sigma_p &= K_p \gamma z + 2c\sqrt{K_p}
+  \end{align*}
 
-  $$ \sigma_a = K_a \gamma z - 2c\sqrt{K_a} $$
-  $$ \sigma_p = K_p \gamma z + 2c\sqrt{K_p} $$
+  #+end_export
 
-  Rankine's theory also predicts failure planes in the soil mass. In the active state, these planes make an angle of (\(45° + φ/2\)) with the horizontal, while in the passive state, the angle is \( (45^{\circ} - \phi/2) \).
+  Rankine's theory also predicts failure planes in the soil mass. I
+  n the active state, these planes make an angle of (\(45^{\circ} + \phi/2\)) with the horizontal,
+  while in the passive state, the angle is \( (45^{\circ} - \phi/2) \).
 
-  Despite its widespread use, Rankine's theory has some limitations. It assumes no wall friction, which is often unrealistic. It's primarily applicable to walls with vertical backs and horizontal backfills. Additionally, the theory assumes the entire soil mass is in a state of plastic equilibrium, which may not always be true.
+  Despite its widespread use, Rankine's theory has some limitations.
+  It assumes no wall friction, which is often unrealistic.
+  It's primarily applicable to walls with vertical backs and horizontal backfills.
+  Additionally, the theory assumes the entire soil mass is in a state of plastic equilibrium, which may not always be true.
 
-  Despite these limitations, Rankine's lateral earth pressure theory remains a crucial tool in geotechnical engineering for the design of retaining walls and other earth-retaining structures. Its simplicity and ability to provide reasonable estimates make it a valuable starting point for many design calculations.
+  Despite these limitations, Rankine's lateral earth pressure theory remains a crucial tool in geotechnical engineering for the design of retaining walls and other earth-retaining structures.
+  Its simplicity and ability to provide reasonable estimates make it a valuable starting point for many design calculations.
 
 - Janssen's
-  Janssen's equation, developed by H.A. Janssen in 1895, is a fundamental model in granular mechanics that describes the relationship between lateral pressure and normal stress in a cylindrical container filled with granular material. This equation provides crucial insights into the stress distribution within silos and similar structures, making it an essential tool in their design and analysis.
 
-  The equation is based on several key assumptions. It considers the granular material to be cohesionless and assumes that the container walls are vertical and rigid. The model also posits that the ratio of horizontal to vertical stress (\(K\)) remains constant throughout the container, and that wall friction is fully mobilized. Additionally, it assumes a constant bulk density of the material.
+  Janssen's equation, developed by H.A. Janssen in 1895 [[parencite:&janssen1895versuche]], is a fundamental model in granular mechanics
+  that describes the relationship between lateral pressure and normal stress in a cylindrical container filled with granular material.
+  This equation provides crucial insights into the stress distribution within silos and similar structures,
+  making it an essential tool in their design and analysis.
+
+  The equation is based on several key assumptions.
+  It considers the granular material to be cohesionless and assumes that the container walls are vertical and rigid.
+  The model also posits that the ratio of horizontal to vertical stress (\(K\)) remains constant throughout the container, and that wall friction is fully mobilized.
+  Additionally, it assumes a constant bulk density of the material.
 
   Mathematically, Janssen's equation for the vertical stress (\(\sigma_v\)) at a depth \(z\) in a cylindrical container is expressed as:
-
   $$ \sigma_v(z) = \frac{\gamma D}{4\mu K} \left(1 - e^{-\frac{4\mu K z}{D}}\right) $$
+  where \(\gamma\) represents the bulk density of the granular material,
+  \(D\) is the container's diameter,
+  \(\mu\) is the coefficient of wall friction,
+  \(K\) is the lateral pressure ratio, and
+  \(z\) is the depth from the material's surface.
+  The lateral pressure (\(\sigma_n\)) can then be calculated by multiplying the vertical stress by the lateral pressure ratio,
+  i.e., \(\sigma_h (z) = K \sigma_z (z)\).
 
-  In this equation, \(\gamma\) represents the bulk density of the granular material, \(D\) is the container's diameter, \(\mu\) is the coefficient of wall friction, \(K\) is the lateral pressure ratio, and \(z\) is the depth from the material's surface. The lateral pressure (\(\sigma_n\)) can then be calculated by multiplying the vertical stress by the lateral pressure ratio: \(\sigma_h (z) = K \sigma_z (z)\).
+  This equation reveals several important characteristics of granular materials in containers.
+  Unlike fluids, the stress in granular materials does not increase linearly with depth.
+  Instead, there is a limiting stress as depth increases, known as the Janssen effect.
+  Furthermore, the stress distribution is influenced by both the container's geometry and the material's properties.
 
-  This equation reveals several important characteristics of granular materials in containers. Unlike fluids, the stress in granular materials does not increase linearly with depth. Instead, there is a limiting stress as depth increases, known as the Janssen effect. Furthermore, the stress distribution is influenced by both the container's geometry and the material's properties.
+  Despite its widespread use, Janssen's equation has some limitations.
+  It assumes a constant bulk density, which may not hold true for compressible materials.
+  The assumption of fully mobilized wall friction may not always be valid,
+  and the equation does not account for dynamic effects during filling or discharge of the container.
 
-  Despite its widespread use, Janssen's equation has some limitations. It assumes a constant bulk density, which may not hold true for compressible materials. The assumption of fully mobilized wall friction may not always be valid, and the equation does not account for dynamic effects during filling or discharge of the container.
-
-  Notwithstanding these limitations, Janssen's equation remains a cornerstone in the design of silos and in understanding the behavior of granular materials. Its ability to predict stress distributions in static granular systems has made it an indispensable tool in various engineering applications, from agricultural storage to industrial processing of granular materials.
+  Notwithstanding these limitations, Janssen's equation remains a cornerstone in the design of silos and in understanding the behavior of granular materials.
+  Its ability to predict stress distributions in static granular systems has made it an indispensable tool in various engineering applications,
+  from agricultural storage to industrial processing of granular materials.
 
 - Boussinesque
-  Janssen's equation and Boussinesq's stress distribution are both important models in soil mechanics and granular materials, but they address different aspects of stress distribution in different contexts.
+  Janssen's equation and Boussinesq's stress distribution are both important models in soil mechanics and granular materials,
+  but they address different aspects of stress distribution in different contexts.
 
-  Janssen's equation, developed in 1895, describes the stress distribution in granular materials contained in silos or similar cylindrical structures. It accounts for the interaction between the granular material and the container walls, considering factors such as wall friction and the ratio of horizontal to vertical stress. Janssen's equation predicts that the vertical stress in a silo does not increase linearly with depth, but rather approaches a limiting value, known as the Janssen effect[4].
+  Janssen's equation, developed in 1895, describes the stress distribution in granular materials contained in silos or similar cylindrical structures.
+  It accounts for the interaction between the granular material and the container walls,
+  considering factors such as wall friction and the ratio of horizontal to vertical stress.
+  Janssen's equation predicts that the vertical stress in a silo does not increase linearly with depth,
+  but rather approaches a limiting value, known as the Janssen effect [[parencite:&liu_experimental_2021]].
 
-  On the other hand, Boussinesq's equation, published in 1885, focuses on stress distribution in a semi-infinite, homogeneous, isotropic elastic medium due to a point load applied at the surface[1][5]. It is primarily used to calculate stresses at various depths and radial distances from the point of load application in soil mechanics.
+  On the other hand, Boussinesq's equation, published in 1885,
+  focuses on stress distribution in a semi-infinite, homogeneous, isotropic elastic medium due to a point load applied at the surface[1][5].
+  It is primarily used to calculate stresses at various depths and radial distances from the point of load application in soil mechanics.
 
-  - Boussinesq's equation for vertical stress (σz) at a point P at depth z due to a point load Q on the surface is given by:
+  Boussinesq's equation for vertical stress (\(\sigma_z\)) at a point P at depth z due to a point load Q on the surface is given by:
+  \[ \sigma_z = \frac{3Q}{2\pi z^2} \left[ \frac{1}{1+\left(\frac{r}{z}\right)^2} \right]^{\frac{5}{2}} \]
+  where $Q$ is the magnitude of the point load,
+    $z$ is the vertical depth from the surface to point P, and
+    $r$ is the horizontal distance from the point of load application to point P
 
-    $$ \sigma_z = \frac{3Q}{2\pi z^2} \left[ \frac{1}{1+\left(\frac{r}{z}\right)^2} \right]^{\frac{5}{2}} $$
-
-    where:
-    - $Q$ is the magnitude of the point load
-    - $z$ is the vertical depth from the surface to point P
-    - $r$ is the horizontal distance from the point of load application to point P
-
-    This equation can also be expressed in terms of an influence factor (I_B), known as the Boussinesq stress coefficient:
-
-    $$ \sigma_z = \frac{Q}{z^2} I_B $$
-
-    where:
-
-    $$ I_B = \frac{3}{2\pi} \left[ \frac{1}{1+\left(\frac{r}{z}\right)^2} \right]^{\frac{5}{2}} $$
-
-    For the special case where r = 0 (directly beneath the point load), the equation simplifies to:
-
-    $$ \sigma_z = \frac{3Q}{2\pi z^2} $$
+  This equation can also be expressed in terms of an influence factor (\(I_{B}\)), known as the Boussinesq stress coefficient
+  \[ \sigma_z = \frac{Q}{z^2} I_B \]
+  where, \( I_B = \frac{3}{2\pi} \left[ \frac{1}{1+\left(\frac{r}{z}\right)^2} \right]^{\frac{5}{2}}\).
+  For the special case where r = 0 (directly beneath the point load), the equation simplifies to \(\sigma_z = \frac{3Q}{2\pi z^2}\)
 
     Citations:
     1. https://civiltoday.com/geotechnical-engineering/soil-mechanics/144-boussinesqs-equation
@@ -1845,9 +1959,14 @@ These equations include definitions of adhesion/cohesion and friction coeffient 
 
   5. Load type: Janssen's equation deals with the weight of the granular material itself, while Boussinesq's equation is used for external point loads applied at the surface.
 
-  While these models address different scenarios, they can be complementary in certain applications. For instance, in the design of foundations for silos or other structures on granular soils, engineers might use Boussinesq's equation to estimate stress distribution in the supporting soil, while Janssen's equation could be applied to calculate pressures within the silo itself.
+  While these models address different scenarios, they can be complementary in certain applications.
+  For instance, in the design of foundations for silos or other structures on granular soils,
+  engineers might use Boussinesq's equation to estimate stress distribution in the supporting soil,
+  while Janssen's equation could be applied to calculate pressures within the silo itself.
 
-  It's important to note that both models have limitations and simplifying assumptions. In practice, more complex numerical methods or combined approaches may be necessary for accurate stress analysis in real-world scenarios involving both granular materials and elastic soil behavior.
+  It's important to note that both models have limitations and simplifying assumptions.
+  In practice, more complex numerical methods or combined approaches may be necessary for accurate stress analysis
+  in real-world scenarios involving both granular materials and elastic soil behavior.
 
   Citations:
   1. https://civiltoday.com/geotechnical-engineering/soil-mechanics/144-boussinesqs-equation
@@ -1856,193 +1975,37 @@ These equations include definitions of adhesion/cohesion and friction coeffient 
   4. https://www.sciencedirect.com/science/article/abs/pii/S0032591020311256
   5. https://testbook.com/civil-engineering/boussinesqs-equation-definition-and-hypothesis
 *** Counter arguments to Reynolds' claim
-```scratchpad
-[AttentionFocus:
-PrimaryFocus: Connection between angle of repose, particle friction, and Mohr-Coulomb's angle of internal friction
-SecondaryElements: Reynolds' claim, physical mechanisms, experimental studies
-PotentialDistractions: Detailed mathematical formulations, unrelated soil properties]
 
-[RevisionQuery: What is the relationship between the angle of repose, particle friction, and the Mohr-Coulomb angle of internal friction, and are there studies examining their physical connections?]
+Contrary to Reynolds' claim in his 1885 paper that there is no physical connection between the angle of repose and actual friction between particles,
+more recent research has established that there are indeed relationships between these properties, albeit complex ones.
 
-[TheoryOfMind:
-UserPerspective: Seeking clarification on Reynolds' claim and looking for more recent research on the topic
-AssumptionsAboutUserKnowledge: Familiar with basic soil mechanics concepts
-PotentialMisunderstandings: Confusion about the distinction between different friction angles]
+The angle of repose is generally very close to the angle of internal friction for granular materials[7].
+This suggests a connection between the macroscopic behavior of the material (angle of repose) and its internal frictional properties.
+However, the exact relationship is not straightforward and depends on various factors.
 
-[CognitiveOperations:
-Abstraction: Identifying key concepts across different studies
-Comparison: Contrasting Reynolds' claim with more recent findings
-Inference: Drawing connections between particle-level interactions and bulk material properties
-Synthesis: Integrating information from multiple sources to form a coherent understanding]
+The Mohr-Coulomb failure criterion, which incorporates the angle of internal friction,
+is widely used in geotechnical engineering to describe the shear strength of soils.
+This angle of internal friction (\(\phi)\)) is related to, but not identical to, the friction between individual particles.
+Instead, it represents the combined effects of particle interlocking, rearrangement, and inter-particle friction [[parencite:&vanburkalow_angle_1945]].
 
-[ReasoningPathway:
-Premises:
-1. Reynolds claimed no physical connection between angle of repose and particle friction
-2. Angle of repose, particle friction, and Mohr-Coulomb angle of internal friction are related concepts in soil mechanics
-3. More recent studies may have explored these relationships
-IntermediateConclusions:
-1. There may be a disconnect between historical understanding and modern research
-2. Particle-level interactions likely influence bulk material properties
-FinalInference: Modern research has likely established some connections between these concepts, but the relationships may be complex and dependent on various factors]
+Recent studies have shown that the microscopic mechanisms at the particle level do influence the macroscopic behavior of granular materials,
+including the angle of repose and the Mohr-Coulomb angle of internal friction[6].
+Factors such as particle shape, size distribution, surface roughness, and environmental conditions (e.g., moisture content) all play a role in determining these friction angles [[parencite:&vanburkalow_angle_1945;&dong_microscopic_2022]].
 
-[KeyInfoExtraction:
-1. Reynolds claimed no physical connection between angle of repose and particle friction
-2. Angle of repose is generally close to the angle of internal friction for granular materials
-3. Mohr-Coulomb failure criterion relates to the angle of internal friction
-4. Particle shape, size, and surface properties influence friction angles
-5. Microscopic mechanisms affect macroscopic behavior of granular materials]
+For example, research has shown that the angle of repose varies inversely with particle size in well-sorted materials, but directly with size in poorly sorted materials[2]. It also varies inversely with particle density and directly with angularity and surface roughness [[parencite:&vanburkalow_angle_1945]].
+These findings indicate that there is indeed a physical connection between particle properties and the angle of repose, contrary to Reynolds' original claim.
 
-[ContextAdherenceTLDR: The response addresses the connection between angle of repose, particle friction, and Mohr-Coulomb's angle of internal friction, considering both historical claims and modern research.]
+The relationship between particle-level friction and the Mohr-Coulomb angle of internal friction is more complex.
+While inter-particle friction contributes to the angle of internal friction,
+other factors such as particle interlocking and rearrangement also play significant roles.
+This explains why the angle of internal friction can sometimes be higher than what would be expected based solely on particle-to-particle friction.
 
-[Exploration:
-1. How do modern experimental techniques allow for better understanding of particle-level interactions?
-2. What role does particle shape play in determining friction angles?
-3. How do environmental factors (e.g., moisture, temperature) affect the relationship between particle friction and bulk material properties?
-4. Are there any computational models that accurately predict friction angles based on particle properties?
-5. How do the relationships between these friction angles change for different types of granular materials?]
+Modern experimental techniques and computational models have allowed researchers to better understand these relationships.
+For instance, discrete element method (DEM) simulations have been used to study how particle-level interactions translate to bulk material properties [[parencite:&dong_microscopic_2022]].
 
-[Metacognition:
-StrategiesUsed: Comparative analysis, historical context consideration, synthesis of multiple sources
-EffectivenessAssessment: 85 - Good integration of information, but could benefit from more recent experimental data
-AlternativeApproaches: Could have focused more on specific experimental studies or computational models]
-```
+In conclusion, while Reynolds' original claim has been largely superseded by modern research, the relationships between angle of repose, particle friction, and the Mohr-Coulomb angle of internal friction are indeed complex and multifaceted.
+These properties are interconnected, but the connections depend on a wide range of factors at both the microscopic and macroscopic levels.
 
-Contrary to Reynolds' claim in his 1885 paper that there is no physical connection between the angle of repose and actual friction between particles, more recent research has established that there are indeed relationships between these properties, albeit complex ones.
-
-The angle of repose is generally very close to the angle of internal friction for granular materials[7]. This suggests a connection between the macroscopic behavior of the material (angle of repose) and its internal frictional properties. However, the exact relationship is not straightforward and depends on various factors.
-
-The Mohr-Coulomb failure criterion, which incorporates the angle of internal friction, is widely used in geotechnical engineering to describe the shear strength of soils[5]. This angle of internal friction (φ) is related to, but not identical to, the friction between individual particles. Instead, it represents the combined effects of particle interlocking, rearrangement, and inter-particle friction[2].
-
-Recent studies have shown that the microscopic mechanisms at the particle level do influence the macroscopic behavior of granular materials, including the angle of repose and the Mohr-Coulomb angle of internal friction[6]. Factors such as particle shape, size distribution, surface roughness, and environmental conditions (e.g., moisture content) all play a role in determining these friction angles[2][6].
-
-For example, research has shown that the angle of repose varies inversely with particle size in well-sorted materials, but directly with size in poorly sorted materials[2]. It also varies inversely with particle density and directly with angularity and surface roughness[2]. These findings indicate that there is indeed a physical connection between particle properties and the angle of repose, contrary to Reynolds' original claim.
-
-The relationship between particle-level friction and the Mohr-Coulomb angle of internal friction is more complex. While inter-particle friction contributes to the angle of internal friction, other factors such as particle interlocking and rearrangement also play significant roles[5]. This explains why the angle of internal friction can sometimes be higher than what would be expected based solely on particle-to-particle friction.
-
-Modern experimental techniques and computational models have allowed researchers to better understand these relationships. For instance, discrete element method (DEM) simulations have been used to study how particle-level interactions translate to bulk material properties[6].
-
-In conclusion, while Reynolds' original claim has been largely superseded by modern research, the relationships between angle of repose, particle friction, and the Mohr-Coulomb angle of internal friction are indeed complex and multifaceted. These properties are interconnected, but the connections depend on a wide range of factors at both the microscopic and macroscopic levels.
-
-Citations:
-1. https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/40921872/a77bc85f-11f0-4875-bd95-14714dcbdb41/Reynolds_1885_LVII.pdf
-2. https://pubs.geoscienceworld.org/gsa/gsabulletin/article-abstract/56/6/669/4088/ANGLE-OF-REPOSE-AND-ANGLE-OF-SLIDING-FRICTION-AN?redirectedFrom=fulltext
-3. https://www.sciencedirect.com/science/article/pii/S0032591018301153
-4. https://www.pantelisliolios.com/mohr-coulomb-failure-criterion/
-5. https://en.wikipedia.org/wiki/Mohr%E2%80%93Coulomb_theory
-6. https://www.frontiersin.org/journals/earth-science/articles/10.3389/feart.2021.777467/full
-7. https://www.eng-tips.com/threads/angle-of-repose-versus-internal-friction-angle.285226/
-8. https://www.sciencedirect.com/science/article/pii/S1018363918307499
-9. http://geotechdata.info/parameter/angle-of-friction
-
-** Discussion (Elicit)
-# +TITLE: Friction and Adhesion in Milled Corn Stover
-# +AUTHOR: Elicit Review
-# +DATE: 2025-07-29
-
-*** Abstract
-
-Five experimental studies probed friction- and adhesion-related characteristics of milled corn stover.
-- Fang et al. (2021): Calibrated friction proxies using repose angle tests on internodal, pith, and nodal tissues.
-- Cheng et al. (2022): Measured wall friction angles on various surfaces over 0–75% moisture; friction increased with moisture on hydrophilic surfaces but showed non-monotonic behavior on hydrophobic surfaces.
-- Leal et al. (2022) & Bose et al. (2020): Found biological degradation increases surface energy and work of cohesion for most tissues (stalk, leaf, cob) except cob tissue.
-- Finney et al. ("Go with the Flow"): Magnesium stearate reduces surface energy (up to 40%) and improves flowability in dry/moderately moist samples.
-
-None of the studies provided direct, quantitative measurements of particle-scale friction coefficients or adhesion forces. Most offered qualitative and proxy evaluations.
-
-*** Methods
-
-- Analyzed 5 sources from an initial pool of 50, using 7 screening criteria.
-- Each paper reviewed for 5 key aspects relevant to the research question.
-
-*** Results
-
-**Characteristics of Included Studies**
-# +LATEX: \begin{adjustbox}{width=\textwidth,keepaspectratio}
-# +ATTR_LATEX: :environment tabu :spread t :width \linewidth
-# +ATTR_LATEX: :environment longtable :width \linewidth
-#+LATEX: \begingroup\tiny
-#+ATTR_LATEX: :environment tabularx :width \linewidth :align lXlXXc
-| Study      | Study Design                                              | Tissue Types Examined          | Measurement Methods                                                                 | Key Variables                                                         | Full      |
-|            |                                                           |                                |                                                                                     |                                                                       | text      |
-|            |                                                           |                                |                                                                                     |                                                                       | retrieved |
-|------------+-----------------------------------------------------------+--------------------------------+-------------------------------------------------------------------------------------+-----------------------------------------------------------------------+-----------|
-| Fang 2021  | DEM parameter calibration, repose angle tests, simulation | Internodal, pith, nodal tissue | Repose angle, physical tests                                                        | Static/rolling friction, repose angle                                 | No        |
-| Cheng 2022 | Experimental, FT4 powder rheometry                        | Bulk (not specified)           | FT4 powder rheometer, wall friction disk, stainless steel/PTFE/HDPE, moisture 0-75% | Flow energy, compressibility, wall friction, moisture                 | Yes       |
-| Leal 2022  | Surface energy/cohesion anatomical fractions              | Stalk, leaf, cob               | BET, Surface Energy Analyzer, IGC, vOCG                                             | Surface area, surface energy, wettability, cohesion/adhesion          | Yes       |
-| Bose 2020  | Surface property changes by biological degradation        | Leaf, stalk, cob               | Stereomicroscopy, SEM, IGC                                                          | Surface roughness, energy, porosity, microbial degradation            | No        |
-| Finney     | Flow additives effect on flowability                      | Bulk (not specified)           | FT4 powder rheometer, IGC                                                           | Flowability, wall friction, surface energy, additive effect, moisture | Yes       |
-#+LATEX: \endgroup
-# +LATEX: \end{adjustbox}
-
-**Tissue Types Examined**
-- Stalk, leaf, cob: 2 studies.
-- Internodal, pith, nodal: 1 study.
-- Bulk (not specified): 2 studies.
-
-**Measurement Methods**
-- Inverse gas chromatography (IGC): 3 studies.
-- FT4 powder rheometer: 2 studies.
-- Additional: wall friction disk, repose angle test, BET, SEA, vOCG, stereomicroscopy, SEM.
-
-**Key Variables Measured**
-- Surface energy: 3 studies.
-- Moisture content / wall friction: 2 studies.
-- Flow energy/flowability: 2 studies.
-- Cohesion/adhesion, roughness, porosity, density, etc.: 1 study each.
-
-*** None of the included studies provided direct, quantitative friction coefficient or adhesion force measurements at particle scale.
-*** Most reported trends or related properties (wall friction angle, surface energy) and qualitative trends.
-
-**Friction Coefficient Measurements**
-
-#+LATEX: \begingroup\tiny
-#+ATTR_LATEX: :environment tabularx :width \linewidth :align lXccXc
-| Study         | Tissue Type             | Moisture   | Friction Range | Notes                                                                                   | Method             |
-|---------------+-------------------------+------------+----------------+-----------------------------------------------------------------------------------------+--------------------|
-| Fang et al    | Internodal, pith, nodal | --         | --             | Calibrated static/rolling friction for tissue pairs, but no numeric values              | Repose/simulation  |
-| Cheng et al.  | --                      | 0–75%      | --             | Wall friction angle increases with moisture on hydrophilic, nonmonotonic on hydrophobic | FT4/wall friction  |
-| Leal et al.   | Stalk, leaf, cob        | 7–15%, <2% | --             | Calculated work of cohesion—not friction coefficient                                    | Surface Energy/IGC |
-| Bose et al.   | Leaf, stalk, cob        | --         | --             | Surface roughness/energy changes only                                                   | SEM/IGC            |
-| Finney et al. | --                      | 0, 15, 30% | --             | Wall friction angle reduced w/ mag. stearate (dry/15% only)                             | FT-4, IGC          |
-#+LATEX: \endgroup
-**Surface Properties and Adhesion**
-- Leal et al., 2022: Degradation increases surface energy/cohesion except cob. Computed (not measured) adhesion.
-- Bose et al., 2020: Degradation increases aggregation. No direct adhesion measurement.
-- Finney et al., “Go with the Flow”: Additive reduces surface energy and improves flow, no direct adhesion numbers.
-
-**Moisture Content Effects**
-- Cheng et al., 2022: Moisture reduces flowability, increases compressibility, raises wall friction (hydrophilic), hydrophobic: non-monotonic.
-- Finney: Mg stearate effective at ≤15% moisture, not above.
-- Leal/Bose: Moisture and degradation increase cohesion/aggregation.
-
-**Flow Characteristics**
-- Fang et al., 2021: Friction coefficients (by tissue type) affect repose angle and flow, validated in simulation.
-- Cheng et al., 2022: 15% moisture = max flow energy; 75% = lowest. Increased moisture increases compressibility, reduces flowability.
-- Leal/Bose: Degraded tissues → poor flow, agglomeration, arching. Bose: microbial degradation increases aggregation, blockage.
-- Finney: Mg stearate improves flow (dry/15%), reduces wall friction angle, little effect for high-moisture.
-
-*** No study gave full flow energy/compressibility data, and only some gave quantitative values.
-
----
-
-*** Discussion
-
-- ~Moisture and surface chemistry are keys to bulk flowability.~
-- Direct quantitative friction or adhesion values for plant tissues/particles are missing in all studies.
-- Methodological heterogeneity mostly prevents detailed meta-analysis.
-- Main handling challenges: friction, agglomeration, arching, rat-holing, surface modification by moisture and degradation—all are repeatedly noted.
-
----
-
-*** References
-
-1. Fang, M., Yu, Z., Zhang, W., Cao, J., Liu, W. (2021). Friction coefficient calibration of corn stalk particle mixtures using Plackett-Burman design and response surface methodology. *Powder Technology.* [[PDF Link]](https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/fc30f087ff674611bd9be8fb92e90fd1)
-2. Cheng, Z., Gao, D.W., Powers, F.M., Navar, R., Leal, J., et al. (2022). Effect of Moisture and Feedstock Variability on the Rheological Behavior of Corn Stover Particles. *Frontiers in Energy Research.* [[PDF Link]](https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/70cd9dea0f0c47c7b0cef913b4b07647)
-3. Leal, J., Meierdierks, E.J., Navar, R., Moore, C., Ray, A.E., et al. (2022). Impacts of Biologically Induced Degradation on Surface Energy, Wettability, and Cohesion of Corn Stover. *Frontiers in Energy Research.* [[PDF Link]](https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/9579736e564f4cb2be1fbf49316aed34)
-4. Bose, E., Leal, J., Hoover, A.N., Zeng, Y., Li, C., et al. (2020). Impacts of Biological Heating and Degradation during Bale Storage on the Surface Properties of Corn Stover. *ACS Sustainable Chemistry and Engineering.* [[PDF Link]](https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/306679ec456e43218a6bb136efb042f6)
-5. Finney, T.J., Oberteuffer-Bailey, R., Wilson, A.W., Davis, B.L. (2025). Go with the Flow: Additives to Improve the Flowability of Crumbled Corn Stover. *ACS Sustainable Chemistry & Engineering.* [[PDF Link]](https://elicit.com/review/cfabfa7e-952a-44bb-9a95-bfaba2094ea2/source/ff778733a9aa4f7c8a2118c3a2b78fb5)
-
----
 * Conclusions
 :PROPERTIES:
 :CUSTOM_ID: conclusions
